@@ -406,10 +406,27 @@
   .signout{width:100%;background:#1b1b1a;color:#cfcfc9;border:1px solid #2e2e2c;border-radius:8px;
     padding:8px;font-family:inherit;font-weight:700;font-size:12px;cursor:pointer}
   .signout:hover{background:#232321;color:#fff}
-  .acc-row{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line)}
+  .acc-row{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
   .acc-row:last-child{border-bottom:none}
   .acc-row .nm{font-weight:700;font-size:13px}
-  .acc-row .em{font-size:11.5px;color:var(--muted)}
+  .acc-row .em{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .acc-link-row{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .acc-link-row label{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .acc-link-row select{font-family:inherit;font-size:12px;font-weight:500;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);min-width:160px}
+  .acc-linked{font-size:11px;font-weight:600;color:#15A34A}
+  .acc-unlinked{font-size:11px;font-weight:600;color:#d97706;font-style:italic}
+
+  /* claim modal */
+  .claim-list{display:flex;flex-direction:column;gap:6px;max-height:360px;overflow-y:auto}
+  .claim-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#fafaf6;border:1px solid var(--line);
+    border-radius:10px;cursor:pointer;transition:.14s}
+  .claim-row:hover{background:rgba(248,250,15,.18);border-color:var(--yellow);transform:translateX(2px)}
+  .claim-row .av{flex-shrink:0}
+  .claim-info{flex:1;min-width:0}
+  .claim-name{font-weight:700;font-size:14px;letter-spacing:-0.005em;color:var(--ink)}
+  .claim-role{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:2px;display:flex;gap:5px;align-items:center}
+  .claim-pick{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+    background:var(--yellow);padding:5px 11px;border-radius:6px;flex-shrink:0}
 
   /* ---------- invoices ---------- */
   .inv-tabs{display:flex;gap:6px;align-items:center;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:0}
@@ -1430,7 +1447,19 @@ function isOverdue(t){ return t.due && t.status!=='Done' && t.due < todayISO(); 
 function flash(msg){ $('#toast-msg').textContent=msg; const t=$('#toast'); t.classList.add('show');
   clearTimeout(flash._t); flash._t=setTimeout(()=>t.classList.remove('show'),1900); }
 
-function me(){ return ME ? ME.name : 'You'; }
+function me(){
+  if(!ME) return 'You';
+  if(ME.team_id && DATA && DATA.team){
+    const p = DATA.team.find(t=>t.id===ME.team_id);
+    if(p) return p.name;
+  }
+  return ME.name || 'You';
+}
+function myTeamName(){
+  if(!ME || !ME.team_id || !DATA || !DATA.team) return null;
+  const p = DATA.team.find(t=>t.id===ME.team_id);
+  return p ? p.name : null;
+}
 function logActivity(action,detail){
   if(!DATA.log) DATA.log=[];
   DATA.log.unshift({id:uid(),ts:Date.now(),who:me(),action,detail});
@@ -1612,12 +1641,16 @@ function goTasksWs(ws){ state.view='tasks'; state.filters.ws=ws; render(); }
 /* ============================ TASKS ============================ */
 function filteredTasks(){
   const f=state.filters;
+  const myName = myTeamName();
   return DATA.tasks.filter(t=>{
     if(f.ws && t.ws!==f.ws) return false;
     if(f.owner && t.owner!==f.owner) return false;
     if(f.status && t.status!==f.status) return false;
     if(f.prio && t.prio!==f.prio) return false;
-    if(f.mine && t.owner!==me()) return false;
+    if(f.mine){
+      if(!myName) return false;
+      if(t.owner !== myName) return false;
+    }
     if(f.q){ const q=f.q.toLowerCase();
       if(!(t.title.toLowerCase().includes(q)||(t.notes||'').toLowerCase().includes(q))) return false; }
     return true;
@@ -1635,7 +1668,7 @@ function renderTasks(){
     <select onchange="setF('owner',this.value)">${opt(DATA.team.map(p=>p.name),f.owner,'All owners')}</select>
     <select onchange="setF('status',this.value)">${opt(STATUSES,f.status,'Any status')}</select>
     <select onchange="setF('prio',this.value)">${opt(PRIOS,f.prio,'Any priority')}</select>
-    <button class="chip ${f.mine?'on':''}" onclick="toggleMine()">My Work</button>
+    <button class="chip ${f.mine?'on':''}" onclick="toggleMine()" title="${myTeamName()?'Show only tasks where you are the owner ('+esc(myTeamName())+')':'Claim your team profile first (sidebar > your name > Claim profile)'}">Assigned to me</button>
     <div class="seg">
       <button class="${state.taskView==='list'?'on':''}" onclick="setTV('list')">List</button>
       <button class="${state.taskView==='board'?'on':''}" onclick="setTV('board')">Board</button>
@@ -2295,13 +2328,28 @@ function renderAccounts(){
   if(ME.role!=='admin') return `<div class="empty"><div class="big">Admins only</div>
     <p>This area is for project admins.</p></div>`;
   if(ACCOUNTS===null){ loadAccounts(); return `<div class="empty"><p>Loading accounts…</p></div>`; }
+  const claimed = new Set(ACCOUNTS.map(a=>a.team_id).filter(Boolean));
+  const teamOpts = (selected) => {
+    const blank = `<option value="">— Not linked —</option>`;
+    const opts = (DATA.team||[]).map(p => {
+      const taken = claimed.has(p.id) && p.id !== selected;
+      return `<option value="${p.id}" ${selected===p.id?'selected':''} ${taken?'disabled':''}>${esc(p.name)}${taken?' (claimed)':''}</option>`;
+    }).join('');
+    return blank + opts;
+  };
   const rows=ACCOUNTS.map(a=>{
     const isAdmin=a.role==='admin', meSelf=a.id===ME.id;
+    const linkedTeam = a.team_id ? (DATA.team||[]).find(p=>p.id===a.team_id) : null;
     return `<div class="acc-row">
       ${avatar(a.name||a.email||'?')}
       <div style="flex:1;min-width:0">
         <div class="nm">${esc(a.name||'—')} ${meSelf?'<span class="wstag">you</span>':''}</div>
         <div class="em">${esc(a.email||'')}</div>
+        <div class="acc-link-row">
+          <label>Team profile:</label>
+          <select onchange="setTeamLink('${a.id}', this.value)">${teamOpts(a.team_id)}</select>
+          ${linkedTeam ? `<span class="acc-linked">→ ${esc(linkedTeam.name)}</span>` : '<span class="acc-unlinked">unclaimed</span>'}
+        </div>
       </div>
       <span class="pill ${isAdmin?'prog':'idle'}"><span class="dot"></span>${isAdmin?'Admin':'Member'}</span>
       ${meSelf?'':`<button class="btn btn-ghost btn-sm" onclick="setRole('${a.id}','${isAdmin?'member':'admin'}')">
@@ -2314,8 +2362,8 @@ function renderAccounts(){
     ${rows||'<div class="empty"><p>No accounts yet.</p></div>'}
   </div>
   <p style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5">
-    Everyone who signs up appears here. Admins can manage tasks, the team and accounts.
-    Share the site link with the team and they sign up themselves.</p>`;
+    Everyone who signs up appears here. Each account links to a team profile so tasks they own show up under "Assigned to me". 
+    When someone new signs up they will be prompted to pick their team profile. You can change anyone's profile link here.</p>`;
 }
 async function setRole(id,role){
   try{ await sb.from('profiles').update({role}).eq('id',id); flash('Role updated'); }
@@ -3530,6 +3578,83 @@ function aiCancel(idx){
   renderAIChat();
 }
 
+/* ============================ PROFILE CLAIM ============================ */
+function claimedTeamIds(){
+  return new Set((ACCOUNTS||[]).map(a=>a.team_id).filter(Boolean));
+}
+
+async function openClaimModal(forceShow){
+  // Refresh ACCOUNTS so we know who has claimed what
+  try {
+    const {data} = await sb.from('profiles').select('id,team_id');
+    if(data) {
+      const claimed = new Set(data.map(p=>p.team_id).filter(Boolean));
+      var claimedSet = claimed;
+    } else { var claimedSet = new Set(); }
+  } catch(e){ var claimedSet = new Set(); }
+
+  const available = (DATA.team||[]).filter(p => !claimedSet.has(p.id));
+  const orgPills = p => p.org==='Bam-Bu-Ku' ? '<span class="org-bbk">Bam-Bu-Ku</span>'
+    : p.org==='Game Over' ? '<span class="org-go">Game Over</span>'
+    : `<span style="color:var(--muted)">${esc(p.org||'')}</span>`;
+
+  const list = available.length
+    ? available.map(p=>`<div class="claim-row" onclick="claimTeamProfile('${p.id}')">
+        ${avatar(p.name)}
+        <div class="claim-info">
+          <div class="claim-name">${esc(p.name)}</div>
+          <div class="claim-role">${esc(p.role||'')} · ${orgPills(p)}</div>
+        </div>
+        <div class="claim-pick">Pick →</div>
+      </div>`).join('')
+    : `<div class="empty" style="padding:30px 12px"><p>Everyone on the team list has already been claimed. Ask an admin (Eoin) to add you as a new team member.</p></div>`;
+
+  modal(`<div class="modal-h">
+      <h2>Welcome — which one is you?</h2>
+      <button class="x" onclick="closeModal()">✕</button></div>
+    <div class="modal-b" style="padding-top:14px">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.5">
+        Logged in as <b style="color:var(--ink)">${esc(ME.email||ME.name)}</b>. Pick your team profile so the app knows which tasks are yours. You can change it later from the Accounts page.</p>
+      <div class="claim-list">${list}</div>
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-ghost" onclick="closeModal()">Skip for now</button>
+      <div style="flex:1"></div>
+      <span style="font-size:11.5px;color:var(--soft)">Admin can also assign you later</span>
+    </div>`);
+}
+
+async function claimTeamProfile(teamId){
+  try {
+    const {error} = await sb.from('profiles').update({team_id: teamId}).eq('id', ME.id);
+    if(error) throw error;
+    ME.team_id = teamId;
+    const p = DATA.team.find(t=>t.id===teamId);
+    logActivity('claimed profile', p ? p.name : '');
+    saveData();
+    flash('Profile claimed — welcome ' + (p?p.name:'') + '!');
+    closeModal();
+    render();
+  } catch(e){
+    flash('Could not claim — ' + (e.message||'someone may already have this profile'));
+  }
+}
+
+async function setTeamLink(profileId, teamId){
+  try {
+    const val = teamId || null;
+    const {error} = await sb.from('profiles').update({team_id: val}).eq('id', profileId);
+    if(error) throw error;
+    flash('Team link updated');
+    if(profileId === ME.id){ ME.team_id = val; }
+    await loadAccounts();
+    render();
+  } catch(e){
+    flash('Could not update — ' + (e.message||'check that profile is not already claimed'));
+    await loadAccounts();
+  }
+}
+
 /* ============================ BOOT ============================ */
 async function startApp(){
   if(appStarted) return;
@@ -3540,6 +3665,10 @@ async function startApp(){
   DATA=await loadData();
   subscribeRealtime();
   render();
+  // Prompt for team profile claim if unlinked
+  if(ME && !ME.team_id){
+    setTimeout(()=>openClaimModal(), 400);
+  }
 }
 (async function boot(){
   const logo=document.querySelector('.brand .logo-img');
