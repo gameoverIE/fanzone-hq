@@ -411,6 +411,60 @@
   .acc-row .nm{font-weight:700;font-size:13px}
   .acc-row .em{font-size:11.5px;color:var(--muted)}
 
+  /* ---------- invoices ---------- */
+  .inv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+  .inv-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .inv-stat .k{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .inv-stat .v{font-size:30px;font-weight:800;letter-spacing:-0.025em;margin-top:8px;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .inv-stat .m{font-size:11.5px;color:var(--soft);font-weight:500;margin-top:4px}
+
+  .inv-board{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:flex-start}
+  .inv-col{background:#fafaf6;border:1px solid var(--line);border-radius:12px;padding:14px}
+  .inv-col-h{display:flex;justify-content:space-between;align-items:center;padding:6px 4px 14px;
+    border-bottom:1px solid var(--line);margin-bottom:14px}
+  .inv-col-h h3{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+  .inv-col-h.pending h3{color:#d97706}
+  .inv-col-h.approved h3{color:#2563EB}
+  .inv-col-h.paid h3{color:#15A34A}
+  .inv-col-h .ct{background:#fff;border:1px solid var(--line);font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:10px;color:var(--muted)}
+  .inv-col-body{display:flex;flex-direction:column;gap:9px}
+  .inv-empty{font-size:12px;color:var(--soft);font-style:italic;text-align:center;padding:18px 0}
+
+  .inv-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 14px;cursor:pointer;transition:transform .14s,box-shadow .14s,border-color .14s}
+  .inv-card:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.06);border-color:#cfcfc8}
+  .inv-card-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:5px}
+  .inv-supplier{font-weight:700;font-size:13px;color:var(--ink);letter-spacing:-0.005em;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .inv-amount{font-weight:800;font-size:15px;color:var(--ink);letter-spacing:-0.015em;font-variant-numeric:tabular-nums}
+  .inv-desc{font-size:11.5px;color:var(--muted);font-weight:500;margin-bottom:8px;line-height:1.4;
+    overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .inv-foot{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;font-weight:600;color:var(--muted)}
+  .inv-file{display:inline-flex;align-items:center;gap:4px;color:var(--ink);font-weight:600}
+  .inv-file svg{width:11px;height:11px}
+  .inv-due{font-weight:700;color:var(--muted)}
+  .inv-due.overdue{color:#DC2626}
+  .inv-ws{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+  .inv-ws .wstag{font-size:9.5px}
+
+  .inv-modal-head{padding:22px 22px 20px;background:linear-gradient(180deg,#fff,#fafaf6);border-bottom:1px solid var(--line);text-align:center}
+  .inv-head-supplier{font-weight:700;font-size:15px;letter-spacing:-0.005em;color:var(--muted);margin-bottom:4px}
+  .inv-head-amount{font-weight:800;font-size:34px;letter-spacing:-0.03em;color:var(--ink);font-variant-numeric:tabular-nums;margin-bottom:18px}
+  .inv-status-row{display:flex;gap:7px;justify-content:center}
+  .inv-st-btn{background:#fff;border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    font-family:inherit;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    cursor:pointer;color:var(--muted);transition:.14s}
+  .inv-st-btn:hover{border-color:#bcbcb5;background:#fafaf6}
+  .inv-st-btn.on.pending{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+  .inv-st-btn.on.approved{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
+  .inv-st-btn.on.paid{background:#dcfce7;color:#166534;border-color:#86efac}
+  .inv-meta-line{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:12px}
+
+  @media (max-width:900px){
+    .inv-stats{grid-template-columns:repeat(3,1fr);gap:8px}
+    .inv-stat{padding:12px}
+    .inv-stat .v{font-size:22px}
+    .inv-board{grid-template-columns:1fr;gap:10px}
+  }
+
   /* ---------- person profile ---------- */
   .person-link{cursor:pointer;display:inline-flex;align-items:center;gap:6px;border-radius:6px;
     padding:1px 4px;margin:-1px -4px;transition:background .12s}
@@ -679,13 +733,16 @@
     background:#fff;padding:2px 6px;border-radius:3px;margin-right:6px;color:#0A0A0A}
   .ai-actions .btns{display:flex;gap:8px;margin-top:10px}
   .ai-applied{color:#15A34A;font-weight:800;font-size:11px;margin-top:8px;letter-spacing:.04em}
-  .ai-input-row{padding:14px;border-top:1px solid var(--line);background:#FAFAF6;display:flex;gap:8px;flex-shrink:0}
-  .ai-input-row input{flex:1;border:1px solid var(--line);border-radius:8px;
-    padding:10px 13px;font-family:inherit;font-size:13.5px;background:#fff}
-  .ai-input-row input:focus{outline:2px solid var(--yellow);outline-offset:-1px}
+  .ai-input-row{padding:14px;border-top:1px solid var(--line);background:#FAFAF6;display:flex;gap:8px;flex-shrink:0;align-items:flex-end}
+  .ai-input-row textarea{flex:1;border:1px solid var(--line);border-radius:8px;
+    padding:10px 13px;font-family:inherit;font-size:13.5px;background:#fff;
+    resize:none;min-height:40px;max-height:160px;line-height:1.4;overflow-y:auto;
+    font-weight:500;letter-spacing:-0.005em}
+  .ai-input-row textarea:focus{outline:2px solid var(--yellow);outline-offset:-1px}
   .ai-input-row button{background:#0A0A0A;color:var(--yellow);border:none;border-radius:8px;
-    padding:0 16px;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer;
-    letter-spacing:.06em;text-transform:uppercase}
+    padding:10px 16px;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer;
+    letter-spacing:.06em;text-transform:uppercase;height:40px;flex-shrink:0}
+  .ai-hint{font-size:10px;color:var(--soft);padding:4px 14px 0;background:#FAFAF6;text-align:right;letter-spacing:.02em;font-weight:500}
   .ai-setup{padding:18px;border-bottom:1px solid var(--line)}
   .ai-setup h4{font-family:inherit;font-size:14px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
     letter-spacing:.04em;margin-bottom:8px}
@@ -840,7 +897,9 @@
   </div>
   <div class="ai-body" id="ai-body"></div>
   <div class="ai-input-row" id="ai-input-row" style="display:none">
-    <input id="ai-input" placeholder="Ask for changes or info…" onkeydown="if(event.key==='Enter')aiSend()">
+    <textarea id="ai-input" rows="1" placeholder="Ask for changes or info… (Enter to send, Shift+Enter for new line)"
+      oninput="aiAutoGrow(this)"
+      onkeydown="if(event.key==='Enter'&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey){event.preventDefault();aiSend();}"></textarea>
     <button onclick="aiSend()">Send</button>
   </div>
   <div class="ai-foot" id="ai-foot" style="display:none">
@@ -900,26 +959,27 @@ const IC = {
   spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L18.7 9l-5.1 1.9L12 16l-1.6-5.1L5.3 9l5.1-1.9z"/><path d="M19 14l.9 2.5L22.5 17l-2.6.9L19 20l-.9-2.1L15.5 17l2.6-.5z"/></svg>',
   notebook:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4v16a2 2 0 0 0 2 2h12V2H6a2 2 0 0 0-2 2z"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>',
   football:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 3v3l-4 2-1 4 3 3v3M12 6l4 2 1 4-3 3M8 8l-2 1M19 13l-3 0M9 19l1-3M15 19l-1-3"/></svg>',
-  timeline:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-12 2 4h3"/></svg>'
+  timeline:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-12 2 4h3"/></svg>',
+  invoice:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18l3-2 3 2 3-2 3 2 3-2V3z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>',
+  paperclip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5l-9.5 9.5a5 5 0 01-7-7L13.5 4.5a3 3 0 014 4L9 17a1.5 1.5 0 01-2-2l7.5-7.5"/></svg>'
 };
 
 /* ============================ CONSTANTS ============================ */
 const WS = [
-  {id:'concept',  name:'Concept & Creative',    lead:'Eoin'},
-  {id:'web',      name:'Web & Digital',         lead:'Robin'},
-  {id:'promo',    name:'Promotion & Social',    lead:'Paloma'},
-  {id:'talent',   name:'Talent & Pundits',      lead:'Eoin'},
-  {id:'games',    name:'Games & Fan Engagement',lead:'Robin'},
-  {id:'prod',     name:'Production & Tech',     lead:'Tech Team'},
-  {id:'tix',      name:'Ticketing & Pricing',   lead:'Antonio'},
-  {id:'finance',  name:'Finance & Splits',      lead:'Antonio'},
-  {id:'merch',    name:'Merchandise & Stock',   lead:'Robin'},
-  {id:'decor',    name:'Decor & Atmosphere',    lead:'Pete'},
-  {id:'staff',    name:'Staff & Uniforms',      lead:'Antonio'},
-  {id:'partners', name:'Partnerships & Sponsors',lead:'Alain'},
-  {id:'timeline', name:'Timeline & Milestones', lead:'Eoin'}
+  {id:'concept',  name:'Concept & Experience',   leads:['Eoin']},
+  {id:'talent',   name:'Talent',                 leads:['Eoin']},
+  {id:'prod',     name:'Production',             leads:['Antonio']},
+  {id:'decor',    name:'Venue & Decor',          leads:['Eoin','Robbin']},
+  {id:'marketing',name:'Marketing & Content',    leads:['Paloma','Eoin','Susana']},
+  {id:'tix',      name:'Tickets & Sales',        leads:['Antonio']},
+  {id:'merch',    name:'Merch & Print',          leads:['Robbin']},
+  {id:'partners', name:'Partnerships & Sponsors',leads:['Alain','Asha']},
+  {id:'legals',   name:'Legals & Compliance',    leads:['Josep','Antonio']},
+  {id:'ops',      name:'Operations',             leads:['Antonio','Eoin']},
+  {id:'finance',  name:'Finance',                leads:['Eoin','Robbin','Josep']}
 ];
 const wsName = id => (WS.find(w=>w.id===id)||{}).name || id;
+const wsLeads = id => (WS.find(w=>w.id===id)||{}).leads || [];
 const STATUSES = ['Not Started','In Progress','Blocked','Done'];
 const ST_CLASS = {'Not Started':'idle','In Progress':'prog','Blocked':'block','Done':'done'};
 const PRIOS = ['High','Medium','Low'];
@@ -1155,25 +1215,27 @@ const COLS = {
   assets:['id','name','cat','url','by','note','created'],
   meetings:['id','date','title','notes','by'],
   matches:['id','date','stage','team_a','team_b','kickoff','fanzone_open','end_time','status','venue_note','guestlist','pundits','highlight','notes'],
+  invoices:['id','supplier','description','amount','currency','file_path','file_name','status','submitted_by','approved_by','paid_at','due_date','notes','ws'],
   activity:['id','ts','who','action','detail']
 };
 function pick(o,keys){ const r={}; keys.forEach(k=>{ if(o[k]!==undefined && o[k]!==null) r[k]=o[k]; }); return r; }
 
 async function loadData(){
-  const [tk,tm,id,as,mt,mx,ac] = await Promise.all([
+  const [tk,tm,id,as,mt,mx,iv,ac] = await Promise.all([
     sb.from('tasks').select('*').order('sort'),
     sb.from('team').select('*').order('sort'),
     sb.from('ideas').select('*').order('sort'),
     sb.from('assets').select('*').order('sort'),
     sb.from('meetings').select('*').order('date',{ascending:false}),
     sb.from('matches').select('*').order('sort'),
+    sb.from('invoices').select('*').order('created_at',{ascending:false}),
     sb.from('activity').select('*').order('ts',{ascending:false})
   ]);
   let d = {tasks:tk.data||[], team:tm.data||[], ideas:id.data||[], assets:as.data||[],
-    meetings:mt.data||[], matches:mx.data||[], log:ac.data||[]};
+    meetings:mt.data||[], matches:mx.data||[], invoices:iv.data||[], log:ac.data||[]};
   if(!d.tasks.length){
     const s = seed();
-    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets, meetings:[], matches:[], log:[]};
+    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets, meetings:[], matches:[], invoices:[], log:[]};
     await Promise.all([
       sb.from('tasks').upsert(d.tasks.map((r,i)=>({...pick(r,COLS.tasks),sort:i}))),
       sb.from('team').upsert(d.team.map((r,i)=>({...pick(r,COLS.team),sort:i}))),
@@ -1197,6 +1259,7 @@ async function saveData(){
       syncTable('assets',DATA.assets,COLS.assets,true),
       syncTable('meetings',DATA.meetings||[],COLS.meetings,true),
       syncTable('matches',DATA.matches||[],COLS.matches,true),
+      syncTable('invoices',DATA.invoices||[],COLS.invoices,true),
       syncTable('activity',DATA.log,COLS.activity,false)
     ]);
     flash('Saved');
@@ -1221,7 +1284,7 @@ async function syncTable(name,arr,keys,ordered){
 let reloadTimer=null;
 function subscribeRealtime(){
   const ch = sb.channel('fanzone-hq-live');
-  ['tasks','team','ideas','assets','meetings','matches','activity'].forEach(t=>
+  ['tasks','team','ideas','assets','meetings','matches','invoices','activity'].forEach(t=>
     ch.on('postgres_changes',{event:'*',schema:'public',table:t},onRemoteChange));
   ch.subscribe();
 }
@@ -1339,7 +1402,8 @@ function renderNav(){
     ['deadlines','Deadlines',IC.clock,DATA.tasks.filter(t=>isOverdue(t)).length||null],
     ['team','Team',IC.users,DATA.team.length],
     ['ideas','Ideas',IC.bulb,DATA.ideas.length],
-    ['assets','Assets',IC.folder,DATA.assets.length]
+    ['assets','Assets',IC.folder,DATA.assets.length],
+    ['invoices','Invoices',IC.invoice,(DATA.invoices||[]).filter(i=>i.status!=='Paid').length||null]
   ];
   if(ME && ME.role==='admin') items.push(['accounts','Accounts',IC.shield,null]);
   $('#nav').innerHTML = `<div class="nav-label">Workspace</div>` + items.map(([v,l,ic,c])=>
@@ -1400,7 +1464,7 @@ function renderOverview(){
   const wsRows = WS.map(w=>{
     const p=wsProgress(w.id);
     return `<div class="ws-row" onclick="goTasksWs('${w.id}')">
-      <div class="nm">${esc(w.name)}<small>Lead · ${esc(w.lead)}</small></div>
+      <div class="nm">${esc(w.name)}<small>Lead · ${esc((w.leads||[]).join(", "))}</small></div>
       <div class="bar"><i style="width:${p.pct}%"></i></div>
       <div class="pct">${p.pct}%</div>
       <div class="frac">${p.done}/${p.total}</div>
@@ -1533,7 +1597,7 @@ function renderTasks(){
     html+=`<div class="ws-group ${col}">
       <div class="ws-group-h" onclick="toggleWs('${w.id}')">
         <h3>${esc(w.name)}</h3>
-        <span class="ld">${esc(w.lead)}</span>
+        <span class="ld">${esc((w.leads||[]).join(", "))}</span>
         <div class="mini"><i style="width:${p.pct}%"></i></div>
         <span class="gf">${wt.length} shown</span>
         <span class="chev">${IC.chev}</span>
@@ -1807,7 +1871,7 @@ function renderMeeting(){
 
   const wsTable=WS.map(w=>{
     const p=wsProgress(w.id);
-    return `<tr><td>${esc(w.name)}</td><td style="color:var(--muted)">${esc(w.lead)}</td>
+    return `<tr><td>${esc(w.name)}</td><td style="color:var(--muted)">${esc((w.leads||[]).join(", "))}</td>
       <td style="text-align:center">${p.done}/${p.total}</td>
       <td style="width:120px"><div class="bar"><i style="width:${p.pct}%"></i></div></td>
       <td style="text-align:right;font-weight:700">${p.pct}%</td></tr>`;
@@ -2154,6 +2218,8 @@ const VIEWS={
     action:`<button class="btn btn-primary" onclick="openIdea('')">${IC.plus}Capture Idea</button>`},
   assets:{title:'Assets',sub:'Shared files, folders and links. One home for everything',
     action:`<button class="btn btn-primary" onclick="openAsset('')">${IC.plus}Add Asset</button>`},
+  invoices:{title:'Invoices & Quotes',sub:'Supplier paper trail. Upload, approve, mark paid',
+    action:`<button class="btn btn-primary" onclick="openInvoice('')">${IC.plus}Upload Invoice</button>`},
   meeting:{title:'Meeting Mode',sub:'A clean summary for the Friday meeting',action:''},
   accounts:{title:'Accounts',sub:'Who can log in. Admins manage access',action:''}
 };
@@ -2216,6 +2282,7 @@ function render(){
   else if(state.view==='team') el.innerHTML=renderTeam();
   else if(state.view==='ideas') el.innerHTML=renderIdeas();
   else if(state.view==='assets') el.innerHTML=renderAssets();
+  else if(state.view==='invoices') el.innerHTML=renderInvoices();
   else if(state.view==='meeting') el.innerHTML=renderMeeting();
   else if(state.view==='accounts') el.innerHTML=renderAccounts();
 }
@@ -2301,6 +2368,190 @@ function deleteMeeting(id){
     const t = DATA.meetings[i].title;
     DATA.meetings.splice(i,1);
     logActivity('deleted meeting recap',t);
+    saveData(); closeModal(); render();
+  }
+}
+
+/* ============================ INVOICES ============================ */
+const INV_COLS = ['Pending','Approved','Paid'];
+
+function renderInvoices(){
+  const all = [...(DATA.invoices||[])].sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));
+  const totalDue = all.filter(i=>i.status!=='Paid').reduce((s,i)=>s+Number(i.amount||0),0);
+  const totalPaid = all.filter(i=>i.status==='Paid').reduce((s,i)=>s+Number(i.amount||0),0);
+  const ccy = all[0]?.currency || 'EUR';
+  const sym = ccy==='EUR'?'€':ccy==='GBP'?'£':ccy==='USD'?'$':ccy+' ';
+
+  const stats = `<div class="inv-stats">
+    <div class="inv-stat"><div class="k">Outstanding</div><div class="v" style="color:#d97706">${sym}${totalDue.toFixed(2)}</div><div class="m">pending + approved</div></div>
+    <div class="inv-stat"><div class="k">Paid</div><div class="v" style="color:#15A34A">${sym}${totalPaid.toFixed(2)}</div><div class="m">${all.filter(i=>i.status==='Paid').length} invoices</div></div>
+    <div class="inv-stat"><div class="k">Total invoices</div><div class="v">${all.length}</div><div class="m">across all suppliers</div></div>
+  </div>`;
+
+  const board = INV_COLS.map(c=>{
+    const items = all.filter(i=>i.status===c);
+    const cards = items.map(i=>renderInvoiceCard(i)).join('');
+    const stripCls = c==='Pending'?'pending':c==='Approved'?'approved':'paid';
+    return `<div class="inv-col">
+      <div class="inv-col-h ${stripCls}">
+        <h3>${c}</h3>
+        <span class="ct">${items.length}</span>
+      </div>
+      <div class="inv-col-body">${cards||'<div class="inv-empty">Empty</div>'}</div>
+    </div>`;
+  }).join('');
+
+  return stats + `<div class="inv-board">${board}</div>`;
+}
+
+function renderInvoiceCard(i){
+  const sym = i.currency==='GBP'?'£':i.currency==='USD'?'$':'€';
+  const wsLabel = i.ws ? wsName(i.ws) : '';
+  const overdue = i.due_date && i.status!=='Paid' && i.due_date < todayISO();
+  return `<div class="inv-card" onclick="openInvoice('${i.id}')">
+    <div class="inv-card-top">
+      <span class="inv-supplier">${esc(i.supplier||'Unnamed supplier')}</span>
+      <span class="inv-amount">${sym}${Number(i.amount||0).toFixed(2)}</span>
+    </div>
+    ${i.description?`<div class="inv-desc">${esc(i.description)}</div>`:''}
+    <div class="inv-foot">
+      ${i.file_name?`<span class="inv-file" title="${esc(i.file_name)}">${IC.paperclip}<span>file attached</span></span>`:'<span style="color:#cfcfc8;font-size:11px">no file</span>'}
+      ${i.due_date?`<span class="inv-due ${overdue?'overdue':''}">${overdue?'OVERDUE ':'Due '}${fmtDate(i.due_date)}</span>`:''}
+    </div>
+    ${wsLabel?`<div class="inv-ws"><span class="wstag">${esc(wsLabel)}</span></div>`:''}
+  </div>`;
+}
+
+function openInvoice(id){
+  const inv = id ? (DATA.invoices||[]).find(x=>x.id===id) : null;
+  const d = inv || {supplier:'',description:'',amount:'',currency:'EUR',due_date:'',ws:'prod',status:'Pending',notes:'',submitted_by:me()};
+  const sym = d.currency==='GBP'?'£':d.currency==='USD'?'$':'€';
+
+  modal(`<div class="modal-h">
+      <h2>${inv?'Invoice details':'Upload Invoice'}</h2>
+      <button class="x" onclick="closeModal()">✕</button></div>
+    ${inv?`<div class="inv-modal-head">
+      <div class="inv-head-supplier">${esc(d.supplier||'Unnamed supplier')}</div>
+      <div class="inv-head-amount">${sym}${Number(d.amount||0).toFixed(2)}</div>
+      <div class="inv-status-row">
+        ${INV_COLS.map(s=>`<button class="inv-st-btn ${d.status===s?'on '+s.toLowerCase():''}" onclick="changeInvoiceStatus('${inv.id}','${s}')">${s}</button>`).join('')}
+      </div>
+      ${d.approved_by?`<div class="inv-meta-line">Approved by ${esc(d.approved_by)}</div>`:''}
+      ${d.paid_at?`<div class="inv-meta-line">Paid ${fmtDate(d.paid_at.slice(0,10))}</div>`:''}
+    </div>`:''}
+    <div class="modal-b">
+      <div class="row2">
+        <div class="fld"><label>Supplier</label>
+          <input id="inv-sup" value="${esc(d.supplier)}" placeholder="e.g. Print shop name"></div>
+        <div class="fld"><label>Amount</label>
+          <div style="display:flex;gap:6px"><select id="inv-ccy" style="flex:0 0 80px">
+            ${['EUR','GBP','USD'].map(c=>`<option ${d.currency===c?'selected':''}>${c}</option>`).join('')}
+          </select>
+          <input id="inv-amt" type="number" step="0.01" value="${esc(d.amount)}" style="flex:1" placeholder="0.00"></div></div>
+      </div>
+      <div class="fld"><label>Description</label>
+        <input id="inv-desc" value="${esc(d.description)}" placeholder="What is this invoice for?"></div>
+      <div class="row2">
+        <div class="fld"><label>Workstream</label><select id="inv-ws">
+          ${WS.map(w=>`<option value="${w.id}" ${d.ws===w.id?'selected':''}>${esc(w.name)}</option>`).join('')}
+        </select></div>
+        <div class="fld"><label>Due Date</label>
+          <input id="inv-due" type="date" value="${esc(d.due_date||'')}"></div>
+      </div>
+      <div class="fld">
+        <label>File ${d.file_name?'<span style="color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0">— currently: '+esc(d.file_name)+'</span>':''}</label>
+        <input id="inv-file" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,.heic,.xlsx,.docx,.xls,.doc">
+        ${d.file_path?`<button class="btn btn-ghost btn-sm" type="button" onclick="viewInvoiceFile('${esc(d.file_path)}')" style="margin-top:8px">${IC.paperclip}View current file</button>`:''}
+        <div style="font-size:11px;color:var(--soft);margin-top:6px">PDF, image (JPG/PNG/HEIC), Excel or Word. Max 10MB.</div>
+      </div>
+      <div class="fld"><label>Notes</label>
+        <textarea id="inv-notes" rows="3" placeholder="Anything else worth recording">${esc(d.notes||'')}</textarea></div>
+    </div>
+    <div class="modal-f">
+      ${inv?`<button class="btn btn-ghost" style="color:#DC2626" onclick="deleteInvoice('${inv.id}')">Delete</button>`:''}
+      <div style="flex:1"></div>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="inv-save-btn" onclick="saveInvoice('${inv?inv.id:''}')">Save</button>
+    </div>`);
+}
+
+async function saveInvoice(id){
+  const inv = id ? (DATA.invoices||[]).find(x=>x.id===id) : null;
+  const data = inv || {id: uid(), created_at: new Date().toISOString(), submitted_by: me(), status:'Pending'};
+  data.supplier = $('#inv-sup').value.trim();
+  data.amount = parseFloat($('#inv-amt').value) || 0;
+  data.currency = $('#inv-ccy').value;
+  data.description = $('#inv-desc').value.trim();
+  data.ws = $('#inv-ws').value;
+  data.due_date = $('#inv-due').value;
+  data.notes = $('#inv-notes').value;
+  if(!data.supplier && !data.amount){ flash('Add a supplier or amount first'); return; }
+
+  // File upload if one selected
+  const fileInput = $('#inv-file');
+  if(fileInput && fileInput.files && fileInput.files[0]){
+    const file = fileInput.files[0];
+    if(file.size > 10*1024*1024){ flash('File too large (max 10MB)'); return; }
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+    const path = `${data.id}/${Date.now()}-${safeName}`;
+    const btn = $('#inv-save-btn'); if(btn){ btn.disabled=true; btn.textContent='Uploading…'; }
+    try{
+      const {error} = await sb.storage.from('invoices').upload(path, file, {upsert:false, contentType: file.type});
+      if(error) throw error;
+      data.file_path = path;
+      data.file_name = file.name;
+    }catch(e){
+      console.error(e);
+      flash('Upload failed: '+(e.message||'unknown')); 
+      if(btn){ btn.disabled=false; btn.textContent='Save'; }
+      return;
+    }
+  }
+
+  if(!inv){
+    DATA.invoices = DATA.invoices || [];
+    DATA.invoices.unshift(data);
+    logActivity('added invoice', `${data.supplier} · €${data.amount}`);
+  } else {
+    logActivity('updated invoice', `${inv.supplier}`);
+  }
+  saveData(); closeModal(); render();
+}
+
+async function viewInvoiceFile(path){
+  if(!path) return flash('No file attached');
+  try{
+    const {data, error} = await sb.storage.from('invoices').createSignedUrl(path, 3600);
+    if(error) throw error;
+    window.open(data.signedUrl, '_blank');
+  }catch(e){ flash('Could not open: '+(e.message||'unknown')); }
+}
+
+function changeInvoiceStatus(id, status){
+  const inv = (DATA.invoices||[]).find(x=>x.id===id);
+  if(!inv) return;
+  const prev = inv.status;
+  inv.status = status;
+  if(status==='Paid' && !inv.paid_at) inv.paid_at = new Date().toISOString();
+  if(status==='Approved' && !inv.approved_by) inv.approved_by = me();
+  if(status==='Pending'){ inv.approved_by = null; inv.paid_at = null; }
+  logActivity('moved invoice to '+status, `${inv.supplier}`);
+  saveData(); 
+  closeModal(); 
+  render();
+  setTimeout(()=>openInvoice(id), 50);
+}
+
+async function deleteInvoice(id){
+  if(!confirm('Delete this invoice and its uploaded file?')) return;
+  const i = (DATA.invoices||[]).findIndex(x=>x.id===id);
+  if(i>=0){
+    const inv = DATA.invoices[i];
+    if(inv.file_path){
+      try { await sb.storage.from('invoices').remove([inv.file_path]); } catch(e){}
+    }
+    DATA.invoices.splice(i,1);
+    logActivity('deleted invoice', inv.supplier);
     saveData(); closeModal(); render();
   }
 }
@@ -2792,7 +3043,12 @@ function renderAIPanel(){
   }
 }
 
-function aiTry(el){ const v = el.textContent; $('#ai-input').value = v; $('#ai-input').focus(); }
+function aiTry(el){ const v = el.textContent; $('#ai-input').value = v; $('#ai-input').focus(); aiAutoGrow($('#ai-input')); }
+function aiAutoGrow(el){
+  if(!el) return;
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+}
 function aiSaveKey(){
   const k = ($('#ai-key-in').value||'').trim();
   if(!k){ flash('Paste an API key first'); return; }
@@ -2935,6 +3191,7 @@ async function aiSend(){
   const prompt = (inp.value||'').trim();
   if(!prompt) return;
   inp.value = '';
+  inp.style.height = 'auto';
   AI_HISTORY.push({role:'user',content:prompt});
   AI_HISTORY.push({role:'thinking'});
   if(!$('#ai-chat')){ $('#ai-body').innerHTML = `<div id="ai-chat"></div>`; }
