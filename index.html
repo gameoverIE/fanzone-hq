@@ -408,6 +408,76 @@
   .acc-row .nm{font-weight:700;font-size:13px}
   .acc-row .em{font-size:11.5px;color:var(--muted)}
 
+  /* ---------- person profile ---------- */
+  .person-link{cursor:pointer;display:inline-flex;align-items:center;gap:6px;border-radius:6px;
+    padding:1px 4px;margin:-1px -4px;transition:background .12s}
+  .person-link:hover{background:rgba(248,250,15,.35)}
+  .person-h{padding:22px 24px 16px;display:flex;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line)}
+  .person-h .av{width:60px;height:60px;font-size:21px;flex-shrink:0}
+  .ph-info{flex:1;min-width:0}
+  .ph-info h2{font-weight:800;font-size:22px;letter-spacing:-0.015em;color:var(--ink);margin-bottom:4px}
+  .ph-role{color:var(--muted);font-size:13px;font-weight:500;margin-bottom:8px}
+  .org-bbk{color:#2563EB;font-weight:700}
+  .org-go{color:#0A0A0A;font-weight:700}
+  .ph-contact{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}
+  .ph-contact a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:500}
+  .ph-contact a:hover{color:#2563EB}
+  .ph-contact a svg{width:13px;height:13px}
+  .person-wss{padding:12px 24px;border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap;background:#fafaf6}
+  .person-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0;border-bottom:1px solid var(--line)}
+  .person-stat{text-align:center;padding:18px 12px;border-right:1px solid var(--line)}
+  .person-stat:last-child{border-right:none}
+  .person-stat .v{font-weight:800;font-size:28px;color:var(--ink);letter-spacing:-0.02em;font-variant-numeric:tabular-nums;line-height:1}
+  .person-stat .k{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .person-body{max-height:50vh;overflow-y:auto}
+  .person-section{padding:18px 24px;border-bottom:1px solid var(--line)}
+  .person-section:last-child{border-bottom:none}
+  .person-section h3{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:12px}
+  .person-task{display:flex;gap:11px;padding:10px 12px;background:#fafaf6;border-radius:8px;
+    margin-bottom:6px;cursor:pointer;align-items:center;transition:background .12s}
+  .person-task:hover{background:#f4f4f0}
+  .person-task .pill{flex-shrink:0}
+  .person-task .pt-body{flex:1;min-width:0}
+  .person-task .pt-title{font-weight:600;font-size:13px;color:var(--ink);letter-spacing:-0.005em}
+  .person-task .pt-sub{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:2px}
+  .ps-empty{font-size:12.5px;color:var(--muted);font-style:italic;padding:8px 0}
+  .person-cmt-list{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+  .person-cmt{background:#fafaf6;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.5}
+  .person-cmt .pc-h{display:flex;justify-content:space-between;margin-bottom:4px}
+  .person-cmt .who{font-weight:700;color:var(--ink);font-size:11.5px}
+  .person-cmt .ts{font-size:10.5px;color:var(--muted);font-weight:500}
+  .person-cmt .pc-t{color:var(--ink);font-weight:500;letter-spacing:-0.005em}
+  .person-cmt-add{display:flex;gap:8px}
+  .person-cmt-add input{flex:1;border:1px solid var(--line);border-radius:8px;padding:9px 11px;
+    font-family:inherit;font-size:13px;font-weight:500;background:#fff}
+  .person-cmt-add input:focus{outline:none;border-color:var(--black);box-shadow:0 0 0 3px rgba(248,250,15,.55)}
+
+  /* ---------- timeline ---------- */
+  .tl-filters{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+  .tl-day-h{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin:22px 0 12px;padding-left:36px;position:relative}
+  .tl-day-h:first-child{margin-top:0}
+  .tl-day-h::before{content:'';position:absolute;left:9px;top:50%;width:11px;height:11px;
+    border-radius:50%;background:var(--yellow);transform:translateY(-50%);box-shadow:0 0 0 3px var(--bg)}
+  .tl-stream{position:relative;padding-left:36px;margin-bottom:14px}
+  .tl-stream::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:var(--line)}
+  .tl-row{position:relative;display:flex;gap:10px;padding:9px 0;align-items:flex-start}
+  .tl-row .tl-dot{position:absolute;left:-31px;top:9px;width:26px;height:26px;border-radius:50%;
+    background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;
+    color:var(--muted)}
+  .tl-row .tl-dot svg{width:12px;height:12px}
+  .tl-row.tl-tasks .tl-dot{border-color:#2563EB;color:#2563EB}
+  .tl-row.tl-ideas .tl-dot{border-color:#d97706;color:#d97706}
+  .tl-row.tl-meetings .tl-dot{border-color:#15A34A;color:#15A34A}
+  .tl-row.tl-matches .tl-dot{border-color:#0A0A0A;color:#0A0A0A;background:var(--yellow)}
+  .tl-row.tl-people .tl-dot{border-color:#7c3aed;color:#7c3aed}
+  .tl-content{flex:1;min-width:0}
+  .tl-line{font-size:13px;line-height:1.5;letter-spacing:-0.005em}
+  .tl-line .who{font-weight:700;color:var(--ink)}
+  .tl-line .ax{color:var(--ink);font-weight:500}
+  .tl-line .det{color:var(--muted);font-weight:500}
+  .tl-time{font-size:11px;color:var(--soft);margin-top:2px;font-weight:500}
+
   /* ---------- matches ---------- */
   .next-up-banner{background:linear-gradient(135deg,#0A0A0A 0%,#1f1f1d 100%);color:#fff;
     padding:18px 22px;border-radius:14px;margin-bottom:20px;display:flex;align-items:center;
@@ -826,7 +896,8 @@ const IC = {
   calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>',
   spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L18.7 9l-5.1 1.9L12 16l-1.6-5.1L5.3 9l5.1-1.9z"/><path d="M19 14l.9 2.5L22.5 17l-2.6.9L19 20l-.9-2.1L15.5 17l2.6-.5z"/></svg>',
   notebook:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4v16a2 2 0 0 0 2 2h12V2H6a2 2 0 0 0-2 2z"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>',
-  football:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 3v3l-4 2-1 4 3 3v3M12 6l4 2 1 4-3 3M8 8l-2 1M19 13l-3 0M9 19l1-3M15 19l-1-3"/></svg>'
+  football:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 3v3l-4 2-1 4 3 3v3M12 6l4 2 1 4-3 3M8 8l-2 1M19 13l-3 0M9 19l1-3M15 19l-1-3"/></svg>',
+  timeline:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-12 2 4h3"/></svg>'
 };
 
 /* ============================ CONSTANTS ============================ */
@@ -1077,7 +1148,7 @@ let state = {view:'overview',
 
 const COLS = {
   tasks:['id','code','ws','title','owner','prio','status','due','notes','comments'],
-  team:['id','name','role','org','phone','email','ws','color'],
+  team:['id','name','role','org','phone','email','ws','color','comments'],
   ideas:['id','title','detail','by','status','created'],
   assets:['id','name','cat','url','by','note','created'],
   meetings:['id','date','title','notes','by'],
@@ -1262,6 +1333,7 @@ function renderNav(){
     ['calendar','Calendar',IC.calendar,null],
     ['matches','Matches',IC.football,(DATA.matches||[]).length||null],
     ['meetings','Meetings',IC.notebook,(DATA.meetings||[]).length||null],
+    ['timeline','Timeline',IC.timeline,null],
     ['deadlines','Deadlines',IC.clock,DATA.tasks.filter(t=>isOverdue(t)).length||null],
     ['team','Team',IC.users,DATA.team.length],
     ['ideas','Ideas',IC.bulb,DATA.ideas.length],
@@ -1334,7 +1406,7 @@ function renderOverview(){
     <div class="att-row" onclick="openTask('${t.id}')">
       <span class="pill ${ST_CLASS[t.status]}"><span class="dot"></span></span>
       <div class="tt">${esc(t.title)}<small>${esc(wsName(t.ws))} · ${esc(t.owner)}${isOverdue(t)?' · OVERDUE '+fmtDate(t.due):''}</small></div>
-      ${avatar(t.owner,'sm')}
+      ${personLink(t.owner, avatar(t.owner,'sm'))}
     </div>`).join('')
     : `<div class="empty"><div class="big">All clear</div><p>Nothing blocked or overdue.</p></div>`;
 
@@ -1365,8 +1437,8 @@ function renderOverview(){
   const log=(DATA.log||[]).slice(0,9);
   const actHtml = log.length ? log.map(e=>`
     <div class="act-row">
-      ${avatar(e.who,'sm')}
-      <div class="act-b"><div class="act-t"><b>${esc(e.who)}</b> ${esc(e.action)}</div>
+      ${personLink(e.who, avatar(e.who,'sm'))}
+      <div class="act-b"><div class="act-t">${personLink(e.who,'<b>'+esc(e.who)+'</b>')} ${esc(e.action)}</div>
         <div class="act-d">${esc(e.detail||'')}</div></div>
       <div class="act-time">${timeAgo(e.ts)}</div>
     </div>`).join('')
@@ -1479,7 +1551,7 @@ function taskRow(t){
     <div class="rt">
       ${t.due?`<span class="due ${isOverdue(t)?'over':''}">${fmtDate(t.due)}</span>`:''}
       <span class="prio ${PR_CLASS[t.prio]}">${t.prio}</span>
-      ${avatar(t.owner)}
+      ${personLink(t.owner, avatar(t.owner))}
     </div>
   </div>`;
 }
@@ -1495,7 +1567,7 @@ function renderBoard(ts){
           <span class="prio ${PR_CLASS[t.prio]}">${t.prio}</span>
           <span style="margin-left:auto;display:flex;align-items:center;gap:6px">
             ${t.due?`<span class="due ${isOverdue(t)?'over':''}" style="font-size:10.5px">${fmtDate(t.due)}</span>`:''}
-            ${avatar(t.owner,'sm')}</span>
+            ${personLink(t.owner, avatar(t.owner,'sm'))}</span>
         </div>
       </div>`).join('') || `<div style="padding:14px;text-align:center;color:var(--soft);font-size:12px">Drop here</div>`;
     return `<div class="col" data-status="${s}" ondragover="dragOver(event)"
@@ -1541,7 +1613,7 @@ function renderTeam(){
     const open=DATA.tasks.filter(t=>t.owner===p.name&&t.status!=='Done').length;
     const done=DATA.tasks.filter(t=>t.owner===p.name&&t.status==='Done').length;
     const wss=p.ws.map(id=>`<span class="wstag">${esc(wsName(id))}</span>`).join('');
-    return `<div class="person" onclick="openPerson('${p.id}')">
+    return `<div class="person" onclick="viewPerson('${p.id}')">
       <div class="top">
         ${avatar(p.name,'lg')}
         <div><div class="nm">${esc(p.name)}</div><div class="ro">${esc(p.role)}</div>
@@ -1679,7 +1751,7 @@ function deadlineRow(t){
     <div class="rt">
       ${t.due?`<span class="due ${isOverdue(t)?'over':''}">${fmtDate(t.due)}</span>`:''}
       <span class="prio ${PR_CLASS[t.prio]}">${t.prio}</span>
-      ${avatar(t.owner)}</div>
+      ${personLink(t.owner, avatar(t.owner))}</div>
   </div>`;
 }
 function renderDeadlines(){
@@ -2064,6 +2136,8 @@ const VIEWS={
     action:''},
   meetings:{title:'Meetings',sub:'Recap notes from weekly meetings, newest first',
     action:`<button class="btn btn-primary" onclick="openMeeting('')">${IC.plus}Add Recap</button>`},
+  timeline:{title:'Timeline',sub:'Everything that has happened across the project, newest first',
+    action:''},
   deadlines:{title:'Deadlines',sub:'Everything open, sorted by when it is due',
     action:`<button class="btn btn-primary" onclick="openTask('')">${IC.plus}New Task</button>`},
   team:{title:'Team',sub:'Everyone on the project and how to reach them',
@@ -2129,6 +2203,7 @@ function render(){
   else if(state.view==='calendar') el.innerHTML=renderCalendar();
   else if(state.view==='matches') el.innerHTML=renderMatches();
   else if(state.view==='meetings') el.innerHTML=renderMeetings();
+  else if(state.view==='timeline') el.innerHTML=renderTimeline();
   else if(state.view==='deadlines') el.innerHTML=renderDeadlines();
   else if(state.view==='team') el.innerHTML=renderTeam();
   else if(state.view==='ideas') el.innerHTML=renderIdeas();
@@ -2220,6 +2295,180 @@ function deleteMeeting(id){
     logActivity('deleted meeting recap',t);
     saveData(); closeModal(); render();
   }
+}
+
+/* ============================ PERSON PROFILE ============================ */
+function personLink(name, content){
+  const p = DATA.team.find(x=>x.name===name);
+  if(!p) return content;
+  return `<span class="person-link" onclick="event.stopPropagation();viewPerson('${p.id}')">${content}</span>`;
+}
+
+function viewPerson(id){
+  const p = DATA.team.find(x=>x.id===id);
+  if(!p) return;
+  const owned = DATA.tasks.filter(t=>t.owner===p.name);
+  const open = owned.filter(t=>t.status!=='Done');
+  const done = owned.filter(t=>t.status==='Done');
+  const overdue = owned.filter(t=>isOverdue(t));
+  const cmts = (p.comments||[]).slice().sort((a,b)=>(b.ts||0)-(a.ts||0));
+  const wss = (p.ws||[]).map(wid=>`<span class="wstag">${esc(wsName(wid))}</span>`).join('');
+  const taskRow = t => {
+    const cls = t.status==='Done'?'done':t.status==='In Progress'?'prog':t.status==='Blocked'?'blk':'idle';
+    return `<div class="person-task" onclick="closeModal();openTask('${t.id}')">
+      <span class="pill ${cls}"><span class="dot"></span></span>
+      <div class="pt-body">
+        <div class="pt-title">${esc(t.title)}</div>
+        <div class="pt-sub">${esc(wsName(t.ws))}${t.due?' · '+(isOverdue(t)?'<span style="color:#DC2626;font-weight:700">OVERDUE '+fmtDate(t.due)+'</span>':'due '+fmtDate(t.due)):''}</div>
+      </div>
+      <span class="prio ${PR_CLASS[t.prio]}">${t.prio}</span>
+    </div>`;
+  };
+  modal(`
+    <div class="modal-h"><h2>Profile</h2>
+      <button class="x" onclick="closeModal()">✕</button></div>
+    <div class="person-h">
+      ${avatar(p.name,'av-lg')}
+      <div class="ph-info">
+        <h2>${esc(p.name)}</h2>
+        <div class="ph-role">${esc(p.role)} · <span class="${p.org==='Bam-Bu-Ku'?'org-bbk':'org-go'}">${esc(p.org)}</span></div>
+        <div class="ph-contact">
+          ${p.phone?`<a href="tel:${esc(p.phone)}">${IC.phone}${esc(p.phone)}</a>`:''}
+          ${p.email?`<a href="mailto:${esc(p.email)}">${IC.mail}${esc(p.email)}</a>`:''}
+        </div>
+      </div>
+    </div>
+    ${wss?`<div class="person-wss">${wss}</div>`:''}
+    <div class="person-stats">
+      <div class="person-stat"><div class="v">${open.length}</div><div class="k">Open</div></div>
+      <div class="person-stat"><div class="v" style="color:${overdue.length?'#DC2626':'var(--ink)'}">${overdue.length}</div><div class="k">Overdue</div></div>
+      <div class="person-stat"><div class="v" style="color:#15A34A">${done.length}</div><div class="k">Done</div></div>
+    </div>
+    <div class="person-body">
+      <div class="person-section">
+        <h3>Open tasks (${open.length})</h3>
+        ${open.length ? open.map(taskRow).join('') : '<div class="ps-empty">Nothing open. Either a quiet patch or a clean run.</div>'}
+      </div>
+      ${done.length?`<div class="person-section">
+        <h3>Recently completed (${done.length})</h3>
+        ${done.slice(0,5).map(taskRow).join('')}
+      </div>`:''}
+      <div class="person-section">
+        <h3>Notes &amp; comments (${cmts.length})</h3>
+        <div class="person-cmt-list">
+          ${cmts.length ? cmts.map(c=>`<div class="person-cmt">
+            <div class="pc-h"><span class="who">${esc(c.who)}</span><span class="ts">${fmtTs(c.ts)}</span></div>
+            <div class="pc-t">${esc(c.text)}</div>
+          </div>`).join('') : '<div class="ps-empty">No notes yet. Add the first.</div>'}
+        </div>
+        <div class="person-cmt-add">
+          <input id="pc-in" placeholder="Leave a note for or about ${esc(p.name.split(' ')[0])}" onkeydown="if(event.key==='Enter')addPersonComment('${p.id}')">
+          <button class="btn btn-primary btn-sm" onclick="addPersonComment('${p.id}')">Post</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-ghost" onclick="closeModal();openPerson('${p.id}')">Edit details</button>
+      <div style="flex:1"></div>
+      <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+    </div>
+  `);
+}
+
+function addPersonComment(id){
+  const t = ($('#pc-in').value||'').trim();
+  if(!t) return;
+  const p = DATA.team.find(x=>x.id===id);
+  if(!p) return;
+  p.comments = p.comments || [];
+  p.comments.unshift({id:uid(), who:me(), ts:Date.now(), text:t});
+  logActivity('commented on', p.name);
+  saveData();
+  viewPerson(id);
+}
+
+function fmtTs(ts){
+  if(!ts) return '';
+  const d = new Date(ts), now = new Date();
+  const sameDay = d.toDateString() === now.toDateString();
+  const yest = new Date(now); yest.setDate(yest.getDate()-1);
+  const isYest = d.toDateString() === yest.toDateString();
+  const time = d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  if(sameDay) return `Today ${time}`;
+  if(isYest) return `Yesterday ${time}`;
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short'}) + ' ' + time;
+}
+
+/* ============================ TIMELINE ============================ */
+let TL_FILTER = 'all';
+function setTLFilter(s){ TL_FILTER = s; render(); }
+
+function tlBucket(action){
+  const a = (action||'').toLowerCase();
+  if(a.includes('task')) return 'tasks';
+  if(a.includes('idea')) return 'ideas';
+  if(a.includes('meeting')) return 'meetings';
+  if(a.includes('match')) return 'matches';
+  if(a.includes('comment') || a.includes('member') || a.includes('person')) return 'people';
+  return 'other';
+}
+function tlIconFor(bucket){
+  return {tasks:IC.check, ideas:IC.bulb, meetings:IC.notebook, matches:IC.football, people:IC.users, other:IC.clock}[bucket]||IC.clock;
+}
+
+function renderTimeline(){
+  const entries = [...(DATA.log||[])].sort((a,b)=>(b.ts||0)-(a.ts||0));
+  if(!entries.length) return `<div class="empty"><div class="big">Nothing logged yet</div>
+    <p>Activity from across the project will show up here as it happens.</p></div>`;
+
+  const counts = {all: entries.length, tasks:0, ideas:0, meetings:0, matches:0, people:0, other:0};
+  entries.forEach(e => { counts[tlBucket(e.action)]++; });
+  const cats = [['all','All'],['tasks','Tasks'],['ideas','Ideas'],['meetings','Meetings'],['matches','Matches'],['people','People']];
+  const chips = `<div class="tl-filters">${cats.map(([k,l])=>
+    counts[k]>0 || k==='all' ? `<button class="match-chip ${TL_FILTER===k?'on':''}" onclick="setTLFilter('${k}')">${l} <span class="ct">${counts[k]}</span></button>` : ''
+  ).join('')}</div>`;
+
+  const filtered = TL_FILTER==='all' ? entries : entries.filter(e=>tlBucket(e.action)===TL_FILTER);
+
+  // group by day
+  const groups = {};
+  const order = [];
+  filtered.forEach(e=>{
+    const d = new Date(e.ts);
+    const key = d.toDateString();
+    if(!groups[key]){ groups[key] = []; order.push(key); }
+    groups[key].push(e);
+  });
+
+  const now = new Date();
+  const todayKey = now.toDateString();
+  const yest = new Date(now); yest.setDate(yest.getDate()-1);
+  const yestKey = yest.toDateString();
+  const dayLabel = key => {
+    if(key===todayKey) return 'Today';
+    if(key===yestKey) return 'Yesterday';
+    const d = new Date(key);
+    return d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  };
+
+  const body = order.map(key=>{
+    const day = groups[key];
+    const rows = day.map(e=>{
+      const bucket = tlBucket(e.action);
+      const time = new Date(e.ts).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+      const whoLink = personLink(e.who, `<span class="who">${esc(e.who)}</span>`);
+      return `<div class="tl-row tl-${bucket}">
+        <div class="tl-dot">${tlIconFor(bucket)}</div>
+        <div class="tl-content">
+          <div class="tl-line">${whoLink} <span class="ax">${esc(e.action||'')}</span>${e.detail?` <span class="det">${esc(e.detail)}</span>`:''}</div>
+          <div class="tl-time">${time}</div>
+        </div>
+      </div>`;
+    }).join('');
+    return `<div class="tl-day-h">${dayLabel(key)}</div><div class="tl-stream">${rows}</div>`;
+  }).join('');
+
+  return chips + (body || '<div class="empty"><p>No activity for this filter.</p></div>');
 }
 
 /* ============================ MATCHES ============================ */
