@@ -573,6 +573,113 @@
   .sub-badge svg{width:10px;height:10px}
   .sub-badge.sub-done{background:#E5F9E8;color:#15803D}
 
+  /* ---------- ASSETS (redesigned) ---------- */
+  .asset-search{position:relative;margin-bottom:18px;display:flex;align-items:center}
+  .asset-search svg{position:absolute;left:14px;width:16px;height:16px;color:var(--muted);pointer-events:none}
+  .asset-search input{width:100%;font-family:inherit;font-size:14px;font-weight:500;padding:12px 14px 12px 40px;
+    border:1px solid var(--line);border-radius:10px;background:#fff;letter-spacing:-0.005em}
+  .asset-search input:focus{outline:none;border-color:var(--ink);background:#fff;box-shadow:0 0 0 3px rgba(248,250,15,.3)}
+  .asset-search-x{position:absolute;right:10px;background:transparent;border:none;font-size:14px;color:var(--muted);cursor:pointer;padding:6px}
+
+  .asset-dropzone{margin-bottom:24px;border:2px dashed var(--line);border-radius:12px;padding:18px 18px;
+    background:#fafaf6;transition:.2s;text-align:center}
+  .asset-dropzone.drag-over{background:rgba(248,250,15,.12);border-color:var(--yellow);border-style:solid}
+  .dz-inner{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:13px;font-weight:500}
+  .dz-inner svg{width:16px;height:16px}
+  .dz-inner b{color:var(--ink)}
+  .link-btn{background:none;border:none;color:#2563EB;font-weight:700;text-decoration:underline;cursor:pointer;font-family:inherit;font-size:inherit;padding:0}
+
+  /* Quick Access */
+  .qa-section{margin-bottom:28px}
+  .qa-h{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .qa-h h3{font-size:16px;font-weight:800;letter-spacing:-0.01em;margin:0;display:inline-flex;align-items:center;gap:8px}
+  .qa-h h3 svg{width:18px;height:18px;color:var(--yellow);fill:var(--yellow)}
+  .qa-sub{font-size:12px;color:var(--muted);font-weight:500}
+  .qa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+  .qa-tile{background:#fff;border:1px solid var(--line);border-top:4px solid;border-radius:10px;padding:14px;cursor:pointer;
+    transition:.18s;display:flex;flex-direction:column;gap:8px;min-height:110px}
+  .qa-tile:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:var(--ink)}
+  .qa-tile-top{display:flex;align-items:center;justify-content:space-between}
+  .qa-ft{font-size:10px;font-weight:800;letter-spacing:.05em;padding:3px 7px;border-radius:4px;color:#fff}
+  .qa-cat{font-size:16px}
+  .qa-name{font-size:13.5px;font-weight:700;line-height:1.32;letter-spacing:-0.005em;color:var(--ink);flex:1;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .qa-meta{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);font-weight:500;margin-top:auto}
+  .qa-views{color:#15803D;font-weight:700}
+
+  /* Recently added strip */
+  .ra-section{margin-bottom:24px}
+  .ra-h{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .ra-h svg{width:13px;height:13px}
+  .ra-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+  .ra-chip{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:9px 11px;cursor:pointer;transition:.14s}
+  .ra-chip:hover{background:#fafaf6;border-color:var(--ink)}
+  .ra-ft{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;color:#fff;font-size:9.5px;font-weight:800;flex-shrink:0}
+  .ra-nm{font-size:13px;font-weight:600;letter-spacing:-0.005em;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ra-sub{font-size:10.5px;color:var(--muted);font-weight:500;margin-top:1px}
+
+  /* Categorised library */
+  .cat-section{margin-bottom:22px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .cat-h{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;transition:.14s;background:#fafaf6;border-bottom:1px solid var(--line)}
+  .cat-h.cat-collapsed{border-bottom:none}
+  .cat-h:hover{background:#f1efe5}
+  .cat-icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;font-size:16px;flex-shrink:0}
+  .cat-h h3{font-size:14.5px;font-weight:700;letter-spacing:-0.005em;margin:0;flex:1}
+  .cat-count{background:#e8e5d8;color:var(--ink);font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px}
+  .cat-chev{display:inline-flex;color:var(--muted);transition:transform .18s}
+  .cat-chev.down{transform:rotate(-90deg)}
+  .cat-grid{padding:12px}
+  .cat-empty{padding:18px;text-align:center;color:var(--muted);font-size:13px;font-style:italic}
+
+  /* Asset cards in categories */
+  .ast-card{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:8px;transition:.14s;border:1px solid transparent}
+  .ast-card:hover{background:#fafaf6;border-color:var(--line)}
+  .ast-card.ast-key{background:rgba(248,250,15,.08)}
+  .ast-card.ast-key:hover{background:rgba(248,250,15,.16);border-color:var(--yellow)}
+  .ast-ft{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:8px;
+    color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.05em;flex-shrink:0}
+  .ast-body{flex:1;min-width:0;cursor:pointer}
+  .ast-nm{font-size:14px;font-weight:700;letter-spacing:-0.005em;line-height:1.3;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .ast-key-flag{background:var(--yellow);color:var(--ink);font-size:9.5px;font-weight:800;padding:2px 6px;border-radius:3px;letter-spacing:.06em}
+  .ast-pin-flag{display:inline-flex;color:var(--yellow);background:var(--ink);padding:2px 4px;border-radius:3px}
+  .ast-pin-flag svg{width:11px;height:11px;fill:var(--yellow)}
+  .ast-fn{font-size:11.5px;color:var(--muted);font-weight:500;margin-top:3px;font-family:'SF Mono',ui-monospace,monospace}
+  .ast-note{font-size:12.5px;color:#3a3a35;margin-top:5px;line-height:1.4;font-weight:500}
+  .ast-meta{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:11px;color:var(--muted);font-weight:500}
+  .ast-views{color:#15803D;font-weight:700}
+  .ast-actions{display:flex;gap:4px;flex-shrink:0;opacity:0;transition:.14s}
+  .ast-card:hover .ast-actions{opacity:1}
+  .ast-btn{background:#fff;border:1px solid var(--line);border-radius:6px;width:30px;height:30px;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;padding:0;color:var(--muted);transition:.14s}
+  .ast-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .ast-btn.on{background:var(--yellow);color:var(--ink);border-color:var(--yellow);opacity:1}
+  .ast-btn svg{width:13px;height:13px;fill:currentColor}
+
+  /* Asset modal — file upload */
+  .file-attached{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#f1efe5;border-radius:8px;margin-bottom:10px}
+  .file-ic{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:6px;color:#fff;font-size:10px;font-weight:800}
+  .file-nm{font-size:13px;font-weight:600;letter-spacing:-0.005em}
+  .file-sz{font-size:11px;color:var(--muted);font-weight:500;margin-top:2px}
+  .file-attached button{margin-left:auto}
+  .file-upload-zone{border:2px dashed var(--line);border-radius:10px;background:#fafaf6;text-align:center;padding:0;transition:.14s}
+  .file-upload-zone:hover{border-color:var(--ink);background:#f1efe5}
+  .file-upload-zone input[type=file]{display:none}
+  .file-upload-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:22px 16px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600}
+  .file-upload-label svg{width:20px;height:20px;color:var(--muted)}
+  .file-upload-label small{font-size:11px;color:var(--muted);font-weight:500;font-family:inherit}
+  .file-progress{padding:0 16px}
+  .file-progress:empty{padding:0}
+  .prog-bar{height:6px;background:#e8e5d8;border-radius:3px;overflow:hidden;margin-bottom:6px}
+  .prog-fill{height:100%;background:var(--yellow);transition:width .25s}
+  .prog-txt{font-size:11px;color:var(--muted);font-weight:600;text-align:center;padding-bottom:10px}
+  .prog-err{font-size:12px;color:#DC2626;font-weight:600;padding:10px 0}
+
+  .ast-flags{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding:14px;background:#fafaf6;border-radius:8px}
+  .flag-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:500;letter-spacing:-0.005em}
+  .flag-toggle input{margin:0;cursor:pointer;width:18px;height:18px;accent-color:var(--ink)}
+  .flag-toggle b{font-weight:700}
+
   /* ---------- invoices ---------- */
   .inv-tabs{display:flex;gap:6px;align-items:center;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:0}
   .inv-tab{background:transparent;border:none;padding:11px 16px 13px;font-family:inherit;
@@ -1437,7 +1544,7 @@ const COLS = {
   tasks:['id','code','ws','title','owner','prio','status','due','notes','comments','subtasks'],
   team:['id','name','role','org','phone','email','ws','color','comments'],
   ideas:['id','title','detail','by','status','created'],
-  assets:['id','name','cat','url','by','note','created'],
+  assets:['id','name','cat','url','by','note','created','file_path','file_name','file_size','file_type','pinned','views','key_doc'],
   meetings:['id','date','title','notes','by'],
   matches:['id','date','stage','team_a','team_b','kickoff','fanzone_open','end_time','status','venue_note','guestlist','pundits','highlight','notes'],
   invoices:['id','supplier','description','amount','currency','file_path','file_name','status','submitted_by','approved_by','paid_at','due_date','notes','ws'],
@@ -2378,81 +2485,374 @@ function renderIdeas(){
 }
 
 /* ============================ ASSETS ============================ */
-const ASSET_CATS=['Folders','Brand','Documents','Photos','Video','Other'];
+const ASSET_CATS = [
+  {id:'contracts', label:'Contracts & Legal', icon:'📄', color:'#7C3AED'},
+  {id:'brand',     label:'Brand & Design',    icon:'🎨', color:'#EC4899'},
+  {id:'ops',       label:'Operational',       icon:'📋', color:'#2563EB'},
+  {id:'finance',   label:'Finance',           icon:'💰', color:'#15803D'},
+  {id:'marketing', label:'Marketing & Content', icon:'📱', color:'#F59E0B'},
+  {id:'photos',    label:'Photos & Video',    icon:'📸', color:'#0EA5E9'},
+  {id:'sponsorship',label:'Sponsorship',      icon:'🎯', color:'#DC2626'},
+  {id:'links',     label:'External Links',    icon:'🔗', color:'#6B7280'},
+  {id:'other',     label:'Other',             icon:'📁', color:'#71717A'}
+];
+const catMeta = id => ASSET_CATS.find(c=>c.id===id) || ASSET_CATS[ASSET_CATS.length-1];
+const fmtSize = bytes => {
+  if(!bytes) return '';
+  if(bytes < 1024) return bytes+' B';
+  if(bytes < 1048576) return (bytes/1024).toFixed(0)+' KB';
+  return (bytes/1048576).toFixed(1)+' MB';
+};
+const fileTypeIcon = (ft, name) => {
+  const n = (name||'').toLowerCase();
+  const t = (ft||'').toLowerCase();
+  if(t.includes('pdf') || n.endsWith('.pdf')) return {icon:'PDF', color:'#DC2626'};
+  if(t.includes('word') || t.includes('document') || /\.(docx?|odt)$/.test(n)) return {icon:'DOC', color:'#2563EB'};
+  if(t.includes('sheet') || t.includes('excel') || /\.(xlsx?|csv|ods)$/.test(n)) return {icon:'XLS', color:'#15803D'};
+  if(t.includes('presentation') || t.includes('powerpoint') || /\.(pptx?|odp)$/.test(n)) return {icon:'PPT', color:'#F59E0B'};
+  if(t.startsWith('image/') || /\.(png|jpe?g|gif|webp|svg)$/.test(n)) return {icon:'IMG', color:'#EC4899'};
+  if(t.startsWith('video/') || /\.(mp4|mov|avi|webm)$/.test(n)) return {icon:'VID', color:'#7C3AED'};
+  if(t.includes('zip') || /\.zip$/.test(n)) return {icon:'ZIP', color:'#71717A'};
+  return {icon:'FILE', color:'#6B7280'};
+};
 function renderAssets(){
-  // group by category
-  let html='';
-  const dropbox=DATA.assets.find(a=>/dropbox/i.test(a.name));
-  if(dropbox){
-    html+=`<div class="dropbox-hero" onclick="${dropbox.url?`window.open('${esc(dropbox.url)}','_blank')`:`openAsset('${dropbox.id}')`}">
-      <div class="db-ic">${IC.folder}</div>
-      <div class="db-body">
-        <div class="db-nm">${esc(dropbox.name)}</div>
-        <div class="db-note">${esc(dropbox.note||'')}</div>
-      </div>
-      <div class="db-cta">${dropbox.url?`${IC.arrow} Open folder`:`${IC.plus} Add link`}</div>
+  const all = DATA.assets || [];
+  const q = (state.assetQuery||'').toLowerCase();
+  const matches = a => !q || (a.name||'').toLowerCase().includes(q) ||
+    (a.note||'').toLowerCase().includes(q) || (a.file_name||'').toLowerCase().includes(q);
+  const filtered = all.filter(matches);
+
+  // Quick Access — pinned, max 6
+  const pinned = filtered.filter(a=>a.pinned).slice(0,6);
+
+  // Recently Added — last 4 by created
+  const recent = [...filtered].sort((a,b)=>(b.created||'').localeCompare(a.created||'')).slice(0,4);
+
+  // Search bar
+  const search = `<div class="asset-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input placeholder="Search documents, links, files…" value="${esc(state.assetQuery||'')}"
+      oninput="setAssetQuery(this.value)">
+    ${state.assetQuery?`<button class="asset-search-x" onclick="setAssetQuery('')">✕</button>`:''}
+  </div>`;
+
+  // Drop zone
+  const dropzone = `<div id="asset-dropzone" class="asset-dropzone"
+    ondragover="event.preventDefault();this.classList.add('drag-over')"
+    ondragleave="this.classList.remove('drag-over')"
+    ondrop="event.preventDefault();this.classList.remove('drag-over');handleAssetDrop(event)">
+    <div class="dz-inner">${IC.paperclip}
+      <div><b>Drop a file here</b> to upload, or <button class="link-btn" onclick="openAsset('')">browse</button></div>
+    </div>
+  </div>`;
+
+  // Quick Access panel
+  let qa = '';
+  if(pinned.length){
+    qa = `<div class="qa-section">
+      <div class="qa-h"><h3>${IC.bolt}Quick Access</h3>
+        <span class="qa-sub">your most-used documents and links — pin any asset to add</span></div>
+      <div class="qa-grid">${pinned.map(a=>qaTile(a)).join('')}</div>
     </div>`;
   }
-  const rest=DATA.assets.filter(a=>a!==dropbox);
-  const cards=rest.map(a=>`
-    <div class="asset">
-      <div class="asset-top">
-        <span class="wstag">${esc(a.cat)}</span>
-        <button class="btn btn-ghost btn-sm" onclick="openAsset('${a.id}')">Edit</button>
+
+  // Recently Added strip
+  let ra = '';
+  if(recent.length){
+    ra = `<div class="ra-section">
+      <div class="ra-h">${IC.clock}<span>Recently added</span></div>
+      <div class="ra-strip">${recent.map(a=>raChip(a)).join('')}</div>
+    </div>`;
+  }
+
+  // Categorised library
+  const collapsed = state.assetCollapsed||{};
+  const cats = ASSET_CATS.map(cat=>{
+    const list = filtered.filter(a=>a.cat===cat.id);
+    const isCollapsed = collapsed[cat.id];
+    if(!list.length && q) return '';
+    return `<div class="cat-section">
+      <div class="cat-h ${isCollapsed?'cat-collapsed':''}" onclick="toggleAssetCat('${cat.id}')">
+        <span class="cat-icon" style="background:${cat.color}20;color:${cat.color}">${cat.icon}</span>
+        <h3>${cat.label}</h3>
+        <span class="cat-count">${list.length}</span>
+        <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();openAsset('','${cat.id}')">${IC.plus}Add</button>
+        <span class="cat-chev ${isCollapsed?'down':''}">${IC.chev}</span>
       </div>
-      <div class="asset-nm">${esc(a.name)}</div>
-      ${a.note?`<div class="asset-note">${esc(a.note)}</div>`:''}
-      <div class="asset-ft">
-        ${a.url
-          ? `<a class="alink" href="${esc(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${IC.link}<span>Open link</span></a>`
-          : `<span class="asset-empty">${IC.link}<span>No link yet</span></span>`}
-        <span class="asset-by">${avatar(a.by,'sm')}</span>
-      </div>
-    </div>`).join('');
-  return html + `<div class="asset-grid">${cards}</div>`;
+      ${isCollapsed?'':`<div class="cat-grid">
+        ${list.length ? list.sort((a,b)=>(b.key_doc?1:0)-(a.key_doc?1:0) || (a.name||'').localeCompare(b.name||'')).map(a=>assetCard(a,cat)).join('')
+          : `<div class="cat-empty"><p>No ${cat.label.toLowerCase()} yet. <button class="link-btn" onclick="openAsset('','${cat.id}')">Add the first</button></p></div>`}
+      </div>`}
+    </div>`;
+  }).join('');
+
+  if(q && !filtered.length){
+    return search + dropzone + `<div class="empty"><div class="big">No matches for "${esc(q)}"</div>
+      <p>Try a different search or <button class="link-btn" onclick="setAssetQuery('')">clear the search</button>.</p></div>`;
+  }
+
+  return search + qa + ra + dropzone + cats;
 }
-function openAsset(id){
-  const a=id?DATA.assets.find(x=>x.id===id):null;
-  const d=a||{name:'',cat:'Documents',url:'',note:'',by:me()};
+
+function qaTile(a){
+  const cat = catMeta(a.cat);
+  const ft = a.file_path ? fileTypeIcon(a.file_type, a.file_name) : {icon:'LINK', color:'#6B7280'};
+  return `<div class="qa-tile" onclick="openAssetLink('${a.id}')" style="border-top-color:${cat.color}">
+    <div class="qa-tile-top">
+      <span class="qa-ft" style="background:${ft.color};color:#fff">${ft.icon}</span>
+      <span class="qa-cat">${cat.icon}</span>
+    </div>
+    <div class="qa-name">${esc(a.name)}</div>
+    <div class="qa-meta">
+      <span class="qa-when">${a.created?fmtDate(a.created):''}</span>
+      ${a.views?`<span class="qa-views">${a.views} ${a.views===1?'view':'views'}</span>`:''}
+    </div>
+  </div>`;
+}
+
+function raChip(a){
+  const ft = a.file_path ? fileTypeIcon(a.file_type, a.file_name) : {icon:'LINK', color:'#6B7280'};
+  return `<div class="ra-chip" onclick="openAssetLink('${a.id}')">
+    <span class="ra-ft" style="background:${ft.color}">${ft.icon}</span>
+    <div><div class="ra-nm">${esc(a.name)}</div>
+      <div class="ra-sub">${esc(a.by||'')} · ${a.created?fmtDate(a.created):''}</div></div>
+  </div>`;
+}
+
+function assetCard(a, cat){
+  const ft = a.file_path ? fileTypeIcon(a.file_type, a.file_name) : {icon:'LINK', color:'#6B7280'};
+  const sizeStr = a.file_size ? ' · '+fmtSize(a.file_size) : '';
+  return `<div class="ast-card ${a.key_doc?'ast-key':''}">
+    <div class="ast-ft" style="background:${ft.color}">${ft.icon}</div>
+    <div class="ast-body" onclick="openAssetLink('${a.id}')">
+      <div class="ast-nm">${esc(a.name)}${a.key_doc?`<span class="ast-key-flag">KEY</span>`:''}${a.pinned?`<span class="ast-pin-flag" title="Pinned to Quick Access">${IC.bolt}</span>`:''}</div>
+      ${a.file_name?`<div class="ast-fn">${esc(a.file_name)}${sizeStr}</div>`:''}
+      ${a.note?`<div class="ast-note">${esc(a.note)}</div>`:''}
+      <div class="ast-meta">
+        ${avatar(a.by,'sm')}
+        <span>${esc(a.by||'')}${a.created?' · '+fmtDate(a.created):''}</span>
+        ${a.views?`<span class="ast-views">· ${a.views} ${a.views===1?'view':'views'}</span>`:''}
+      </div>
+    </div>
+    <div class="ast-actions">
+      ${a.url||a.file_path?`<button class="ast-btn" onclick="openAssetLink('${a.id}')" title="Open">${IC.arrow}</button>`:''}
+      <button class="ast-btn ${a.pinned?'on':''}" onclick="togglePin('${a.id}')" title="${a.pinned?'Unpin from Quick Access':'Pin to Quick Access'}">${IC.bolt}</button>
+      <button class="ast-btn" onclick="openAsset('${a.id}')" title="Edit">${IC.notebook}</button>
+    </div>
+  </div>`;
+}
+
+function setAssetQuery(q){ state.assetQuery = q; render(); }
+function toggleAssetCat(id){
+  if(!state.assetCollapsed) state.assetCollapsed = {};
+  state.assetCollapsed[id] = !state.assetCollapsed[id];
+  render();
+}
+
+async function togglePin(id){
+  const a = DATA.assets.find(x=>x.id===id);
+  if(!a) return;
+  a.pinned = !a.pinned;
+  try {
+    await sb.from('assets').update({pinned: a.pinned}).eq('id', id);
+    flash(a.pinned?'Pinned to Quick Access':'Unpinned');
+    logActivity(a.pinned?'pinned asset':'unpinned asset', a.name);
+    saveData();
+    render();
+  } catch(e){
+    a.pinned = !a.pinned; // revert on error
+    flash('Could not update');
+  }
+}
+
+async function openAssetLink(id){
+  const a = DATA.assets.find(x=>x.id===id);
+  if(!a) return;
+  // increment view counter
+  try {
+    const newViews = (a.views||0)+1;
+    a.views = newViews;
+    sb.from('assets').update({views: newViews}).eq('id', id);
+  } catch(e){}
+  if(a.file_path){
+    try {
+      const {data, error} = await sb.storage.from('assets').createSignedUrl(a.file_path, 3600);
+      if(error) throw error;
+      window.open(data.signedUrl, '_blank');
+    } catch(e){ flash('Could not open file — '+(e.message||'')); }
+  } else if(a.url){
+    window.open(a.url, '_blank');
+  } else {
+    openAsset(id);
+  }
+}
+
+function handleAssetDrop(e){
+  const files = e.dataTransfer.files;
+  if(!files || !files.length) return;
+  openAsset('', '', files[0]);
+}
+
+function openAsset(id, presetCat, droppedFile){
+  const a = id ? DATA.assets.find(x=>x.id===id) : null;
+  const d = a || {name:'', cat:presetCat||'ops', url:'', note:'', by:me(), pinned:false, key_doc:false};
+  const catOpts = ASSET_CATS.map(c=>`<option value="${c.id}" ${d.cat===c.id?'selected':''}>${c.icon} ${c.label}</option>`).join('');
+  const teamOpts = (DATA.team||[]).map(p=>`<option ${d.by===p.name?'selected':''}>${esc(p.name)}</option>`).join('');
+
+  const fileInfo = a && a.file_path ? `<div class="file-attached">
+    <span class="file-ic" style="background:${fileTypeIcon(a.file_type, a.file_name).color}">${fileTypeIcon(a.file_type, a.file_name).icon}</span>
+    <div><div class="file-nm">${esc(a.file_name||'File')}</div>
+      <div class="file-sz">${fmtSize(a.file_size)}</div></div>
+    <button class="btn btn-ghost btn-sm" onclick="removeAssetFile('${a.id}')">Remove</button>
+  </div>` : '';
+
   modal(`
     <div class="modal-h"><h2>${a?'Edit Asset':'Add Asset'}</h2>
       <button class="x" onclick="closeModal()">✕</button></div>
     <div class="modal-b">
       <div class="fld"><label>Name</label>
-        <input id="m-aname" value="${esc(d.name)}" placeholder="e.g. FANZONE Brand Book"></div>
-      <div class="fld"><label>Link or URL</label>
-        <input id="m-aurl" value="${esc(d.url)}" placeholder="Paste the Dropbox, Drive or web link"></div>
-      <div class="row2">
-        <div class="fld"><label>Category</label><select id="m-acat">
-          ${ASSET_CATS.map(c=>`<option ${d.cat===c?'selected':''}>${c}</option>`).join('')}
-        </select></div>
-        <div class="fld"><label>Added by</label><select id="m-aby">
-          ${DATA.team.map(p=>`<option ${d.by===p.name?'selected':''}>${esc(p.name)}</option>`).join('')}
-        </select></div>
+        <input id="m-aname" value="${esc(d.name)}" placeholder="e.g. FANZONE Brand Book, BBK x GO Agreement"></div>
+
+      <div class="fld"><label>Upload a file ${fileInfo?'(replace)':'(optional)'}</label>
+        ${fileInfo}
+        <div class="file-upload-zone">
+          <input type="file" id="m-afile" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.png,.jpg,.jpeg,.gif,.webp,.svg,.mp4,.mov,.zip,.txt,.csv"
+            onchange="handleFileSelect(event)">
+          <label for="m-afile" class="file-upload-label">
+            ${IC.paperclip}<span>Click to choose or drag a file here</span>
+            <small>PDF, Word, Excel, PowerPoint, images, video — up to 25 MB</small>
+          </label>
+          <div id="m-aprogress" class="file-progress"></div>
+        </div>
       </div>
-      <div class="fld"><label>Note</label>
-        <textarea id="m-anote" placeholder="What is it, what is it for…">${esc(d.note)}</textarea></div>
+
+      <div class="fld"><label>Or paste a link instead</label>
+        <input id="m-aurl" value="${esc(d.url||'')}" placeholder="Dropbox, Google Drive, web link…"></div>
+
+      <div class="row2">
+        <div class="fld"><label>Category</label>
+          <select id="m-acat">${catOpts}</select></div>
+        <div class="fld"><label>Added by</label>
+          <select id="m-aby">${teamOpts}</select></div>
+      </div>
+
+      <div class="fld"><label>Note (what is it, what is it for)</label>
+        <textarea id="m-anote" placeholder="A short description…">${esc(d.note||'')}</textarea></div>
+
+      <div class="ast-flags">
+        <label class="flag-toggle">
+          <input type="checkbox" id="m-apinned" ${d.pinned?'checked':''}>
+          <span>${IC.bolt} <b>Pin to Quick Access</b> — shows at the top of Assets for everyone</span>
+        </label>
+        <label class="flag-toggle">
+          <input type="checkbox" id="m-akey" ${d.key_doc?'checked':''}>
+          <span>🔑 <b>Key document</b> — sticks to the top of its category</span>
+        </label>
+      </div>
     </div>
     <div class="modal-f">
       ${a?`<button class="btn btn-danger" onclick="deleteAsset('${a.id}')">Delete</button>`:''}
       <div class="sp"></div>
       <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveAsset('${a?a.id:''}')">${IC.check}Save</button>
+      <button class="btn btn-primary" onclick="saveAsset('${a?a.id:''}')">${IC.check}Save Asset</button>
     </div>`);
   setTimeout(()=>$('#m-aname')&&$('#m-aname').focus(),50);
+  // Pre-stage dropped file
+  if(droppedFile){
+    window._pendingAssetFile = droppedFile;
+    document.querySelector('.file-upload-label span').textContent = droppedFile.name+' — ready to upload';
+    if(!$('#m-aname').value) $('#m-aname').value = droppedFile.name.replace(/\.[^.]+$/,'');
+  } else {
+    window._pendingAssetFile = null;
+  }
 }
-function saveAsset(id){
-  const name=$('#m-aname').value.trim();
+
+function handleFileSelect(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  if(file.size > 26214400){ flash('File too big — 25MB max'); e.target.value=''; return; }
+  window._pendingAssetFile = file;
+  document.querySelector('.file-upload-label span').textContent = file.name+' — ready to upload';
+  if(!$('#m-aname').value) $('#m-aname').value = file.name.replace(/\.[^.]+$/,'');
+}
+
+async function uploadAssetFile(file, assetId){
+  const ext = (file.name.split('.').pop()||'bin').toLowerCase();
+  const path = 'asset-'+assetId+'-'+Date.now()+'.'+ext;
+  const prog = $('#m-aprogress');
+  if(prog) prog.innerHTML = '<div class="prog-bar"><div class="prog-fill" style="width:60%"></div></div><div class="prog-txt">Uploading…</div>';
+  const {error} = await sb.storage.from('assets').upload(path, file, {contentType: file.type, upsert: false});
+  if(error){ if(prog) prog.innerHTML='<div class="prog-err">Upload failed: '+esc(error.message)+'</div>'; throw error; }
+  if(prog) prog.innerHTML='';
+  return {path, name:file.name, size:file.size, type:file.type};
+}
+
+async function saveAsset(id){
+  const name = $('#m-aname').value.trim();
   if(!name){ flash('Give the asset a name'); return; }
-  let url=$('#m-aurl').value.trim();
-  if(url && !/^https?:\/\//i.test(url)) url='https://'+url;
-  const obj={name,url,cat:$('#m-acat').value,by:$('#m-aby').value,note:$('#m-anote').value.trim()};
-  if(id){ Object.assign(DATA.assets.find(a=>a.id===id),obj); logActivity('updated asset',name); }
-  else{ DATA.assets.push({id:uid(),created:todayISO(),...obj}); logActivity('added asset',name); }
-  saveData(); closeModal(); render();
+  let url = $('#m-aurl').value.trim();
+  if(url && !/^https?:\/\//i.test(url)) url = 'https://'+url;
+
+  const obj = {
+    name,
+    url,
+    cat: $('#m-acat').value,
+    by: $('#m-aby').value,
+    note: $('#m-anote').value.trim(),
+    pinned: $('#m-apinned').checked,
+    key_doc: $('#m-akey').checked
+  };
+
+  let assetId = id;
+  if(!assetId){
+    assetId = uid();
+    DATA.assets.push({id:assetId, created:todayISO(), views:0, ...obj});
+  } else {
+    Object.assign(DATA.assets.find(a=>a.id===assetId), obj);
+  }
+
+  // Upload file if one is pending
+  if(window._pendingAssetFile){
+    try {
+      const fileInfo = await uploadAssetFile(window._pendingAssetFile, assetId);
+      const a = DATA.assets.find(x=>x.id===assetId);
+      a.file_path = fileInfo.path;
+      a.file_name = fileInfo.name;
+      a.file_size = fileInfo.size;
+      a.file_type = fileInfo.type;
+      window._pendingAssetFile = null;
+    } catch(e){
+      flash('Asset saved but file upload failed: '+(e.message||''));
+    }
+  }
+
+  logActivity(id?'updated asset':'added asset', name);
+  saveData();
+  closeModal();
+  render();
 }
-function deleteAsset(id){
-  DATA.assets=DATA.assets.filter(a=>a.id!==id);
+
+async function removeAssetFile(id){
+  const a = DATA.assets.find(x=>x.id===id);
+  if(!a || !a.file_path) return;
+  if(!confirm('Remove the attached file?')) return;
+  try {
+    await sb.storage.from('assets').remove([a.file_path]);
+    a.file_path = null; a.file_name = null; a.file_size = null; a.file_type = null;
+    saveData();
+    openAsset(id);
+    flash('File removed');
+  } catch(e){ flash('Could not remove file'); }
+}
+
+async function deleteAsset(id){
+  if(!confirm('Delete this asset?')) return;
+  const a = DATA.assets.find(x=>x.id===id);
+  if(a && a.file_path){
+    try { await sb.storage.from('assets').remove([a.file_path]); } catch(e){}
+  }
+  if(a) logActivity('deleted asset', a.name);
+  DATA.assets = DATA.assets.filter(a=>a.id!==id);
   saveData(); closeModal(); render();
 }
 
