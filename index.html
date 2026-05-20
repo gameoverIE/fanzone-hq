@@ -428,6 +428,151 @@
   .claim-pick{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
     background:var(--yellow);padding:5px 11px;border-radius:6px;flex-shrink:0}
 
+  /* ---------- THIS WEEK view ---------- */
+  .tw-headline{padding:22px 24px;border-radius:14px;margin-bottom:24px;border:1px solid var(--line);position:relative;overflow:hidden}
+  .tw-mood-on-track{background:linear-gradient(135deg,#F3FCF4 0%,#E5F9E8 100%);border-color:#9DD9A2}
+  .tw-mood-tight{background:linear-gradient(135deg,#FFF9E7 0%,#FFF1C7 100%);border-color:#E8C967}
+  .tw-mood-worried{background:linear-gradient(135deg,#FEEFEF 0%,#FDE1E1 100%);border-color:#E89595}
+  .tw-mood-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#3a3a35;margin-bottom:10px}
+  .tw-mood-on-track .tw-mood-label b{color:#15803D}
+  .tw-mood-tight .tw-mood-label b{color:#B45309}
+  .tw-mood-worried .tw-mood-label b{color:#B91C1C}
+  .tw-headline-text{font-size:17.5px;line-height:1.5;color:var(--ink);font-weight:500;letter-spacing:-0.005em}
+  .tw-headline-text b{font-weight:800}
+  .hl-overdue{color:#B91C1C}
+
+  .tw-section{margin-bottom:26px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .tw-section-h{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);background:#fafaf6}
+  .tw-section-h h3{font-size:14px;font-weight:700;margin:0;letter-spacing:-0.005em}
+  .tw-section-sub{font-size:12px;color:var(--muted);font-weight:500;margin-left:2px}
+  .tw-section-h button{margin-left:auto}
+  .tw-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .tw-dot-today{background:var(--yellow);box-shadow:0 0 0 3px rgba(248,250,15,.25)}
+  .tw-dot-mine{background:#2563EB}
+  .tw-dot-flag{background:#DC2626}
+  .tw-dot-week{background:#7C3AED}
+  .tw-dot-shipped{background:#15803D}
+  .tw-dot-note{background:#F59E0B}
+  .tw-section-body{padding:8px}
+  .tw-section-notes .tw-section-body{padding:24px 18px 32px;background:#FAF8E8}
+
+  .tw-task{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:8px;cursor:pointer;transition:.14s}
+  .tw-task:hover{background:#f6f6f0}
+  .tw-task.over{background:rgba(220,38,38,.05)}
+  .tw-task.over:hover{background:rgba(220,38,38,.1)}
+  .tw-status{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .tw-status.idle{background:#9CA3AF}
+  .tw-status.prog{background:var(--yellow)}
+  .tw-status.block{background:#DC2626}
+  .tw-status.done{background:#15803D}
+  .tw-task-body{flex:1;min-width:0}
+  .tw-task-title{font-weight:600;font-size:13.5px;letter-spacing:-0.005em}
+  .tw-task-meta{font-size:11.5px;color:var(--muted);margin-top:2px;font-weight:500}
+  .tw-task-meta b{color:#B91C1C}
+  .ws-mini{font-size:10.5px;background:#eeece4;padding:1px 6px;border-radius:4px;font-weight:600;color:#3a3a35}
+
+  .tw-match{padding:11px 13px;background:#E8F5E9;border-left:3px solid #43A047;border-radius:6px;font-size:13px;margin-bottom:6px;cursor:pointer;font-weight:500}
+  .tw-match:hover{background:#D5EDD8}
+  .tw-meeting{padding:11px 13px;background:#F3F0FF;border-left:3px solid #7C3AED;border-radius:6px;font-size:13px;margin-bottom:6px;font-weight:500}
+
+  .tw-week{padding:14px}
+  .tw-day{margin-bottom:14px}
+  .tw-day:last-child{margin-bottom:0}
+  .tw-day-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3a3a35;margin-bottom:6px;padding-left:4px}
+  .tw-day-items{display:flex;flex-direction:column;gap:4px}
+  .tw-day-item{padding:7px 11px;background:#f8f7f0;border-radius:6px;font-size:12.5px;cursor:pointer;transition:.14s;display:flex;align-items:center;gap:6px}
+  .tw-day-item:hover{background:#f1efe5}
+  .tw-day-item.tw-task-mini.over{background:rgba(220,38,38,.06);color:#7F1D1D}
+  .tw-match-mini{background:#E8F5E9!important}
+  .tw-meet-mini{background:#F3F0FF!important}
+  .tw-day-owner{margin-left:auto;font-size:11px;color:var(--muted);font-weight:500}
+  .tw-day-item .ko{margin-left:auto;font-size:11.5px;color:var(--muted);font-weight:600}
+  .tw-day-more{font-size:11px;color:var(--muted);font-style:italic;padding:4px 11px;font-weight:500}
+
+  .tw-shipped{padding:10px 18px 14px}
+  .tw-ship-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .tw-ship-row:last-child{border-bottom:none}
+  .tw-ship-row b{font-weight:700}
+  .ship-detail{color:#3a3a35;font-weight:500}
+  .ship-time{margin-left:auto;font-size:11.5px;color:var(--soft);font-weight:500}
+
+  .tw-notes-mini{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+
+  /* ---------- NOTICEBOARD (post-its) ---------- */
+  .notice-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:22px;padding-bottom:0}
+  .notice-toolbar .chip{display:inline-flex;align-items:center;gap:8px}
+  .chip-count{background:#272725;color:#fff;font-size:10px;padding:1px 6px;border-radius:8px;font-weight:700}
+  .chip.on .chip-count{background:#0A0A0A}
+
+  .notice-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px;padding:8px 4px 40px;
+    background:repeating-linear-gradient(45deg,#F0EBDC 0,#F0EBDC 12px,#EDE8D6 12px,#EDE8D6 24px);
+    border-radius:14px;padding:32px 24px}
+
+  .notice{position:relative;padding:38px 18px 16px;border-radius:3px;border:1px solid;
+    box-shadow:0 4px 14px rgba(0,0,0,.18),0 1px 3px rgba(0,0,0,.1);cursor:pointer;
+    transition:transform .2s ease,box-shadow .2s ease;
+    font-family:'Inter',sans-serif}
+  .notice:hover{transform:rotate(0deg)!important;box-shadow:0 8px 20px rgba(0,0,0,.25),0 2px 5px rgba(0,0,0,.12);z-index:2}
+  .notice-tape{position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(-1deg);width:64px;height:18px;
+    box-shadow:0 1px 3px rgba(0,0,0,.15);opacity:.85}
+  .notice-done{opacity:.55;filter:saturate(.6)}
+  .notice-done .notice-text{text-decoration:line-through;text-decoration-thickness:1.5px}
+  .notice-urgent{box-shadow:0 4px 14px rgba(220,38,38,.3),0 1px 3px rgba(220,38,38,.2),0 0 0 2px #DC2626!important}
+  .notice-urgent-flag{position:absolute;top:8px;right:-6px;background:#DC2626;color:#fff;font-size:9.5px;font-weight:800;
+    padding:4px 9px;border-radius:3px;letter-spacing:.06em;display:flex;align-items:center;gap:4px;
+    box-shadow:0 2px 5px rgba(0,0,0,.2)}
+  .notice-urgent-flag svg{width:11px;height:11px}
+  .notice-meta{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#3a3a35;margin-bottom:8px;flex-wrap:wrap}
+  .notice-from,.notice-to{display:inline-flex;align-items:center;gap:4px}
+  .notice-meta .av{width:16px;height:16px;font-size:8px;border:1.5px solid rgba(0,0,0,.15)}
+  .notice-arrow{color:#5a5a52;font-weight:400}
+  .notice-for-me{background:#0A0A0A;color:var(--yellow);font-size:9px;font-weight:800;padding:2px 6px;border-radius:3px;letter-spacing:.08em;margin-left:auto}
+  .notice-text{font-size:14.5px;line-height:1.45;color:#0A0A0A;font-weight:500;letter-spacing:-0.005em;
+    white-space:pre-wrap;word-wrap:break-word;margin-bottom:14px}
+  .notice-foot{display:flex;align-items:center;gap:8px;padding-top:8px;border-top:1px dashed rgba(0,0,0,.15)}
+  .notice-time{font-size:10.5px;color:#5a5a52;font-weight:600}
+  .notice-action{margin-left:auto;background:rgba(0,0,0,.1);border:none;font-family:inherit;font-size:10.5px;
+    font-weight:700;color:#0A0A0A;padding:5px 10px;border-radius:5px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;
+    transition:.14s}
+  .notice-action:hover{background:#0A0A0A;color:#fff}
+  .notice-action svg{width:11px;height:11px}
+  .notice-actioned{margin-left:auto;font-size:10.5px;color:#15803D;font-weight:700}
+
+  .color-row{display:flex;gap:8px;align-items:center;padding:6px 0}
+  .color-pick{width:32px;height:32px;border-radius:6px;border:2px solid;cursor:pointer;transition:.14s;background:transparent}
+  .color-pick:hover{transform:scale(1.1)}
+  .color-pick.on{box-shadow:0 0 0 2px #0A0A0A,0 0 0 4px var(--yellow)}
+
+  /* ---------- SUBTASKS / CHECKLIST ---------- */
+  .lbl-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .sub-progress{font-size:11.5px;font-weight:700;color:#15803D;background:#E5F9E8;padding:3px 9px;border-radius:8px}
+  .sub-progress-empty{font-size:11.5px;color:var(--soft);font-style:italic;font-weight:500}
+  .subtasks{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+  .subtask{display:flex;align-items:center;gap:10px;padding:8px 10px;background:#fafaf6;border-radius:6px;transition:.14s}
+  .subtask:hover{background:#f1efe5}
+  .subtask.sub-done{opacity:.55}
+  .subtask.sub-done .sub-text{text-decoration:line-through}
+  .sub-check{width:20px;height:20px;border:2px solid #c7c4b3;border-radius:5px;background:#fff;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;transition:.14s;flex-shrink:0;padding:0}
+  .sub-check:hover{border-color:#0A0A0A}
+  .sub-check.on{background:#15803D;border-color:#15803D;color:#fff}
+  .sub-check svg{width:13px;height:13px}
+  .sub-text{flex:1;font-size:13px;color:var(--ink);font-weight:500}
+  .sub-del{background:none;border:none;color:var(--soft);font-size:14px;cursor:pointer;padding:0 4px;opacity:.4;transition:.14s}
+  .sub-del:hover{opacity:1;color:#DC2626}
+  .sub-add{display:flex;gap:6px;align-items:center}
+  .sub-add input{flex:1;font-family:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:6px}
+  .sub-templates{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
+  .sub-tpl-label{font-size:11px;color:var(--muted);font-weight:600}
+  .sub-tpl{background:#f1efe5;border:1px solid var(--line);font-family:inherit;font-size:11.5px;font-weight:600;
+    padding:4px 10px;border-radius:5px;cursor:pointer;color:var(--ink);transition:.14s}
+  .sub-tpl:hover{background:var(--yellow);border-color:var(--yellow)}
+
+  .sub-badge{display:inline-flex;align-items:center;gap:3px;background:#eeece4;color:#3a3a35;
+    font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:8px}
+  .sub-badge svg{width:10px;height:10px}
+  .sub-badge.sub-done{background:#E5F9E8;color:#15803D}
+
   /* ---------- invoices ---------- */
   .inv-tabs{display:flex;gap:6px;align-items:center;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:0}
   .inv-tab{background:transparent;border:none;padding:11px 16px 13px;font-family:inherit;
@@ -1036,7 +1181,11 @@ const IC = {
   timeline:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-12 2 4h3"/></svg>',
   invoice:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18l3-2 3 2 3-2 3 2 3-2V3z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>',
   paperclip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5l-9.5 9.5a5 5 0 01-7-7L13.5 4.5a3 3 0 014 4L9 17a1.5 1.5 0 01-2-2l7.5-7.5"/></svg>',
-  handshake:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-2 2a2.83 2.83 0 01-4-4l6-6a2.83 2.83 0 014 0l3 3 1-1a2.83 2.83 0 014 4l-2 2"/><path d="M16 14l-3-3M14 16l-3-3"/></svg>'
+  handshake:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-2 2a2.83 2.83 0 01-4-4l6-6a2.83 2.83 0 014 0l3 3 1-1a2.83 2.83 0 014 4l-2 2"/><path d="M16 14l-3-3M14 16l-3-3"/></svg>',
+  pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16h14v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>',
+  check2:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+  thisweek:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h2M14 14h2M8 18h2M14 18h2"/></svg>'
 };
 
 /* ============================ CONSTANTS ============================ */
@@ -1280,11 +1429,12 @@ let DATA = null;
 let ME = null;            // logged-in profile {id,name,role,email}
 let appStarted = false;
 let ACCOUNTS = null;      // cached profile list for the Accounts view
-let state = {view:'overview',
-  filters:{ws:'',owner:'',status:'',prio:'',q:'',mine:false}, taskView:'list', collapsed:{}};
+let state = {view:'thisweek',
+  filters:{ws:'',owner:'',status:'',prio:'',q:'',mine:false}, taskView:'list', collapsed:{},
+  noteFilter:'all'};
 
 const COLS = {
-  tasks:['id','code','ws','title','owner','prio','status','due','notes','comments'],
+  tasks:['id','code','ws','title','owner','prio','status','due','notes','comments','subtasks'],
   team:['id','name','role','org','phone','email','ws','color','comments'],
   ideas:['id','title','detail','by','status','created'],
   assets:['id','name','cat','url','by','note','created'],
@@ -1297,7 +1447,7 @@ const COLS = {
 function pick(o,keys){ const r={}; keys.forEach(k=>{ if(o[k]!==undefined && o[k]!==null) r[k]=o[k]; }); return r; }
 
 async function loadData(){
-  const [tk,tm,id,as,mt,mx,iv,dl,ac] = await Promise.all([
+  const [tk,tm,id,as,mt,mx,iv,dl,ac,nt] = await Promise.all([
     sb.from('tasks').select('*').order('sort'),
     sb.from('team').select('*').order('sort'),
     sb.from('ideas').select('*').order('sort'),
@@ -1306,13 +1456,16 @@ async function loadData(){
     sb.from('matches').select('*').order('sort'),
     sb.from('invoices').select('*').order('created_at',{ascending:false}),
     sb.from('deals').select('*').order('created_at',{ascending:false}),
-    sb.from('activity').select('*').order('ts',{ascending:false})
+    sb.from('activity').select('*').order('ts',{ascending:false}),
+    sb.from('notes').select('*').order('created_at',{ascending:false})
   ]);
   let d = {tasks:tk.data||[], team:tm.data||[], ideas:id.data||[], assets:as.data||[],
-    meetings:mt.data||[], matches:mx.data||[], invoices:iv.data||[], deals:dl.data||[], log:ac.data||[]};
+    meetings:mt.data||[], matches:mx.data||[], invoices:iv.data||[], deals:dl.data||[],
+    log:ac.data||[], notes:nt.data||[]};
   if(!d.tasks.length){
     const s = seed();
-    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets, meetings:[], matches:[], invoices:[], deals:[], log:[]};
+    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets,
+      meetings:[], matches:[], invoices:[], deals:[], log:[], notes:[]};
     await Promise.all([
       sb.from('tasks').upsert(d.tasks.map((r,i)=>({...pick(r,COLS.tasks),sort:i}))),
       sb.from('team').upsert(d.team.map((r,i)=>({...pick(r,COLS.team),sort:i}))),
@@ -1362,7 +1515,7 @@ async function syncTable(name,arr,keys,ordered){
 let reloadTimer=null;
 function subscribeRealtime(){
   const ch = sb.channel('fanzone-hq-live');
-  ['tasks','team','ideas','assets','meetings','matches','invoices','deals','activity'].forEach(t=>
+  ['tasks','team','ideas','assets','meetings','matches','invoices','deals','activity','notes'].forEach(t=>
     ch.on('postgres_changes',{event:'*',schema:'public',table:t},onRemoteChange));
   ch.subscribe();
 }
@@ -1482,9 +1635,12 @@ function wsProgress(wsId){
 
 /* ============================ NAV ============================ */
 function renderNav(){
+  const unread = (DATA.notes||[]).filter(n=>n.status==='open').length;
   const items=[
-    ['overview','Overview',IC.grid,null],
+    ['thisweek','This Week',IC.thisweek,null],
+    ['overview','Project Health',IC.grid,null],
     ['tasks','Tasks',IC.check,DATA.tasks.length],
+    ['noticeboard','Noticeboard',IC.pin,unread||null],
     ['calendar','Calendar',IC.calendar,null],
     ['matches','Matches',IC.football,(DATA.matches||[]).length||null],
     ['meetings','Meetings',IC.notebook,(DATA.meetings||[]).length||null],
@@ -1514,6 +1670,394 @@ function renderNav(){
   if(ai) ai.style.display = (ME && ME.role==='admin') ? 'flex' : 'none';
 }
 function go(v){ state.view=v; render(); }
+
+/* ============================ THIS WEEK ============================ */
+function renderThisWeek(){
+  const T = DATA.tasks;
+  const today = todayISO();
+  const wkStart = new Date(today+'T00:00');
+  const days = [];
+  for(let i=0;i<7;i++){
+    const d = new Date(wkStart); d.setDate(d.getDate()+i);
+    days.push(d.toISOString().slice(0,10));
+  }
+
+  // Headline status
+  const done = T.filter(t=>t.status==='Done').length;
+  const pct = T.length ? Math.round(done/T.length*100) : 0;
+  const overdue = T.filter(t=>isOverdue(t)).length;
+  const critical = T.filter(t=>t.prio==='High' && t.status!=='Done').length;
+  const dTest = daysUntil('2026-06-11');
+  const opensIn = dTest>0 ? `opens in ${dTest} days` : dTest===0 ? 'opens TODAY' : 'is open';
+
+  // Compose status sentence
+  let mood = 'on-track';
+  if(overdue >= 3 || dTest <= 14 && critical > 12) mood = 'tight';
+  if(overdue >= 6) mood = 'worried';
+  const moodLabel = mood==='on-track'?'on track':mood==='tight'?'getting tight':'needs attention';
+
+  const headline = `FANZONE ${opensIn}. <b>${pct}% complete</b> · ${critical} critical open · <b class="hl-overdue">${overdue} overdue</b>`;
+
+  // Today section
+  const todaysTasks = T.filter(t=>t.due===today && t.status!=='Done');
+  const todaysMatches = (DATA.matches||[]).filter(m=>m.date===today);
+  const todaysMeetings = (DATA.meetings||[]).filter(m=>m.date===today);
+  const isFri = new Date(today+'T00:00').getDay()===5;
+
+  // Week ahead - day by day
+  const weekDays = days.map(d=>{
+    const t = T.filter(tk=>tk.due===d && tk.status!=='Done');
+    const m = (DATA.matches||[]).filter(mt=>mt.date===d);
+    const mtg = (DATA.meetings||[]).filter(mt=>mt.date===d);
+    const wkday = new Date(d+'T00:00').getDay();
+    const isFridayMeet = wkday===5;
+    return {date:d, tasks:t, matches:m, meetings:mtg, fridayMeet:isFridayMeet};
+  });
+
+  // My pile
+  const myName = myTeamName();
+  const myPile = myName
+    ? T.filter(t=>t.owner===myName && t.status!=='Done').sort((a,b)=>{
+        const aOver = isOverdue(a), bOver = isOverdue(b);
+        if(aOver !== bOver) return aOver ? -1 : 1;
+        if(!a.due && !b.due) return 0;
+        if(!a.due) return 1; if(!b.due) return -1;
+        return a.due.localeCompare(b.due);
+      }).slice(0,8)
+    : [];
+
+  // Needs sign-off — high-prio blocked items + invoices pending approval (admin/owner attention)
+  const blocked = T.filter(t=>t.status==='Blocked' && t.prio==='High').slice(0,5);
+  const pendingInv = (DATA.invoices||[]).filter(i=>i.status==='Pending').slice(0,4);
+
+  // Just shipped — last 48 hours of done tasks (via activity log)
+  const cutoff = new Date(Date.now() - 48*3600*1000).toISOString();
+  const shipped = (DATA.log||[])
+    .filter(l => l.action === 'completed task' && l.ts >= cutoff)
+    .slice(0, 8);
+
+  // Open notes for me
+  const myNotes = (DATA.notes||[])
+    .filter(n=>n.status==='open' && (n.to_who===myName || !n.to_who))
+    .slice(0,4);
+
+  const dayLabel = d => {
+    const dt = new Date(d+'T00:00');
+    if(d===today) return 'Today';
+    const tom = new Date(); tom.setDate(tom.getDate()+1);
+    if(d===tom.toISOString().slice(0,10)) return 'Tomorrow';
+    return dt.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short'});
+  };
+
+  const wsTag = ws => `<span class="ws-mini">${esc(wsName(ws))}</span>`;
+  const taskMini = t => `<div class="tw-task ${isOverdue(t)?'over':''}" onclick="openTask('${t.id}')">
+    <span class="tw-status ${ST_CLASS[t.status]}"></span>
+    <div class="tw-task-body">
+      <div class="tw-task-title">${esc(t.title)}</div>
+      <div class="tw-task-meta">${esc(t.owner)} · ${wsTag(t.ws)} ${t.due?'· '+fmtDate(t.due):''}${isOverdue(t)?' · <b>OVERDUE</b>':''}</div>
+    </div>
+    ${avatar(t.owner)}
+  </div>`;
+
+  // Build sections
+  let html = `<div class="tw-headline tw-mood-${mood}">
+    <div class="tw-mood-label">Project status — <b>${moodLabel}</b></div>
+    <div class="tw-headline-text">${headline}</div>
+  </div>`;
+
+  // Today
+  const hasToday = todaysTasks.length || todaysMatches.length || todaysMeetings.length || isFri;
+  if(hasToday){
+    html += `<div class="tw-section">
+      <div class="tw-section-h"><div class="tw-dot tw-dot-today"></div><h3>Today</h3>
+        <span class="tw-section-sub">${fmtDate(today)}</span></div>
+      <div class="tw-section-body">`;
+    if(todaysMatches.length) html += todaysMatches.map(m=>`<div class="tw-match" onclick="openMatch('${m.id}')">
+      ⚽ <b>${esc(m.team_a)} v ${esc(m.team_b)}</b> · ${esc(m.kickoff||'TBC')} · ${esc(m.stage||'')}</div>`).join('');
+    if(isFri && !todaysMeetings.length) html += `<div class="tw-meeting"><b>Friday team meeting</b> · weekly recap</div>`;
+    if(todaysMeetings.length) html += todaysMeetings.map(m=>`<div class="tw-meeting"><b>${esc(m.title||'Meeting')}</b></div>`).join('');
+    if(todaysTasks.length) html += todaysTasks.map(taskMini).join('');
+    html += `</div></div>`;
+  }
+
+  // Notes flagged at me
+  if(myNotes.length){
+    html += `<div class="tw-section tw-section-notes">
+      <div class="tw-section-h"><div class="tw-dot tw-dot-note"></div><h3>Pinned for you</h3>
+        <span class="tw-section-sub">${myNotes.length} on the noticeboard</span>
+        <button class="btn btn-ghost btn-sm" onclick="go('noticeboard')">See all →</button></div>
+      <div class="tw-section-body tw-notes-mini">${myNotes.map(n=>noticeCard(n,true)).join('')}</div>
+    </div>`;
+  }
+
+  // Your pile
+  if(myPile.length){
+    html += `<div class="tw-section">
+      <div class="tw-section-h"><div class="tw-dot tw-dot-mine"></div><h3>Your pile</h3>
+        <span class="tw-section-sub">${myPile.length} open ${myPile.length===1?'task':'tasks'} for ${esc(myName)}</span>
+        <button class="btn btn-ghost btn-sm" onclick="state.filters.mine=true; go('tasks')">All my tasks →</button></div>
+      <div class="tw-section-body">${myPile.map(taskMini).join('')}</div>
+    </div>`;
+  } else if(!myName){
+    html += `<div class="tw-section">
+      <div class="tw-section-h"><div class="tw-dot tw-dot-mine"></div><h3>Your pile</h3></div>
+      <div class="tw-section-body"><div class="empty" style="padding:18px"><p>Claim your team profile first to see tasks assigned to you. Go to <b>Accounts</b> in the sidebar.</p></div></div>
+    </div>`;
+  }
+
+  // Sign-off / attention needed
+  if(blocked.length || pendingInv.length){
+    html += `<div class="tw-section">
+      <div class="tw-section-h"><div class="tw-dot tw-dot-flag"></div><h3>Needs attention</h3>
+        <span class="tw-section-sub">blocked items and invoices waiting for approval</span></div>
+      <div class="tw-section-body">`;
+    blocked.forEach(t => html += taskMini(t));
+    pendingInv.forEach(i => html += `<div class="tw-task" onclick="openInvoice('${i.id}')">
+      <span class="tw-status block"></span>
+      <div class="tw-task-body">
+        <div class="tw-task-title">${esc(i.supplier||'Invoice')} · €${esc(i.amount||'')}</div>
+        <div class="tw-task-meta">Pending approval ${i.due_date?'· due '+fmtDate(i.due_date):''}</div>
+      </div></div>`);
+    html += `</div></div>`;
+  }
+
+  // Week ahead
+  const weekHas = weekDays.slice(1).some(d=>d.tasks.length||d.matches.length||d.meetings.length||d.fridayMeet);
+  if(weekHas){
+    html += `<div class="tw-section">
+      <div class="tw-section-h"><div class="tw-dot tw-dot-week"></div><h3>Week ahead</h3>
+        <span class="tw-section-sub">next 6 days</span></div>
+      <div class="tw-week">`;
+    weekDays.slice(1).forEach(d=>{
+      const hasStuff = d.tasks.length||d.matches.length||d.meetings.length||d.fridayMeet;
+      if(!hasStuff) return;
+      html += `<div class="tw-day">
+        <div class="tw-day-label">${dayLabel(d.date)}</div>
+        <div class="tw-day-items">`;
+      d.matches.forEach(m => html += `<div class="tw-day-item tw-match-mini" onclick="openMatch('${m.id}')">⚽ ${esc(m.team_a)} v ${esc(m.team_b)} <span class="ko">${esc(m.kickoff||'')}</span></div>`);
+      if(d.fridayMeet && !d.meetings.length) html += `<div class="tw-day-item tw-meet-mini">Friday team meeting</div>`;
+      d.meetings.forEach(m => html += `<div class="tw-day-item tw-meet-mini">${esc(m.title||'Meeting')}</div>`);
+      d.tasks.slice(0,4).forEach(t => html += `<div class="tw-day-item tw-task-mini ${isOverdue(t)?'over':''}" onclick="openTask('${t.id}')">${esc(t.title)} <span class="tw-day-owner">${esc(t.owner)}</span></div>`);
+      if(d.tasks.length > 4) html += `<div class="tw-day-more">+${d.tasks.length-4} more</div>`;
+      html += `</div></div>`;
+    });
+    html += `</div></div>`;
+  }
+
+  // Just shipped
+  if(shipped.length){
+    html += `<div class="tw-section">
+      <div class="tw-section-h"><div class="tw-dot tw-dot-shipped"></div><h3>Just shipped</h3>
+        <span class="tw-section-sub">last 48 hours</span></div>
+      <div class="tw-shipped">`;
+    shipped.forEach(s => html += `<div class="tw-ship-row">
+      ${avatar(s.who)}
+      <div><b>${esc(s.who)}</b> completed <span class="ship-detail">${esc(s.detail||'a task')}</span></div>
+      <span class="ship-time">${fmtTs(s.ts)}</span>
+    </div>`);
+    html += `</div></div>`;
+  }
+
+  if(!html.includes('tw-section')) {
+    html += `<div class="empty"><div class="big">Nothing on the radar this week</div>
+      <p>Quiet week — or add some tasks with due dates to see them here.</p></div>`;
+  }
+
+  return html;
+}
+
+/* ============================ NOTICEBOARD ============================ */
+const NOTE_COLORS = {
+  yellow:{bg:'#FFF59E',border:'#E8DD66',tape:'#fff7c2'},
+  pink:  {bg:'#FFC9D7',border:'#F18AAA',tape:'#ffe1ea'},
+  blue:  {bg:'#B9DCFF',border:'#7FB7F0',tape:'#e0eeff'},
+  green: {bg:'#C5EFC6',border:'#85CD89',tape:'#e2f7e3'}
+};
+
+function noticeCard(n, compact){
+  const c = NOTE_COLORS[n.color] || NOTE_COLORS.yellow;
+  const urgent = n.urgency === 'critical';
+  const tilt = (parseInt(n.id.replace(/\D/g,'').slice(-2)||'0',10) % 5) - 2; // -2..+2 deg
+  const fromP = person(n.author);
+  const toP = n.to_who ? person(n.to_who) : null;
+  const isForMe = myTeamName() && n.to_who === myTeamName();
+  const isMine = myTeamName() && n.author === myTeamName();
+  const isDone = n.status !== 'open';
+  return `<div class="notice ${isDone?'notice-done':''} ${urgent?'notice-urgent':''}"
+    style="background:${c.bg};border-color:${c.border};transform:rotate(${tilt}deg)"
+    onclick="openNote('${n.id}')">
+    <div class="notice-tape" style="background:${c.tape}"></div>
+    ${urgent ? `<div class="notice-urgent-flag">${IC.flame} URGENT</div>` : ''}
+    <div class="notice-meta">
+      <span class="notice-from">${avatar(n.author)}<span>${esc(n.author)}</span></span>
+      <span class="notice-arrow">→</span>
+      <span class="notice-to">${toP ? avatar(n.to_who) : ''}<span>${toP ? esc(n.to_who) : 'Everyone'}</span></span>
+      ${isForMe?'<span class="notice-for-me">FOR YOU</span>':''}
+    </div>
+    <div class="notice-text">${esc(n.text)}</div>
+    <div class="notice-foot">
+      <span class="notice-time">${fmtTs(n.created_at)}</span>
+      ${!isDone ? `<button class="notice-action" onclick="event.stopPropagation();actionNote('${n.id}')">${IC.check2} Mark actioned</button>` : `<span class="notice-actioned">Actioned ${n.actioned_by?'by '+esc(n.actioned_by):''}</span>`}
+    </div>
+  </div>`;
+}
+
+function renderNoticeboard(){
+  const myName = myTeamName();
+  const all = DATA.notes||[];
+  const f = state.noteFilter || 'all';
+
+  let list = all;
+  if(f === 'forme') list = all.filter(n => n.status==='open' && (n.to_who===myName || !n.to_who));
+  else if(f === 'byme') list = all.filter(n => n.author===myName);
+  else if(f === 'urgent') list = all.filter(n => n.urgency==='critical' && n.status==='open');
+  else if(f === 'open') list = all.filter(n => n.status==='open');
+  else if(f === 'actioned') list = all.filter(n => n.status==='actioned');
+
+  // Sort: urgent first, then pinned, then newest
+  list = [...list].sort((a,b)=>{
+    const aU = a.urgency==='critical' && a.status==='open' ? 1 : 0;
+    const bU = b.urgency==='critical' && b.status==='open' ? 1 : 0;
+    if(aU!==bU) return bU-aU;
+    const aP = a.pinned?1:0, bP = b.pinned?1:0;
+    if(aP!==bP) return bP-aP;
+    return (b.created_at||'').localeCompare(a.created_at||'');
+  });
+
+  const counts = {
+    all: all.length,
+    forme: all.filter(n=>n.status==='open' && (n.to_who===myName || !n.to_who)).length,
+    byme: all.filter(n=>n.author===myName).length,
+    urgent: all.filter(n=>n.urgency==='critical' && n.status==='open').length,
+    open: all.filter(n=>n.status==='open').length,
+    actioned: all.filter(n=>n.status==='actioned').length
+  };
+
+  const filter = (id, label) => `<button class="chip ${f===id?'on':''}" onclick="setNoteFilter('${id}')">${label} <span class="chip-count">${counts[id]}</span></button>`;
+
+  const toolbar = `<div class="notice-toolbar">
+    ${filter('all','All')}
+    ${filter('forme','For me')}
+    ${filter('byme','By me')}
+    ${filter('urgent','Urgent')}
+    ${filter('open','Active')}
+    ${filter('actioned','Done')}
+  </div>`;
+
+  if(!list.length){
+    return toolbar + `<div class="notice-board"><div class="empty"><div class="big">${f==='all'?'No notes pinned yet':'No notes match this filter'}</div>
+      <p>${f==='all'?'Pin a post-it to flag something important for someone on the team.':''}</p>
+      ${f==='all'?`<button class="btn btn-primary" onclick="openNote('')">${IC.plus}Pin a Note</button>`:''}</div></div>`;
+  }
+
+  return toolbar + `<div class="notice-board">${list.map(n=>noticeCard(n,false)).join('')}</div>`;
+}
+
+function setNoteFilter(id){ state.noteFilter = id; render(); }
+
+function openNote(id){
+  const editing = id ? (DATA.notes||[]).find(n=>n.id===id) : null;
+  const n = editing || {id:'', author:me(), to_who:'', text:'', urgency:'normal', color:'yellow', status:'open', pinned:false};
+  const teamOpts = (DATA.team||[]).map(p=>`<option value="${esc(p.name)}" ${n.to_who===p.name?'selected':''}>${esc(p.name)} — ${esc(p.role||'')}</option>`).join('');
+  const colorPick = ['yellow','pink','blue','green'].map(c=>`
+    <button type="button" class="color-pick ${n.color===c?'on':''}" data-c="${c}" style="background:${NOTE_COLORS[c].bg};border-color:${NOTE_COLORS[c].border}" onclick="document.querySelectorAll('.color-pick').forEach(b=>b.classList.remove('on'));this.classList.add('on');document.getElementById('nt-color').value='${c}';"></button>`).join('');
+
+  modal(`<div class="modal-h">
+    <h2>${editing?'Edit note':'Pin a note'}</h2>
+    <button class="x" onclick="closeModal()">✕</button></div>
+  <div class="modal-b">
+    <label class="lbl">Message</label>
+    <textarea id="nt-text" placeholder="Write the post-it…" style="min-height:90px">${esc(n.text)}</textarea>
+
+    <div class="row2">
+      <div>
+        <label class="lbl">From</label>
+        <input id="nt-from" value="${esc(n.author)}" readonly style="opacity:.7">
+      </div>
+      <div>
+        <label class="lbl">To (leave blank for everyone)</label>
+        <select id="nt-to">
+          <option value="">— Everyone —</option>
+          ${teamOpts}
+        </select>
+      </div>
+    </div>
+
+    <div class="row2">
+      <div>
+        <label class="lbl">Urgency</label>
+        <select id="nt-urgency">
+          <option value="normal" ${n.urgency==='normal'?'selected':''}>Normal</option>
+          <option value="high" ${n.urgency==='high'?'selected':''}>High</option>
+          <option value="critical" ${n.urgency==='critical'?'selected':''}>URGENT — very important</option>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">Color</label>
+        <div class="color-row">${colorPick}<input type="hidden" id="nt-color" value="${n.color}"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-f">
+    ${editing?`<button class="btn btn-ghost" onclick="deleteNote('${editing.id}')">Delete</button>`:''}
+    <div style="flex:1"></div>
+    <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="saveNote('${editing?editing.id:''}')">${editing?'Save':'Pin it'}</button>
+  </div>`);
+}
+
+async function saveNote(id){
+  const text = document.getElementById('nt-text').value.trim();
+  if(!text){ flash('Add some text first'); return; }
+  const to = document.getElementById('nt-to').value;
+  const urgency = document.getElementById('nt-urgency').value;
+  const color = document.getElementById('nt-color').value;
+
+  if(id){
+    try {
+      const {error} = await sb.from('notes').update({text, to_who: to||null, urgency, color}).eq('id', id);
+      if(error) throw error;
+      flash('Note updated');
+    } catch(e){ flash('Could not save'); return; }
+  } else {
+    const newId = 'n-'+Math.random().toString(36).slice(2,8);
+    try {
+      const {error} = await sb.from('notes').insert({id: newId, author: me(), to_who: to||null, text, urgency, color, status:'open'});
+      if(error) throw error;
+      logActivity('pinned note', to ? 'for '+to : 'on noticeboard');
+      saveData();
+      flash('Note pinned');
+    } catch(e){ flash('Could not pin'); return; }
+  }
+
+  closeModal();
+  try { const {data} = await sb.from('notes').select('*').order('created_at',{ascending:false}); DATA.notes = data||[]; } catch(e){}
+  render();
+}
+
+async function actionNote(id){
+  try {
+    const {error} = await sb.from('notes').update({status:'actioned', actioned_at: new Date().toISOString(), actioned_by: me()}).eq('id', id);
+    if(error) throw error;
+    flash('Marked actioned');
+    logActivity('actioned note', '');
+    saveData();
+    try { const {data} = await sb.from('notes').select('*').order('created_at',{ascending:false}); DATA.notes = data||[]; } catch(e){}
+    render();
+  } catch(e){ flash('Could not update'); }
+}
+
+async function deleteNote(id){
+  if(!confirm('Delete this note?')) return;
+  try {
+    const {error} = await sb.from('notes').delete().eq('id', id);
+    if(error) throw error;
+    flash('Note removed');
+    closeModal();
+    try { const {data} = await sb.from('notes').select('*').order('created_at',{ascending:false}); DATA.notes = data||[]; } catch(e){}
+    render();
+  } catch(e){ flash('Could not delete'); }
+}
 
 /* ============================ OVERVIEW ============================ */
 function renderOverview(){
@@ -1702,6 +2246,7 @@ function renderTasks(){
   return toolbar+html;
 }
 function taskRow(t){
+  const sp = subtaskProgress(t);
   return `<div class="task p-${PR_CLASS[t.prio]}" onclick="openTask('${t.id}')">
     <span class="pill ${ST_CLASS[t.status]}">
       <span class="dot"></span>${t.status}</span>
@@ -1710,6 +2255,7 @@ function taskRow(t){
       <div class="sub">
         <span class="id-tag">${esc(t.code)}</span>
         <span class="wstag">${esc(wsName(t.ws))}</span>
+        ${sp.total?`<span class="sub-badge ${sp.done===sp.total?'sub-done':''}">${IC.check2}${sp.done}/${sp.total}</span>`:''}
         ${t.comments&&t.comments.length?`<span class="cmt-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 11.5a8.5 8.5 0 0 1-12 7.7L3 21l1.8-6A8.5 8.5 0 1 1 21 11.5z"/></svg>${t.comments.length}</span>`:''}
         ${t.notes?`<span class="nt">${esc(t.notes.length>64?t.notes.slice(0,64)+'…':t.notes)}</span>`:''}
       </div>
@@ -1724,18 +2270,22 @@ function taskRow(t){
 function renderBoard(ts){
   const cols=STATUSES.map(s=>{
     const ct=ts.filter(t=>t.status===s);
-    const cards=ct.map(t=>`
+    const cards=ct.map(t=>{
+      const sp = subtaskProgress(t);
+      return `
       <div class="tcard p-${PR_CLASS[t.prio]}" draggable="true" data-id="${t.id}"
            ondragstart="dragStart(event)" ondragend="dragEnd(event)" onclick="openTask('${t.id}')">
         <div class="tt">${esc(t.title)}</div>
         <div class="mt">
           <span class="wstag">${esc(wsName(t.ws))}</span>
+          ${sp.total?`<span class="sub-badge ${sp.done===sp.total?'sub-done':''}">${sp.done}/${sp.total}</span>`:''}
           <span class="prio ${PR_CLASS[t.prio]}">${t.prio}</span>
           <span style="margin-left:auto;display:flex;align-items:center;gap:6px">
             ${t.due?`<span class="due ${isOverdue(t)?'over':''}" style="font-size:10.5px">${fmtDate(t.due)}</span>`:''}
             ${personLink(t.owner, avatar(t.owner,'sm'))}</span>
         </div>
-      </div>`).join('') || `<div style="padding:14px;text-align:center;color:var(--soft);font-size:12px">Drop here</div>`;
+      </div>`;
+    }).join('') || `<div style="padding:14px;text-align:center;color:var(--soft);font-size:12px">Drop here</div>`;
     return `<div class="col" data-status="${s}" ondragover="dragOver(event)"
                  ondragleave="dragLeave(event)" ondrop="drop(event)">
       <div class="col-h"><span class="pill ${ST_CLASS[s]}"><span class="dot"></span></span>${s}
@@ -2045,6 +2595,31 @@ function openTask(id){
       <div class="fld"><label>Due date</label><input type="date" id="m-due" value="${esc(d.due)}"></div>
       <div class="fld"><label>Notes / dependencies</label>
         <textarea id="m-notes" placeholder="Context, blockers, who else is involved…">${esc(d.notes)}</textarea></div>
+      ${t?`<div class="fld">
+        <label class="lbl-row"><span>Checklist</span>
+          ${(()=>{const sp=subtaskProgress(t);return sp.total?`<span class="sub-progress">${sp.done}/${sp.total} done</span>`:'<span class="sub-progress-empty">Tick off the steps as you go</span>';})()}
+        </label>
+        <div class="subtasks" id="subtasks-${t.id}">
+          ${(t.subtasks||[]).map(s=>`
+            <div class="subtask ${s.done?'sub-done':''}">
+              <button class="sub-check ${s.done?'on':''}" onclick="toggleSubtask('${t.id}','${s.id}')">${s.done?IC.check2:''}</button>
+              <span class="sub-text">${esc(s.text)}</span>
+              <button class="sub-del" onclick="deleteSubtask('${t.id}','${s.id}')" title="Remove step">✕</button>
+            </div>`).join('')}
+        </div>
+        <div class="sub-add">
+          <input id="sub-new" placeholder="Add a step…"
+            onkeydown="if(event.key==='Enter'){event.preventDefault();addSubtask('${t.id}');}">
+          <button class="btn btn-dark btn-sm" onclick="addSubtask('${t.id}')">Add</button>
+        </div>
+        ${(t.subtasks||[]).length===0?`<div class="sub-templates">
+          <span class="sub-tpl-label">Quick templates:</span>
+          <button class="sub-tpl" onclick="addSubtaskTemplate('${t.id}','contract')">Contract</button>
+          <button class="sub-tpl" onclick="addSubtaskTemplate('${t.id}','print')">Print order</button>
+          <button class="sub-tpl" onclick="addSubtaskTemplate('${t.id}','booking')">Booking</button>
+          <button class="sub-tpl" onclick="addSubtaskTemplate('${t.id}','invoice')">Invoice flow</button>
+        </div>`:''}
+      </div>`:''}
       ${t?`<div class="fld"><label>Comments</label>
         <div class="comments">${(t.comments||[]).map(c=>`
           <div class="cmt">${avatar(c.who,'sm')}
@@ -2100,6 +2675,75 @@ function deleteTask(id){
   if(t) logActivity('deleted task',t.title);
   DATA.tasks=DATA.tasks.filter(t=>t.id!==id);
   saveData(); closeModal(); render();
+}
+
+/* ---------- subtasks (checklists inside tasks) ---------- */
+function subtaskProgress(t){
+  const s = t.subtasks||[];
+  return {done: s.filter(x=>x.done).length, total: s.length};
+}
+function addSubtask(taskId){
+  const inp = document.getElementById('sub-new');
+  if(!inp) return;
+  const text = inp.value.trim();
+  if(!text) return;
+  const t = DATA.tasks.find(x=>x.id===taskId);
+  if(!t) return;
+  if(!t.subtasks) t.subtasks = [];
+  t.subtasks.push({id: uid(), text, done: false});
+  logActivity('added step', t.title+': '+text);
+  saveData();
+  openTask(taskId);
+}
+function addSubtaskTemplate(taskId, tpl){
+  const TPL = {
+    contract: ['Drafted', 'Sent for review', 'Revisions agreed', 'Signed', 'Filed'],
+    print: ['Quoted', 'Approved', 'Ordered', 'In production', 'Received'],
+    booking: ['Initial contact', 'Terms agreed', 'Contract signed', 'Deposit paid', 'Confirmed for date'],
+    invoice: ['Received', 'Approved by me', 'Sent for payment', 'Paid', 'Filed']
+  };
+  const steps = TPL[tpl] || [];
+  const t = DATA.tasks.find(x=>x.id===taskId);
+  if(!t) return;
+  if(!t.subtasks) t.subtasks = [];
+  steps.forEach(s => t.subtasks.push({id: uid(), text: s, done: false}));
+  logActivity('added '+tpl+' checklist', t.title);
+  saveData();
+  openTask(taskId);
+}
+function toggleSubtask(taskId, subId){
+  const t = DATA.tasks.find(x=>x.id===taskId);
+  if(!t) return;
+  const s = (t.subtasks||[]).find(x=>x.id===subId);
+  if(!s) return;
+  s.done = !s.done;
+  if(s.done){ s.done_at = new Date().toISOString(); s.done_by = me(); }
+  else { delete s.done_at; delete s.done_by; }
+  saveData();
+  // Auto-prompt to mark Done when all subtasks done
+  const sp = subtaskProgress(t);
+  if(sp.total && sp.done === sp.total && t.status !== 'Done'){
+    setTimeout(()=>{
+      if(confirm('All steps done! Mark task as complete?')){
+        t.status = 'Done';
+        logActivity('completed task', t.title);
+        saveData();
+        closeModal();
+        render();
+      } else {
+        openTask(taskId);
+      }
+    }, 250);
+  } else {
+    openTask(taskId);
+  }
+}
+function deleteSubtask(taskId, subId){
+  const t = DATA.tasks.find(x=>x.id===taskId);
+  if(!t) return;
+  t.subtasks = (t.subtasks||[]).filter(x=>x.id!==subId);
+  saveData();
+  openTask(taskId);
 }
 
 function openPerson(id){
@@ -2292,10 +2936,14 @@ function renderCalendar(){
 
 /* ============================ RENDER ============================ */
 const VIEWS={
-  overview:{title:'Overview',sub:'Live project health across every workstream',
+  thisweek:{title:'This Week',sub:'What matters right now. Today, this week, your pile, and what just shipped',
+    action:`<button class="btn btn-ghost btn-sm" onclick="go('overview')">Project Health →</button>`},
+  overview:{title:'Project Health',sub:'Live project health across every workstream',
     action:`<button class="btn btn-ghost" onclick="go('meeting')">${IC.print}Meeting Mode</button>`},
   tasks:{title:'Tasks',sub:'',
     action:`<button class="btn btn-primary" onclick="openTask('')">${IC.plus}New Task</button>`},
+  noticeboard:{title:'Noticeboard',sub:'Post-its flagged between team members. Very important things to action or remember',
+    action:`<button class="btn btn-primary" onclick="openNote('')">${IC.plus}Pin a Note</button>`},
   calendar:{title:'Calendar',sub:'Every milestone and deadline laid out by date',
     action:`<button class="btn btn-ghost btn-sm" onclick="calToday()">Today</button>`},
   matches:{title:'Matches',sub:'World Cup 2026 schedule, every match we are showing',
@@ -2381,8 +3029,10 @@ function render(){
   } else $('#vsub').textContent=v.sub;
   $('#vaction').innerHTML=v.action;
   const el=$('#view');
-  if(state.view==='overview') el.innerHTML=renderOverview();
+  if(state.view==='thisweek') el.innerHTML=renderThisWeek();
+  else if(state.view==='overview') el.innerHTML=renderOverview();
   else if(state.view==='tasks') el.innerHTML=renderTasks();
+  else if(state.view==='noticeboard') el.innerHTML=renderNoticeboard();
   else if(state.view==='calendar') el.innerHTML=renderCalendar();
   else if(state.view==='matches') el.innerHTML=renderMatches();
   else if(state.view==='meetings') el.innerHTML=renderMeetings();
@@ -3441,6 +4091,7 @@ function buildAISystem(){
   const ideas = DATA.ideas.map(i=>({id:i.id, title:i.title, status:i.status}));
   const meetings = (DATA.meetings||[]).slice(0,5).map(m=>({id:m.id, date:m.date, title:m.title, notes:m.notes}));
   const matches = (DATA.matches||[]).map(m=>({id:m.id, date:m.date, stage:m.stage, teams:`${m.team_a} vs ${m.team_b}`, kickoff:m.kickoff, status:m.status, venue_note:m.venue_note}));
+  const notes = (DATA.notes||[]).filter(n=>n.status==='open').map(n=>({id:n.id, from:n.author, to:n.to_who||'everyone', text:n.text, urgency:n.urgency}));
   return `You are FANZONE AI, the assistant inside the FANZONE HQ tracker app for FANZONE Ibiza — an outdoor World Cup 2026 fan park at Bam-Bu-Ku on Ibiza. You help the user manage tasks, the team, ideas and assets.
 
 Today: ${today}
@@ -3463,6 +4114,9 @@ ${JSON.stringify(meetings)}
 
 MATCH SCHEDULE (the World Cup 2026 matches the fan park is showing, with id for reference):
 ${JSON.stringify(matches)}
+
+OPEN NOTICEBOARD POST-ITS (active notes flagged between team members):
+${JSON.stringify(notes)}
 
 Respond with ONLY a JSON object — no markdown fences, no preamble, just the JSON. Schema:
 
