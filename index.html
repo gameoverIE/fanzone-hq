@@ -734,14 +734,14 @@
   .ai-actions .btns{display:flex;gap:8px;margin-top:10px}
   .ai-applied{color:#15A34A;font-weight:800;font-size:11px;margin-top:8px;letter-spacing:.04em}
   .ai-input-row{padding:14px;border-top:1px solid var(--line);background:#FAFAF6;display:flex;gap:8px;flex-shrink:0;align-items:flex-end}
-  .ai-input-row textarea{flex:1;border:1px solid var(--line);border-radius:8px;
-    padding:10px 13px;font-family:inherit;font-size:13.5px;background:#fff;
-    resize:none;min-height:40px;max-height:160px;line-height:1.4;overflow-y:auto;
+  .ai-input-row textarea{flex:1;border:1px solid var(--line);border-radius:10px;
+    padding:13px 15px;font-family:inherit;font-size:14px;background:#fff;
+    resize:none;min-height:56px;max-height:220px;line-height:1.5;overflow-y:auto;
     font-weight:500;letter-spacing:-0.005em}
   .ai-input-row textarea:focus{outline:2px solid var(--yellow);outline-offset:-1px}
-  .ai-input-row button{background:#0A0A0A;color:var(--yellow);border:none;border-radius:8px;
-    padding:10px 16px;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer;
-    letter-spacing:.06em;text-transform:uppercase;height:40px;flex-shrink:0}
+  .ai-input-row button{background:#0A0A0A;color:var(--yellow);border:none;border-radius:10px;
+    padding:0 18px;font-family:inherit;font-weight:800;font-size:12px;cursor:pointer;
+    letter-spacing:.06em;text-transform:uppercase;height:56px;flex-shrink:0}
   .ai-hint{font-size:10px;color:var(--soft);padding:4px 14px 0;background:#FAFAF6;text-align:right;letter-spacing:.02em;font-weight:500}
   .ai-setup{padding:18px;border-bottom:1px solid var(--line)}
   .ai-setup h4{font-family:inherit;font-size:14px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
@@ -3047,7 +3047,7 @@ function aiTry(el){ const v = el.textContent; $('#ai-input').value = v; $('#ai-i
 function aiAutoGrow(el){
   if(!el) return;
   el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+  el.style.height = Math.min(el.scrollHeight, 220) + 'px';
 }
 function aiSaveKey(){
   const k = ($('#ai-key-in').value||'').trim();
