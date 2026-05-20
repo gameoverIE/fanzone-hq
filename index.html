@@ -118,6 +118,9 @@
   .stat .meta{font-size:11.5px;color:var(--soft);font-weight:500;margin-top:6px;letter-spacing:-0.005em}
   .stat.accent{background:var(--black);color:#fff}
   .stat.accent .k{color:#8f8f88}
+  .stat.clickable{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+  .stat.clickable:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.08);border-color:#cfcfc8}
+  .stat .stat-flags{font-size:30px;letter-spacing:.12em;line-height:1.05}
   .stat.accent .v{color:var(--yellow)}
   .stat.accent .meta{color:#8f8f88}
   .stat.warn .v{color:var(--block)}
@@ -930,8 +933,7 @@ const MILESTONES = [
   {d:'2026-05-22',label:'Weekly meeting. Sign-offs due'},
   {d:'2026-06-01',label:'All talent confirmed in writing'},
   {d:'2026-06-08',label:'Bingo cards printed. AV test'},
-  {d:'2026-06-11',label:'Pre-launch test event'},
-  {d:'2026-06-12',label:'Tournament opens'},
+  {d:'2026-06-11',label:'FANZONE opens · Mexico v South Africa, tournament kicks off'},
   {d:'2026-07-19',label:'The Final. Kick-off 9pm'}
 ];
 
@@ -1370,22 +1372,28 @@ function renderOverview(){
   const openIdeas=DATA.ideas.filter(i=>i.status!=='Actioned').length;
   const cd=n=>n>0?n+' days':(n===0?'Today':'Passed');
 
+  const overdue = T.filter(t=>isOverdue(t)).length;
+  const nx = nextMatchObj();
+  const nxDays = nx ? Math.max(0, Math.ceil((nx.t.getTime() - Date.now()) / 86400000)) : null;
+  const nxLabel = nx ? (nxDays===0?'today':nxDays===1?'tomorrow':`in ${nxDays} days`) : '';
+
   const stats=`<div class="stats">
-    <div class="stat accent fadeup"><div class="k">Test Event</div>
-      <div class="v">${dTest>0?dTest:(dTest===0?'0':'—')}<small>${dTest>0?' days':''}</small></div>
+    <div class="stat accent fadeup"><div class="k">FANZONE Opens</div>
+      <div class="v">${dTest>0?dTest:(dTest===0?'Today':'Live')}<small>${dTest>0?' days':''}</small></div>
       <div class="meta">11 Jun · Mexico v South Africa</div></div>
-    <div class="stat fadeup" style="animation-delay:.04s"><div class="k">Tournament</div>
-      <div class="v">${dFinal>0?dFinal:'—'}<small> days</small></div>
-      <div class="meta">to the Final, 19 Jul</div></div>
+    <div class="stat fadeup" style="animation-delay:.04s"><div class="k">The Final</div>
+      <div class="v">${dFinal>0?dFinal:'—'}<small>${dFinal>0?' days':''}</small></div>
+      <div class="meta">19 Jul · Kick-off 9pm</div></div>
     <div class="stat fadeup" style="animation-delay:.08s"><div class="corner"></div><div class="k">Complete</div>
       <div class="v">${pct}<small>%</small></div>
       <div class="meta">${done} of ${T.length} tasks done</div></div>
     <div class="stat fadeup" style="animation-delay:.12s"><div class="k">In Progress</div>
       <div class="v">${prog}</div><div class="meta">active right now</div></div>
-    <div class="stat ${block?'warn':''} fadeup" style="animation-delay:.16s"><div class="k">Blocked</div>
-      <div class="v">${block}</div><div class="meta">${block?'needs attention':'all clear'}</div></div>
-    <div class="stat fadeup" style="animation-delay:.2s"><div class="k">Open Ideas</div>
-      <div class="v">${openIdeas}</div><div class="meta">in the pipeline</div></div>
+    <div class="stat ${overdue?'warn':''} fadeup" style="animation-delay:.16s"><div class="k">Overdue</div>
+      <div class="v">${overdue}</div><div class="meta">${overdue?'need chasing':'all on track'}</div></div>
+    <div class="stat fadeup ${nx?'clickable':''}" style="animation-delay:.2s" ${nx?'onclick="go(\'matches\')"':''}><div class="k">Next Match</div>
+      <div class="v stat-flags">${nx?flagOf(nx.m.team_a)+' '+flagOf(nx.m.team_b):'—'}</div>
+      <div class="meta">${nx?esc(nx.m.team_a)+' v '+esc(nx.m.team_b)+' · '+nxLabel:'tournament wrapped'}</div></div>
   </div>`;
 
   // workstream rows
