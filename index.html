@@ -412,6 +412,63 @@
   .acc-row .em{font-size:11.5px;color:var(--muted)}
 
   /* ---------- invoices ---------- */
+  .inv-tabs{display:flex;gap:6px;align-items:center;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:0}
+  .inv-tab{background:transparent;border:none;padding:11px 16px 13px;font-family:inherit;
+    font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);
+    display:inline-flex;align-items:center;gap:8px;letter-spacing:-0.005em;
+    border-bottom:2px solid transparent;margin-bottom:-1px;transition:.14s}
+  .inv-tab svg{width:15px;height:15px}
+  .inv-tab:hover{color:var(--ink)}
+  .inv-tab.on{color:var(--ink);font-weight:700;border-bottom-color:var(--yellow)}
+  .inv-tab .ct{background:#f0f0ec;color:var(--muted);font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:10px;letter-spacing:0}
+  .inv-tab.on .ct{background:#0A0A0A;color:#fff}
+
+  /* deals */
+  .deal-filters{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .deal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+  .deal-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;
+    transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;position:relative;display:flex;flex-direction:column;gap:6px}
+  .deal-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:#cfcfc8}
+  .deal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+  .deal-status{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:5px}
+  .deal-status.status-negotiating{background:#fef3c7;color:#92400e}
+  .deal-status.status-agreed{background:#dbeafe;color:#1e40af}
+  .deal-status.status-active{background:#dcfce7;color:#166534}
+  .deal-status.status-completed{background:#f0f0ec;color:var(--muted)}
+  .deal-status.status-passed{background:#fee2e2;color:#991b1b;text-decoration:line-through}
+  .deal-excl{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .deal-counterparty{font-weight:800;font-size:16px;letter-spacing:-0.015em;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .deal-dir{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .deal-dir.in{background:#15A34A}
+  .deal-dir.out{background:#d97706}
+  .deal-dir.trade{background:#7c3aed}
+  .deal-type{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .deal-value{font-weight:800;font-size:20px;letter-spacing:-0.02em;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px}
+  .deal-desc{font-size:12px;color:var(--ink);font-weight:500;line-height:1.5;margin-top:6px;letter-spacing:-0.005em}
+  .deal-foot{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);font-weight:600;margin-top:auto;padding-top:10px;border-top:1px dashed var(--line)}
+  .deal-contact{color:var(--ink);font-weight:600}
+  .deal-dates{font-weight:500}
+
+  .deal-modal-head{padding:22px 22px 18px;background:linear-gradient(180deg,#fff,#fafaf6);border-bottom:1px solid var(--line);text-align:center}
+  .deal-head-name{font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--ink);margin-bottom:5px}
+  .deal-head-meta{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:18px;letter-spacing:-0.005em}
+  .deal-status-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+  .deal-st-btn{background:#fff;border:1px solid var(--line);border-radius:20px;padding:6px 12px;
+    font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    cursor:pointer;color:var(--muted);transition:.14s}
+  .deal-st-btn:hover{border-color:#bcbcb5;background:#fafaf6}
+  .deal-st-btn.on.negotiating{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+  .deal-st-btn.on.agreed{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
+  .deal-st-btn.on.active{background:#dcfce7;color:#166534;border-color:#86efac}
+  .deal-st-btn.on.completed{background:#e5e5e5;color:#404040;border-color:#a3a3a3}
+  .deal-st-btn.on.passed{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
+
+  @media (max-width:540px){
+    .deal-grid{grid-template-columns:1fr}
+    .inv-tab{padding:11px 10px}
+  }
+
+  /* ---------- invoices old block ---------- */
   .inv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
   .inv-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
   .inv-stat .k{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -961,7 +1018,8 @@ const IC = {
   football:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 3v3l-4 2-1 4 3 3v3M12 6l4 2 1 4-3 3M8 8l-2 1M19 13l-3 0M9 19l1-3M15 19l-1-3"/></svg>',
   timeline:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-12 2 4h3"/></svg>',
   invoice:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18l3-2 3 2 3-2 3 2 3-2V3z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>',
-  paperclip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5l-9.5 9.5a5 5 0 01-7-7L13.5 4.5a3 3 0 014 4L9 17a1.5 1.5 0 01-2-2l7.5-7.5"/></svg>'
+  paperclip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5l-9.5 9.5a5 5 0 01-7-7L13.5 4.5a3 3 0 014 4L9 17a1.5 1.5 0 01-2-2l7.5-7.5"/></svg>',
+  handshake:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 17l-2 2a2.83 2.83 0 01-4-4l6-6a2.83 2.83 0 014 0l3 3 1-1a2.83 2.83 0 014 4l-2 2"/><path d="M16 14l-3-3M14 16l-3-3"/></svg>'
 };
 
 /* ============================ CONSTANTS ============================ */
@@ -1216,12 +1274,13 @@ const COLS = {
   meetings:['id','date','title','notes','by'],
   matches:['id','date','stage','team_a','team_b','kickoff','fanzone_open','end_time','status','venue_note','guestlist','pundits','highlight','notes'],
   invoices:['id','supplier','description','amount','currency','file_path','file_name','status','submitted_by','approved_by','paid_at','due_date','notes','ws'],
+  deals:['id','counterparty','deal_type','value','currency','direction','exclusivity','status','description','payment_terms','rationale','contact_name','contact_email','start_date','end_date','notes','ws'],
   activity:['id','ts','who','action','detail']
 };
 function pick(o,keys){ const r={}; keys.forEach(k=>{ if(o[k]!==undefined && o[k]!==null) r[k]=o[k]; }); return r; }
 
 async function loadData(){
-  const [tk,tm,id,as,mt,mx,iv,ac] = await Promise.all([
+  const [tk,tm,id,as,mt,mx,iv,dl,ac] = await Promise.all([
     sb.from('tasks').select('*').order('sort'),
     sb.from('team').select('*').order('sort'),
     sb.from('ideas').select('*').order('sort'),
@@ -1229,13 +1288,14 @@ async function loadData(){
     sb.from('meetings').select('*').order('date',{ascending:false}),
     sb.from('matches').select('*').order('sort'),
     sb.from('invoices').select('*').order('created_at',{ascending:false}),
+    sb.from('deals').select('*').order('created_at',{ascending:false}),
     sb.from('activity').select('*').order('ts',{ascending:false})
   ]);
   let d = {tasks:tk.data||[], team:tm.data||[], ideas:id.data||[], assets:as.data||[],
-    meetings:mt.data||[], matches:mx.data||[], invoices:iv.data||[], log:ac.data||[]};
+    meetings:mt.data||[], matches:mx.data||[], invoices:iv.data||[], deals:dl.data||[], log:ac.data||[]};
   if(!d.tasks.length){
     const s = seed();
-    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets, meetings:[], matches:[], invoices:[], log:[]};
+    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets, meetings:[], matches:[], invoices:[], deals:[], log:[]};
     await Promise.all([
       sb.from('tasks').upsert(d.tasks.map((r,i)=>({...pick(r,COLS.tasks),sort:i}))),
       sb.from('team').upsert(d.team.map((r,i)=>({...pick(r,COLS.team),sort:i}))),
@@ -1260,6 +1320,7 @@ async function saveData(){
       syncTable('meetings',DATA.meetings||[],COLS.meetings,true),
       syncTable('matches',DATA.matches||[],COLS.matches,true),
       syncTable('invoices',DATA.invoices||[],COLS.invoices,true),
+      syncTable('deals',DATA.deals||[],COLS.deals,true),
       syncTable('activity',DATA.log,COLS.activity,false)
     ]);
     flash('Saved');
@@ -1284,7 +1345,7 @@ async function syncTable(name,arr,keys,ordered){
 let reloadTimer=null;
 function subscribeRealtime(){
   const ch = sb.channel('fanzone-hq-live');
-  ['tasks','team','ideas','assets','meetings','matches','invoices','activity'].forEach(t=>
+  ['tasks','team','ideas','assets','meetings','matches','invoices','deals','activity'].forEach(t=>
     ch.on('postgres_changes',{event:'*',schema:'public',table:t},onRemoteChange));
   ch.subscribe();
 }
@@ -1403,7 +1464,7 @@ function renderNav(){
     ['team','Team',IC.users,DATA.team.length],
     ['ideas','Ideas',IC.bulb,DATA.ideas.length],
     ['assets','Assets',IC.folder,DATA.assets.length],
-    ['invoices','Invoices',IC.invoice,(DATA.invoices||[]).filter(i=>i.status!=='Paid').length||null]
+    ['invoices','Invoices & Deals',IC.invoice,(DATA.invoices||[]).filter(i=>i.status!=='Paid').length||null]
   ];
   if(ME && ME.role==='admin') items.push(['accounts','Accounts',IC.shield,null]);
   $('#nav').innerHTML = `<div class="nav-label">Workspace</div>` + items.map(([v,l,ic,c])=>
@@ -2218,8 +2279,8 @@ const VIEWS={
     action:`<button class="btn btn-primary" onclick="openIdea('')">${IC.plus}Capture Idea</button>`},
   assets:{title:'Assets',sub:'Shared files, folders and links. One home for everything',
     action:`<button class="btn btn-primary" onclick="openAsset('')">${IC.plus}Add Asset</button>`},
-  invoices:{title:'Invoices & Quotes',sub:'Supplier paper trail. Upload, approve, mark paid',
-    action:`<button class="btn btn-primary" onclick="openInvoice('')">${IC.plus}Upload Invoice</button>`},
+  invoices:{title:'Invoices & Deals',sub:'Supplier paper trail and the deals we are doing',
+    action:''},
   meeting:{title:'Meeting Mode',sub:'A clean summary for the Friday meeting',action:''},
   accounts:{title:'Accounts',sub:'Who can log in. Admins manage access',action:''}
 };
@@ -2372,10 +2433,40 @@ function deleteMeeting(id){
   }
 }
 
-/* ============================ INVOICES ============================ */
+/* ============================ INVOICES & DEALS ============================ */
 const INV_COLS = ['Pending','Approved','Paid'];
+const DEAL_STATUS = ['Negotiating','Agreed','Active','Completed','Passed'];
+const DEAL_TYPES = ['Media','Sponsorship','Partnership','Advertising','Trade','Other'];
+const DEAL_DIRECTIONS = ['Money In','Money Out','Trade'];
+const DEAL_EXCLUSIVITY = ['Exclusive','Non-exclusive','Limited','N/A'];
+if(typeof window!=='undefined' && !window.INV_TAB) window.INV_TAB = 'invoices';
+if(typeof window!=='undefined' && !window.DEAL_FILTER) window.DEAL_FILTER = 'all';
+
+function setInvTab(t){ window.INV_TAB = t; render(); }
+function setDealFilter(s){ window.DEAL_FILTER = s; render(); }
 
 function renderInvoices(){
+  const invCount = (DATA.invoices||[]).length;
+  const dealCount = (DATA.deals||[]).length;
+  const tab = window.INV_TAB || 'invoices';
+
+  const tabs = `<div class="inv-tabs">
+    <button class="inv-tab ${tab==='invoices'?'on':''}" onclick="setInvTab('invoices')">
+      ${IC.invoice}<span>Invoices</span><span class="ct">${invCount}</span>
+    </button>
+    <button class="inv-tab ${tab==='deals'?'on':''}" onclick="setInvTab('deals')">
+      ${IC.handshake||IC.users}<span>Deals</span><span class="ct">${dealCount}</span>
+    </button>
+    <div style="flex:1"></div>
+    ${tab==='invoices'
+      ? `<button class="btn btn-primary" onclick="openInvoice('')">${IC.plus}Upload Invoice</button>`
+      : `<button class="btn btn-primary" onclick="openDeal('')">${IC.plus}Add Deal</button>`}
+  </div>`;
+
+  return tabs + (tab==='deals' ? renderDeals() : renderInvoicesList());
+}
+
+function renderInvoicesList(){
   const all = [...(DATA.invoices||[])].sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));
   const totalDue = all.filter(i=>i.status!=='Paid').reduce((s,i)=>s+Number(i.amount||0),0);
   const totalPaid = all.filter(i=>i.status==='Paid').reduce((s,i)=>s+Number(i.amount||0),0);
@@ -2403,6 +2494,190 @@ function renderInvoices(){
 
   return stats + `<div class="inv-board">${board}</div>`;
 }
+
+function renderDeals(){
+  const all = [...(DATA.deals||[])].sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));
+  if(!all.length) return `<div class="empty" style="margin-top:20px">
+    <div class="big">No deals logged yet</div>
+    <p>Track sponsorships, media partnerships, trades and anything you negotiate with outside parties.</p>
+    <button class="btn btn-primary" style="margin-top:18px" onclick="openDeal('')">${IC.plus}Add your first deal</button>
+  </div>`;
+
+  const filt = window.DEAL_FILTER || 'all';
+  const active = all.filter(d=>d.status==='Active' || d.status==='Agreed');
+  const moneyIn = all.filter(d=>d.direction==='Money In' && d.status!=='Passed').reduce((s,d)=>s+Number(d.value||0),0);
+  const moneyOut = all.filter(d=>d.direction==='Money Out' && d.status!=='Passed').reduce((s,d)=>s+Number(d.value||0),0);
+
+  const stats = `<div class="inv-stats">
+    <div class="inv-stat"><div class="k">Active + Agreed</div><div class="v">${active.length}</div><div class="m">deals running</div></div>
+    <div class="inv-stat"><div class="k">Money in</div><div class="v" style="color:#15A34A">€${moneyIn.toLocaleString('en-GB',{minimumFractionDigits:0,maximumFractionDigits:0})}</div><div class="m">sponsorship + media value</div></div>
+    <div class="inv-stat"><div class="k">Money out</div><div class="v" style="color:#d97706">€${moneyOut.toLocaleString('en-GB',{minimumFractionDigits:0,maximumFractionDigits:0})}</div><div class="m">ads + paid placements</div></div>
+  </div>`;
+
+  // Filter chips
+  const counts = {all: all.length};
+  DEAL_STATUS.forEach(s=>{ counts[s] = all.filter(d=>d.status===s).length; });
+  const chips = `<div class="deal-filters">
+    <button class="match-chip ${filt==='all'?'on':''}" onclick="setDealFilter('all')">All <span class="ct">${counts.all}</span></button>
+    ${DEAL_STATUS.filter(s=>counts[s]>0).map(s=>
+      `<button class="match-chip ${filt===s?'on':''}" onclick="setDealFilter('${s}')">${s} <span class="ct">${counts[s]}</span></button>`
+    ).join('')}
+  </div>`;
+
+  const filtered = filt==='all' ? all : all.filter(d=>d.status===filt);
+  const cards = filtered.map(d=>renderDealCard(d)).join('');
+
+  return stats + chips + `<div class="deal-grid">${cards||'<div class="empty"><p>No deals in this filter.</p></div>'}</div>`;
+}
+
+function renderDealCard(d){
+  const sym = d.currency==='GBP'?'£':d.currency==='USD'?'$':'€';
+  const valueDisplay = Number(d.value||0) > 0 ? `${sym}${Number(d.value).toLocaleString('en-GB',{minimumFractionDigits:0,maximumFractionDigits:2})}` : 'Trade';
+  const statusClass = (d.status||'').toLowerCase();
+  const directionDot = d.direction==='Money In'?'<span class="deal-dir in" title="Money in"></span>'
+    : d.direction==='Money Out'?'<span class="deal-dir out" title="Money out"></span>'
+    : '<span class="deal-dir trade" title="Trade"></span>';
+  const dateRange = (d.start_date||d.end_date) ? `<span class="deal-dates">${d.start_date?fmtDate(d.start_date):'—'} → ${d.end_date?fmtDate(d.end_date):'open'}</span>` : '';
+  return `<div class="deal-card" onclick="openDeal('${d.id}')">
+    <div class="deal-head">
+      <span class="deal-status status-${statusClass}">${esc(d.status||'')}</span>
+      ${d.exclusivity && d.exclusivity!=='N/A' ? `<span class="deal-excl">${esc(d.exclusivity)}</span>` : ''}
+    </div>
+    <div class="deal-counterparty">${directionDot}${esc(d.counterparty||'Unnamed deal')}</div>
+    <div class="deal-type">${esc(d.deal_type||'')}</div>
+    <div class="deal-value">${valueDisplay}</div>
+    ${d.description?`<div class="deal-desc">${esc(d.description).slice(0,180)}${d.description.length>180?'…':''}</div>`:''}
+    <div class="deal-foot">
+      ${d.contact_name?`<span class="deal-contact">${esc(d.contact_name)}</span>`:'<span></span>'}
+      ${dateRange}
+    </div>
+  </div>`;
+}
+
+function openDeal(id){
+  const deal = id ? (DATA.deals||[]).find(x=>x.id===id) : null;
+  const d = deal || {counterparty:'',deal_type:'Media',value:'',currency:'EUR',direction:'Trade',exclusivity:'N/A',status:'Negotiating',description:'',payment_terms:'',rationale:'',contact_name:'',contact_email:'',start_date:'',end_date:'',notes:'',ws:'partners'};
+  const sym = d.currency==='GBP'?'£':d.currency==='USD'?'$':'€';
+  const statusClass = (d.status||'').toLowerCase();
+
+  modal(`<div class="modal-h">
+      <h2>${deal?'Deal':'New Deal'}</h2>
+      <button class="x" onclick="closeModal()">✕</button></div>
+    ${deal?`<div class="deal-modal-head">
+      <div class="deal-head-name">${esc(d.counterparty||'Unnamed deal')}</div>
+      <div class="deal-head-meta">${esc(d.deal_type||'')} · ${esc(d.direction||'')} · ${Number(d.value||0)>0?sym+Number(d.value).toLocaleString('en-GB'):'Trade'}</div>
+      <div class="deal-status-row">
+        ${DEAL_STATUS.map(s=>`<button class="deal-st-btn ${d.status===s?'on '+s.toLowerCase():''}" onclick="changeDealStatus('${deal.id}','${s}')">${s}</button>`).join('')}
+      </div>
+    </div>`:''}
+    <div class="modal-b">
+      <div class="row2">
+        <div class="fld"><label>Counterparty</label>
+          <input id="dl-cp" value="${esc(d.counterparty)}" placeholder="e.g. Ibiza Times"></div>
+        <div class="fld"><label>Type</label><select id="dl-type">
+          ${DEAL_TYPES.map(t=>`<option ${d.deal_type===t?'selected':''}>${t}</option>`).join('')}
+        </select></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label>Direction</label><select id="dl-dir">
+          ${DEAL_DIRECTIONS.map(t=>`<option ${d.direction===t?'selected':''}>${t}</option>`).join('')}
+        </select></div>
+        <div class="fld"><label>Exclusivity</label><select id="dl-excl">
+          ${DEAL_EXCLUSIVITY.map(t=>`<option ${d.exclusivity===t?'selected':''}>${t}</option>`).join('')}
+        </select></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label>Value</label>
+          <div style="display:flex;gap:6px"><select id="dl-ccy" style="flex:0 0 80px">
+            ${['EUR','GBP','USD'].map(c=>`<option ${d.currency===c?'selected':''}>${c}</option>`).join('')}
+          </select>
+          <input id="dl-val" type="number" step="0.01" value="${esc(d.value)}" style="flex:1" placeholder="0 if trade"></div></div>
+        <div class="fld"><label>Workstream</label><select id="dl-ws">
+          ${WS.map(w=>`<option value="${w.id}" ${d.ws===w.id?'selected':''}>${esc(w.name)}</option>`).join('')}
+        </select></div>
+      </div>
+      <div class="fld"><label>What the deal entails</label>
+        <textarea id="dl-desc" rows="3" placeholder="Editorial coverage, two posts per week, event listings page, etc.">${esc(d.description||'')}</textarea></div>
+      <div class="fld"><label>Why we are doing this</label>
+        <textarea id="dl-why" rows="2" placeholder="Reach the right audience. Local credibility. Affordable PR. Etc.">${esc(d.rationale||'')}</textarea></div>
+      <div class="fld"><label>Payment terms</label>
+        <input id="dl-pay" value="${esc(d.payment_terms||'')}" placeholder="50% upfront, 50% on completion. Or: bartered."></div>
+      <div class="row2">
+        <div class="fld"><label>Contact</label>
+          <input id="dl-cname" value="${esc(d.contact_name||'')}" placeholder="Their main contact"></div>
+        <div class="fld"><label>Email</label>
+          <input id="dl-cemail" value="${esc(d.contact_email||'')}" placeholder="email@..."></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label>Start date</label>
+          <input id="dl-start" type="date" value="${esc(d.start_date||'')}"></div>
+        <div class="fld"><label>End date</label>
+          <input id="dl-end" type="date" value="${esc(d.end_date||'')}"></div>
+      </div>
+      <div class="fld"><label>Notes</label>
+        <textarea id="dl-notes" rows="3" placeholder="Anything else worth knowing">${esc(d.notes||'')}</textarea></div>
+    </div>
+    <div class="modal-f">
+      ${deal?`<button class="btn btn-ghost" style="color:#DC2626" onclick="deleteDeal('${deal.id}')">Delete</button>`:''}
+      <div style="flex:1"></div>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveDeal('${deal?deal.id:''}')">Save</button>
+    </div>`);
+}
+
+function saveDeal(id){
+  const deal = id ? (DATA.deals||[]).find(x=>x.id===id) : null;
+  const data = deal || {id: uid(), created_at: new Date().toISOString(), status:'Negotiating'};
+  data.counterparty = $('#dl-cp').value.trim();
+  data.deal_type = $('#dl-type').value;
+  data.direction = $('#dl-dir').value;
+  data.exclusivity = $('#dl-excl').value;
+  data.currency = $('#dl-ccy').value;
+  data.value = parseFloat($('#dl-val').value) || 0;
+  data.ws = $('#dl-ws').value;
+  data.description = $('#dl-desc').value;
+  data.rationale = $('#dl-why').value;
+  data.payment_terms = $('#dl-pay').value;
+  data.contact_name = $('#dl-cname').value;
+  data.contact_email = $('#dl-cemail').value;
+  data.start_date = $('#dl-start').value;
+  data.end_date = $('#dl-end').value;
+  data.notes = $('#dl-notes').value;
+  if(!data.counterparty){ flash('Add a counterparty name first'); return; }
+
+  if(!deal){
+    DATA.deals = DATA.deals || [];
+    DATA.deals.unshift(data);
+    logActivity('added deal', data.counterparty);
+  } else {
+    logActivity('updated deal', deal.counterparty);
+  }
+  saveData(); closeModal(); render();
+}
+
+function changeDealStatus(id, status){
+  const deal = (DATA.deals||[]).find(x=>x.id===id);
+  if(!deal) return;
+  deal.status = status;
+  logActivity('moved deal to '+status, deal.counterparty);
+  saveData();
+  closeModal();
+  render();
+  setTimeout(()=>openDeal(id), 50);
+}
+
+function deleteDeal(id){
+  if(!confirm('Delete this deal?')) return;
+  const i = (DATA.deals||[]).findIndex(x=>x.id===id);
+  if(i>=0){
+    const deal = DATA.deals[i];
+    DATA.deals.splice(i,1);
+    logActivity('deleted deal', deal.counterparty);
+    saveData(); closeModal(); render();
+  }
+}
+
+/* ============================ INVOICES ============================ */
 
 function renderInvoiceCard(i){
   const sym = i.currency==='GBP'?'£':i.currency==='USD'?'$':'€';
