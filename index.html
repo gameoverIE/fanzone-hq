@@ -408,6 +408,112 @@
   .acc-row .nm{font-weight:700;font-size:13px}
   .acc-row .em{font-size:11.5px;color:var(--muted)}
 
+  /* ---------- matches ---------- */
+  .next-up-banner{background:linear-gradient(135deg,#0A0A0A 0%,#1f1f1d 100%);color:#fff;
+    padding:18px 22px;border-radius:14px;margin-bottom:20px;display:flex;align-items:center;
+    gap:18px;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative;overflow:hidden}
+  .next-up-banner::after{content:'';position:absolute;right:-20px;top:-20px;width:140px;height:140px;
+    background:radial-gradient(circle,rgba(248,250,15,.15),transparent 70%);pointer-events:none}
+  .next-up-banner.live{background:linear-gradient(135deg,#7a1212 0%,#9b1717 100%)}
+  .next-up-banner.live::before{content:'';position:absolute;top:14px;left:14px;width:8px;height:8px;
+    background:#ff3030;border-radius:50%;animation:livepulse 1.4s infinite}
+  @keyframes livepulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+  .nu-left{flex:1;min-width:0}
+  .nu-label{font-size:10px;font-weight:800;letter-spacing:.22em;color:var(--yellow);text-transform:uppercase}
+  .next-up-banner.live .nu-label{color:#fff}
+  .nu-teams{display:flex;align-items:center;gap:9px;margin-top:8px;font-size:17px;font-weight:700;flex-wrap:wrap}
+  .nu-flag{font-size:26px;line-height:1}
+  .nu-vs{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:0 3px}
+  .nu-meta{font-size:12px;color:rgba(255,255,255,.7);margin-top:6px;letter-spacing:-0.005em}
+  .nu-cd{font-size:26px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--yellow);text-align:right;line-height:1}
+  .next-up-banner.live .nu-cd{color:#fff}
+
+  .match-filters{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .match-chip{background:#fff;border:1px solid var(--line);border-radius:20px;padding:7px 14px;
+    font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;color:var(--ink);
+    display:inline-flex;align-items:center;gap:7px;transition:.14s;letter-spacing:-0.005em}
+  .match-chip:hover{border-color:#bcbcb5;background:#fafaf6}
+  .match-chip.on{background:#0A0A0A;color:#fff;border-color:#0A0A0A}
+  .match-chip .ct{background:#f0f0ec;color:#666;font-size:10.5px;padding:1px 7px;border-radius:10px;font-weight:700}
+  .match-chip.on .ct{background:rgba(255,255,255,.18);color:#fff}
+
+  .match-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+  .match-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+    cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+    position:relative;display:flex;flex-direction:column;gap:0}
+  .match-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.08);border-color:#cfcfc8}
+  .match-card.next{box-shadow:0 0 0 2px var(--yellow),0 14px 32px rgba(248,250,15,.28)}
+  .match-card.next::after{content:'NEXT UP';position:absolute;top:-10px;left:16px;
+    background:var(--yellow);color:#0A0A0A;font-size:9px;font-weight:800;letter-spacing:.14em;
+    padding:3px 9px;border-radius:5px;animation:nextpulse 2.4s ease-in-out infinite}
+  @keyframes nextpulse{0%,100%{transform:translateY(0);box-shadow:0 2px 6px rgba(0,0,0,.1)}50%{transform:translateY(-2px);box-shadow:0 4px 10px rgba(248,250,15,.5)}}
+  .match-card.live{box-shadow:0 0 0 2px #DC2626,0 14px 32px rgba(220,38,38,.25)}
+  .match-card.live::after{content:'LIVE';position:absolute;top:-10px;left:16px;
+    background:#DC2626;color:#fff;font-size:9px;font-weight:800;letter-spacing:.14em;padding:3px 9px;border-radius:5px}
+
+  .match-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:9.5px;
+    font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .match-stage{background:#f0f0ec;color:var(--ink);padding:3px 8px;border-radius:4px}
+  .match-status{font-size:9.5px;color:var(--muted)}
+  .match-status.status-confirmed{color:#15A34A}
+  .match-status.status-tbc{color:var(--muted)}
+  .match-status.status-optional{color:#d97706}
+  .match-status.status-cancelled{color:#DC2626;text-decoration:line-through}
+  .match-date-row{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em;margin-bottom:14px}
+
+  .match-teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:4px 0}
+  .match-team{text-align:center;min-width:0}
+  .match-team .flag{font-size:38px;line-height:1;display:block;margin-bottom:8px}
+  .match-team .nm{font-weight:700;font-size:13px;letter-spacing:-0.01em;color:var(--ink);
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .match-vs{font-weight:700;color:#bcbcb5;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+
+  .match-time{text-align:center;padding:10px 0 4px;margin-top:8px;border-top:1px dashed var(--line)}
+  .match-time .ko-lab{font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:2px}
+  .match-time .ko{font-weight:800;font-size:20px;letter-spacing:-0.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  .match-foot{display:flex;justify-content:space-between;align-items:center;
+    font-size:11px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-weight:500}
+  .match-note{font-size:11.5px;color:var(--ink);margin-top:8px;font-weight:600;letter-spacing:-0.005em}
+  .match-marks{display:inline-flex;gap:5px;align-items:center}
+  .match-mark{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .match-mark.guest{background:#3b82f6}
+  .match-mark.pundit{background:#ef4444}
+  .match-mark.highlight{background:var(--yellow);box-shadow:0 0 0 1px #dcdd0c}
+
+  .match-legend{display:flex;gap:18px;margin-top:18px;font-size:11.5px;color:var(--muted);align-items:center;flex-wrap:wrap}
+  .match-legend .leg{display:flex;align-items:center;gap:7px;font-weight:500}
+
+  .match-fade-in{animation:matchIn .4s ease backwards}
+  @keyframes matchIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  .match-modal-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:24px 22px 22px;background:linear-gradient(180deg,#fff 0%,#fafaf6 100%);gap:18px;
+    border-bottom:1px solid var(--line)}
+  .match-modal-head>div{text-align:center}
+  .match-modal-head .flag{font-size:50px;line-height:1;margin-bottom:8px}
+  .match-modal-head .nm{font-weight:800;font-size:15px;letter-spacing:-0.01em;color:var(--ink)}
+  .match-modal-head .ko-time{font-weight:800;font-size:28px;letter-spacing:-0.025em;color:var(--ink);font-variant-numeric:tabular-nums}
+  .match-modal-head .ko-date{font-size:10.5px;font-weight:800;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+
+  .match-stage-row{padding:11px 22px;background:#fafaf6;border-bottom:1px solid var(--line);
+    font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap;letter-spacing:-0.005em}
+  .match-stage-row b{color:var(--ink);font-weight:700}
+  .match-stage-row .btn-link{background:var(--yellow);color:#0A0A0A;border:none;padding:7px 13px;
+    border-radius:6px;font-family:inherit;font-weight:700;font-size:11px;cursor:pointer;
+    margin-left:auto;letter-spacing:.02em;text-transform:uppercase}
+  .match-stage-row .btn-link:hover{filter:brightness(1.05)}
+
+  @media (max-width:540px){
+    .match-team .flag{font-size:32px}
+    .match-team .nm{font-size:12px}
+    .nu-teams{font-size:14px}
+    .nu-flag{font-size:22px}
+    .nu-cd{font-size:20px}
+    .match-modal-head .flag{font-size:40px}
+    .match-modal-head .ko-time{font-size:22px}
+  }
+
   /* ---------- meetings ---------- */
   .mtg-card{background:#fff;border:1px solid var(--line);border-radius:12px;
     padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
@@ -446,6 +552,12 @@
   .cal-task.blk{background:#FBE9E9;color:#DC2626}
   .cal-task.idle{background:#F0F0EC;color:#555}
   .cal-task:hover{filter:brightness(.95)}
+  .cal-match{font-size:10.5px;padding:3px 7px;border-radius:5px;cursor:pointer;line-height:1.3;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;
+    background:#E8F5EC;color:#15803D;border:1px solid #cce6d5}
+  .cal-match:hover{filter:brightness(.97)}
+  .cal-match small{font-weight:500;color:#15803D;opacity:.7;margin-left:3px}
+  .leg-sw.leg-match{background:#E8F5EC;border:1px solid #cce6d5}
   .cal-more{font-size:10px;color:var(--muted);font-weight:700}
   .cal-meet{font-size:10px;color:var(--muted);font-style:italic}
   .cal-legend{display:flex;gap:18px;margin-top:14px;font-size:11.5px;color:var(--muted);align-items:center;flex-wrap:wrap}
@@ -713,7 +825,8 @@ const IC = {
   shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>',
   calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>',
   spark:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L18.7 9l-5.1 1.9L12 16l-1.6-5.1L5.3 9l5.1-1.9z"/><path d="M19 14l.9 2.5L22.5 17l-2.6.9L19 20l-.9-2.1L15.5 17l2.6-.5z"/></svg>',
-  notebook:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4v16a2 2 0 0 0 2 2h12V2H6a2 2 0 0 0-2 2z"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>'
+  notebook:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4v16a2 2 0 0 0 2 2h12V2H6a2 2 0 0 0-2 2z"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>',
+  football:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 3v3l-4 2-1 4 3 3v3M12 6l4 2 1 4-3 3M8 8l-2 1M19 13l-3 0M9 19l1-3M15 19l-1-3"/></svg>'
 };
 
 /* ============================ CONSTANTS ============================ */
@@ -750,6 +863,21 @@ const MILESTONES = [
   {d:'2026-06-12',label:'Tournament opens'},
   {d:'2026-07-19',label:'The Final. Kick-off 9pm'}
 ];
+
+const FLAGS = {
+  'Mexico':'🇲🇽','South Africa':'🇿🇦','Netherlands':'🇳🇱','Japan':'🇯🇵',
+  'Spain':'🇪🇸','Cape Verde':'🇨🇻','France':'🇫🇷','Senegal':'🇸🇳',
+  'England':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Croatia':'🇭🇷','Sweden':'🇸🇪','Germany':'🇩🇪',
+  'Ivory Coast':'🇨🇮','Saudi Arabia':'🇸🇦','Argentina':'🇦🇷','Austria':'🇦🇹',
+  'Iraq':'🇮🇶','Ghana':'🇬🇭','Ecuador':'🇪🇨','Jordan':'🇯🇴','Panama':'🇵🇦'
+};
+function flagOf(team){ return FLAGS[team] || '⚪'; }
+
+const STAGE_NAMES = {
+  'Group':'Group Stage', 'R32':'Round of 32', 'R16':'Round of 16',
+  'QF':'Quarter Finals', 'SF':'Semi Finals', '3rd':'Third Place', 'Final':'The Final'
+};
+const STAGE_ORDER = ['Group','R32','R16','QF','SF','3rd','Final'];
 
 /* ============================ SEED DATA ============================ */
 function seed(){
@@ -953,24 +1081,26 @@ const COLS = {
   ideas:['id','title','detail','by','status','created'],
   assets:['id','name','cat','url','by','note','created'],
   meetings:['id','date','title','notes','by'],
+  matches:['id','date','stage','team_a','team_b','kickoff','fanzone_open','end_time','status','venue_note','guestlist','pundits','highlight','notes'],
   activity:['id','ts','who','action','detail']
 };
 function pick(o,keys){ const r={}; keys.forEach(k=>{ if(o[k]!==undefined && o[k]!==null) r[k]=o[k]; }); return r; }
 
 async function loadData(){
-  const [tk,tm,id,as,mt,ac] = await Promise.all([
+  const [tk,tm,id,as,mt,mx,ac] = await Promise.all([
     sb.from('tasks').select('*').order('sort'),
     sb.from('team').select('*').order('sort'),
     sb.from('ideas').select('*').order('sort'),
     sb.from('assets').select('*').order('sort'),
     sb.from('meetings').select('*').order('date',{ascending:false}),
+    sb.from('matches').select('*').order('sort'),
     sb.from('activity').select('*').order('ts',{ascending:false})
   ]);
   let d = {tasks:tk.data||[], team:tm.data||[], ideas:id.data||[], assets:as.data||[],
-    meetings:mt.data||[], log:ac.data||[]};
+    meetings:mt.data||[], matches:mx.data||[], log:ac.data||[]};
   if(!d.tasks.length){
     const s = seed();
-    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets, meetings:[], log:[]};
+    d = {tasks:s.tasks, team:s.team, ideas:s.ideas, assets:s.assets, meetings:[], matches:[], log:[]};
     await Promise.all([
       sb.from('tasks').upsert(d.tasks.map((r,i)=>({...pick(r,COLS.tasks),sort:i}))),
       sb.from('team').upsert(d.team.map((r,i)=>({...pick(r,COLS.team),sort:i}))),
@@ -993,6 +1123,7 @@ async function saveData(){
       syncTable('ideas',DATA.ideas,COLS.ideas,true),
       syncTable('assets',DATA.assets,COLS.assets,true),
       syncTable('meetings',DATA.meetings||[],COLS.meetings,true),
+      syncTable('matches',DATA.matches||[],COLS.matches,true),
       syncTable('activity',DATA.log,COLS.activity,false)
     ]);
     flash('Saved');
@@ -1017,7 +1148,7 @@ async function syncTable(name,arr,keys,ordered){
 let reloadTimer=null;
 function subscribeRealtime(){
   const ch = sb.channel('fanzone-hq-live');
-  ['tasks','team','ideas','assets','meetings','activity'].forEach(t=>
+  ['tasks','team','ideas','assets','meetings','matches','activity'].forEach(t=>
     ch.on('postgres_changes',{event:'*',schema:'public',table:t},onRemoteChange));
   ch.subscribe();
 }
@@ -1129,6 +1260,7 @@ function renderNav(){
     ['overview','Overview',IC.grid,null],
     ['tasks','Tasks',IC.check,DATA.tasks.length],
     ['calendar','Calendar',IC.calendar,null],
+    ['matches','Matches',IC.football,(DATA.matches||[]).length||null],
     ['meetings','Meetings',IC.notebook,(DATA.meetings||[]).length||null],
     ['deadlines','Deadlines',IC.clock,DATA.tasks.filter(t=>isOverdue(t)).length||null],
     ['team','Team',IC.users,DATA.team.length],
@@ -1872,6 +2004,8 @@ function renderCalendar(){
   const totalCells = Math.ceil((firstWeekday + daysInMonth)/7) * 7;
   const byDay = {};
   DATA.tasks.forEach(t=>{ if(t.due){ (byDay[t.due]=byDay[t.due]||[]).push(t); } });
+  const matchesByDay = {};
+  (DATA.matches||[]).forEach(m=>{ if(m.date){ (matchesByDay[m.date]=matchesByDay[m.date]||[]).push(m); } });
   const msByDay = Object.fromEntries(MILESTONES.map(m=>[m.d, m.label]));
   const todayIso = todayISO();
   let cells = '';
@@ -1885,14 +2019,18 @@ function renderCalendar(){
     const isFriday = d.getDay() === 5;
     const ms = msByDay[iso];
     const tasks = byDay[iso] || [];
+    const matches = matchesByDay[iso] || [];
     let items = '';
     if(ms) items += `<div class="cal-ms">${esc(ms)}</div>`;
-    tasks.slice(0,3).forEach(t=>{
-      const cls = t.status==='Done'?'done':t.status==='In Progress'?'prog':t.status==='Blocked'?'blk':'idle';
-      items += `<div class="cal-task ${cls}" onclick="openTask('${t.id}')" title="${esc(t.title)}">${esc(t.title)}</div>`;
+    matches.forEach(m=>{
+      items += `<div class="cal-match" onclick="event.stopPropagation();openMatch('${m.id}')" title="${esc(m.team_a)} vs ${esc(m.team_b)}">${flagOf(m.team_a)} v ${flagOf(m.team_b)} <small>${esc(m.kickoff||'')}</small></div>`;
     });
-    if(tasks.length>3) items += `<div class="cal-more">+${tasks.length-3} more</div>`;
-    if(isFriday && !ms && tasks.length===0) items += `<div class="cal-meet">Weekly meeting</div>`;
+    tasks.slice(0,2).forEach(t=>{
+      const cls = t.status==='Done'?'done':t.status==='In Progress'?'prog':t.status==='Blocked'?'blk':'idle';
+      items += `<div class="cal-task ${cls}" onclick="event.stopPropagation();openTask('${t.id}')" title="${esc(t.title)}">${esc(t.title)}</div>`;
+    });
+    if(tasks.length>2) items += `<div class="cal-more">+${tasks.length-2} more</div>`;
+    if(isFriday && !ms && tasks.length===0 && matches.length===0) items += `<div class="cal-meet">Weekly meeting</div>`;
     cells += `<div class="cal-day ${isToday?'cal-today':''}"><div class="cal-num">${dayNum}</div>${items}</div>`;
   }
   const monthName = M.toLocaleString('en',{month:'long',year:'numeric'});
@@ -1907,9 +2045,10 @@ function renderCalendar(){
   </div>
   <div class="cal-legend">
     <span class="leg"><span class="leg-sw leg-ms"></span>Milestone</span>
+    <span class="leg"><span class="leg-sw leg-match"></span>Match</span>
     <span class="leg"><span class="leg-sw leg-task"></span>Task deadline</span>
     <span class="leg"><span class="leg-sw leg-today"></span>Today</span>
-    <span class="leg" style="margin-left:auto;color:var(--soft);font-style:italic">Click any task to open it</span>
+    <span class="leg" style="margin-left:auto;color:var(--soft);font-style:italic">Tap a chip to open</span>
   </div>`;
 }
 
@@ -1921,6 +2060,8 @@ const VIEWS={
     action:`<button class="btn btn-primary" onclick="openTask('')">${IC.plus}New Task</button>`},
   calendar:{title:'Calendar',sub:'Every milestone and deadline laid out by date',
     action:`<button class="btn btn-ghost btn-sm" onclick="calToday()">Today</button>`},
+  matches:{title:'Matches',sub:'World Cup 2026 schedule, every match we are showing',
+    action:''},
   meetings:{title:'Meetings',sub:'Recap notes from weekly meetings, newest first',
     action:`<button class="btn btn-primary" onclick="openMeeting('')">${IC.plus}Add Recap</button>`},
   deadlines:{title:'Deadlines',sub:'Everything open, sorted by when it is due',
@@ -1986,6 +2127,7 @@ function render(){
   if(state.view==='overview') el.innerHTML=renderOverview();
   else if(state.view==='tasks') el.innerHTML=renderTasks();
   else if(state.view==='calendar') el.innerHTML=renderCalendar();
+  else if(state.view==='matches') el.innerHTML=renderMatches();
   else if(state.view==='meetings') el.innerHTML=renderMeetings();
   else if(state.view==='deadlines') el.innerHTML=renderDeadlines();
   else if(state.view==='team') el.innerHTML=renderTeam();
@@ -2076,6 +2218,258 @@ function deleteMeeting(id){
     const t = DATA.meetings[i].title;
     DATA.meetings.splice(i,1);
     logActivity('deleted meeting recap',t);
+    saveData(); closeModal(); render();
+  }
+}
+
+/* ============================ MATCHES ============================ */
+let MATCH_FILTER = 'all';
+let MATCH_TICK = null;
+
+function matchDateTime(m){
+  if(!m.date) return null;
+  const [y,mo,d] = m.date.split('-').map(Number);
+  if(!m.kickoff) return new Date(y, mo-1, d, 21, 0);
+  const [h,mn] = m.kickoff.split(':').map(Number);
+  let day = d;
+  if(h < 5) day = d + 1;
+  return new Date(y, mo-1, day, h, mn);
+}
+function isMatchLive(m){
+  const ko = matchDateTime(m);
+  if(!ko) return false;
+  const now = Date.now();
+  return now >= ko.getTime() && now <= ko.getTime() + 2.5*60*60*1000;
+}
+function nextMatchObj(){
+  const now = Date.now();
+  return (DATA.matches||[])
+    .filter(m => m.status !== 'Optional')
+    .map(m => ({m, t: matchDateTime(m)}))
+    .filter(x => x.t && x.t.getTime() > now)
+    .sort((a,b) => a.t - b.t)[0];
+}
+function countdownText(target){
+  const ms = target - Date.now();
+  if(ms < 0) return 'kicking off';
+  const days = Math.floor(ms / 86400000);
+  const hours = Math.floor((ms % 86400000) / 3600000);
+  const mins = Math.floor((ms % 3600000) / 60000);
+  if(days >= 1) return `${days}d ${hours}h`;
+  if(hours >= 1) return `${hours}h ${mins}m`;
+  return `${mins}m`;
+}
+function gotoMatchDate(date){
+  if(!date) return;
+  const [y,mo] = date.split('-').map(Number);
+  CAL_MONTH = new Date(y, mo-1, 1);
+  closeModal();
+  state.view = 'calendar';
+  render();
+}
+function setMatchFilter(s){ MATCH_FILTER = s; render(); }
+
+function fmtMatchDate(iso){
+  if(!iso) return '';
+  const d = new Date(iso+'T00:00:00');
+  return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'}).toUpperCase();
+}
+
+function renderMatches(){
+  const all = [...(DATA.matches||[])].sort((a,b)=>(a.sort||0)-(b.sort||0));
+  if(!all.length) return `<div class="empty"><div class="big">No matches yet</div>
+    <p>Match schedule will appear here once it is added.</p></div>`;
+
+  // Filter chips
+  const counts = {all: all.length};
+  STAGE_ORDER.forEach(s=>{ counts[s] = all.filter(m=>m.stage===s).length; });
+  const chips = `<div class="match-filters">
+    <button class="match-chip ${MATCH_FILTER==='all'?'on':''}" onclick="setMatchFilter('all')">All <span class="ct">${counts.all}</span></button>
+    ${STAGE_ORDER.filter(s=>counts[s]>0).map(s=>
+      `<button class="match-chip ${MATCH_FILTER===s?'on':''}" onclick="setMatchFilter('${s}')">${esc(STAGE_NAMES[s])} <span class="ct">${counts[s]}</span></button>`
+    ).join('')}
+  </div>`;
+
+  // Next-up banner
+  const nx = nextMatchObj();
+  let banner = '';
+  if(nx){
+    const m = nx.m;
+    const live = isMatchLive(m);
+    banner = `<div class="next-up-banner ${live?'live':''}">
+      <div class="nu-left">
+        <div class="nu-label">${live?'LIVE NOW':'NEXT UP'}</div>
+        <div class="nu-teams">
+          <span class="nu-flag">${flagOf(m.team_a)}</span>
+          <span class="nu-name">${esc(m.team_a)}</span>
+          <span class="nu-vs">vs</span>
+          <span class="nu-name">${esc(m.team_b)}</span>
+          <span class="nu-flag">${flagOf(m.team_b)}</span>
+        </div>
+        <div class="nu-meta">${esc(STAGE_NAMES[m.stage]||m.stage)} · ${esc(fmtMatchDate(m.date))} · Kick-off ${esc(m.kickoff||'TBC')}</div>
+      </div>
+      <div class="nu-cd" id="nu-cd" data-target="${nx.t.toISOString()}">${live?'LIVE':countdownText(nx.t.getTime())}</div>
+    </div>`;
+  }
+
+  // Filter
+  const shown = MATCH_FILTER==='all' ? all : all.filter(m=>m.stage===MATCH_FILTER);
+  const nextId = nx ? nx.m.id : null;
+
+  const cards = shown.map((m,i)=>{
+    const isNext = m.id === nextId;
+    const live = isMatchLive(m);
+    const indicators = [];
+    if(m.guestlist) indicators.push('<span class="match-mark guest" title="Guestlist"></span>');
+    if(m.pundits) indicators.push('<span class="match-mark pundit" title="Pundits"></span>');
+    if(m.highlight) indicators.push('<span class="match-mark highlight" title="Special"></span>');
+    const statusClass = (m.status||'').toLowerCase().replace(/\s+/g,'-');
+    const fanzoneTime = m.fanzone_open ? `Fanzone ${esc(m.fanzone_open)}${m.end_time?' → '+esc(m.end_time):''}` : '';
+    return `<div class="match-card ${isNext?'next':''} ${live?'live':''} match-fade-in"
+      style="animation-delay:${Math.min(i*40,400)}ms" onclick="openMatch('${m.id}')">
+      <div class="match-head">
+        <span class="match-stage">${esc(STAGE_NAMES[m.stage]||m.stage)}</span>
+        <span class="match-status status-${statusClass}">${esc(m.status||'')}</span>
+      </div>
+      <div class="match-date-row">${esc(fmtMatchDate(m.date))}</div>
+      <div class="match-teams">
+        <div class="match-team">
+          <span class="flag">${flagOf(m.team_a)}</span>
+          <div class="nm">${esc(m.team_a)}</div>
+        </div>
+        <div class="match-vs">VS</div>
+        <div class="match-team">
+          <span class="flag">${flagOf(m.team_b)}</span>
+          <div class="nm">${esc(m.team_b)}</div>
+        </div>
+      </div>
+      <div class="match-time">
+        <div class="ko-lab">Kick-off</div>
+        <div class="ko">${esc(m.kickoff||'TBC')}</div>
+      </div>
+      ${(fanzoneTime || m.venue_note) ? `<div class="match-foot">
+        ${fanzoneTime ? `<span>${fanzoneTime}</span>` : '<span></span>'}
+        ${indicators.length ? `<span class="match-marks">${indicators.join('')}</span>` : ''}
+      </div>` : ''}
+      ${m.venue_note ? `<div class="match-note">${esc(m.venue_note)}</div>` : ''}
+    </div>`;
+  }).join('');
+
+  // Start the live ticker
+  if(!MATCH_TICK){
+    MATCH_TICK = setInterval(()=>{
+      if(state.view !== 'matches') return;
+      const el = document.getElementById('nu-cd');
+      if(el && el.dataset.target){
+        const t = new Date(el.dataset.target).getTime();
+        const live = Date.now() >= t && Date.now() <= t + 2.5*60*60*1000;
+        el.textContent = live ? 'LIVE' : countdownText(t);
+      }
+    }, 30000);
+  }
+
+  return banner + chips + `<div class="match-grid">${cards||'<div class="empty"><p>No matches in this stage.</p></div>'}</div>
+    <div class="match-legend">
+      <span class="leg"><span class="match-mark guest"></span>Guestlist</span>
+      <span class="leg"><span class="match-mark pundit"></span>Pundits</span>
+      <span class="leg"><span class="match-mark highlight"></span>Special</span>
+      <span class="leg" style="margin-left:auto;color:var(--soft);font-style:italic">Tap a match to add notes</span>
+    </div>`;
+}
+
+function openMatch(id){
+  const m = (DATA.matches||[]).find(x=>x.id===id);
+  if(!m) return;
+  modal(`
+    <div class="modal-h"><h2>Match details</h2>
+      <button class="x" onclick="closeModal()">✕</button></div>
+    <div class="match-modal-head">
+      <div>
+        <div class="flag">${flagOf(m.team_a)}</div>
+        <div class="nm">${esc(m.team_a)}</div>
+      </div>
+      <div class="ko">
+        <div class="ko-time">${esc(m.kickoff||'TBC')}</div>
+        <div class="ko-date">${esc(fmtMatchDate(m.date))}</div>
+      </div>
+      <div>
+        <div class="flag">${flagOf(m.team_b)}</div>
+        <div class="nm">${esc(m.team_b)}</div>
+      </div>
+    </div>
+    <div class="match-stage-row">
+      <b>${esc(STAGE_NAMES[m.stage]||m.stage)}</b> ·
+      <span>${esc(m.status||'')}</span>
+      ${m.venue_note?`· <span>${esc(m.venue_note)}</span>`:''}
+      <button class="btn-link" onclick="gotoMatchDate('${m.date}')">View in Calendar &rarr;</button>
+    </div>
+    <div class="modal-b">
+      <div class="row2">
+        <div class="fld"><label>Date</label><input id="mt-date" type="date" value="${esc(m.date||'')}"></div>
+        <div class="fld"><label>Kick-off</label><input id="mt-ko" type="time" value="${esc(m.kickoff||'')}"></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label>Fanzone Opens</label><input id="mt-fz" type="time" value="${esc(m.fanzone_open||'')}"></div>
+        <div class="fld"><label>Ends Around</label><input id="mt-end" type="time" value="${esc(m.end_time||'')}"></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label>Stage</label><select id="mt-stage">
+          ${STAGE_ORDER.map(s=>`<option value="${s}" ${m.stage===s?'selected':''}>${esc(STAGE_NAMES[s])}</option>`).join('')}
+        </select></div>
+        <div class="fld"><label>Status</label><select id="mt-status">
+          ${['Confirmed','TBC','Optional','Cancelled'].map(s=>`<option ${m.status===s?'selected':''}>${s}</option>`).join('')}
+        </select></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label>Team A</label><input id="mt-a" value="${esc(m.team_a||'')}"></div>
+        <div class="fld"><label>Team B</label><input id="mt-b" value="${esc(m.team_b||'')}"></div>
+      </div>
+      <div class="fld"><label>Venue Note</label><input id="mt-vn" value="${esc(m.venue_note||'')}" placeholder="e.g. Change to 8pm, External promoter"></div>
+      <div class="fld"><label>Special / Highlight</label><input id="mt-hl" value="${esc(m.highlight||'')}" placeholder="Something special happening that night"></div>
+      <div class="fld"><label>Pundits</label><input id="mt-pn" value="${esc(m.pundits||'')}" placeholder="MC, talent, ex-footballer"></div>
+      <div class="fld"><label>Guestlist</label>
+        <textarea id="mt-gl" rows="4" placeholder="Names of guests, plus-ones, VIPs">${esc(m.guestlist||'')}</textarea>
+      </div>
+      <div class="fld"><label>Notes</label>
+        <textarea id="mt-nt" rows="4" placeholder="Anything else for this match">${esc(m.notes||'')}</textarea>
+      </div>
+    </div>
+    <div class="modal-f">
+      <button class="btn btn-ghost" onclick="deleteMatch('${m.id}')" style="color:#DC2626">Delete</button>
+      <div style="flex:1"></div>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveMatch('${m.id}')">Save</button>
+    </div>
+  `);
+}
+
+function saveMatch(id){
+  const m = (DATA.matches||[]).find(x=>x.id===id);
+  if(!m) return;
+  m.date = $('#mt-date').value;
+  m.kickoff = $('#mt-ko').value;
+  m.fanzone_open = $('#mt-fz').value;
+  m.end_time = $('#mt-end').value;
+  m.stage = $('#mt-stage').value;
+  m.status = $('#mt-status').value;
+  m.team_a = $('#mt-a').value.trim();
+  m.team_b = $('#mt-b').value.trim();
+  m.venue_note = $('#mt-vn').value.trim();
+  m.highlight = $('#mt-hl').value.trim();
+  m.pundits = $('#mt-pn').value.trim();
+  m.guestlist = $('#mt-gl').value;
+  m.notes = $('#mt-nt').value;
+  logActivity('updated match', `${m.team_a} vs ${m.team_b}`);
+  saveData(); closeModal(); render();
+}
+
+function deleteMatch(id){
+  if(!confirm('Delete this match from the schedule?')) return;
+  const i = (DATA.matches||[]).findIndex(x=>x.id===id);
+  if(i>=0){
+    const m = DATA.matches[i];
+    DATA.matches.splice(i,1);
+    logActivity('deleted match',`${m.team_a} vs ${m.team_b}`);
     saveData(); closeModal(); render();
   }
 }
@@ -2210,6 +2604,7 @@ function buildAISystem(){
   }));
   const ideas = DATA.ideas.map(i=>({id:i.id, title:i.title, status:i.status}));
   const meetings = (DATA.meetings||[]).slice(0,5).map(m=>({id:m.id, date:m.date, title:m.title, notes:m.notes}));
+  const matches = (DATA.matches||[]).map(m=>({id:m.id, date:m.date, stage:m.stage, teams:`${m.team_a} vs ${m.team_b}`, kickoff:m.kickoff, status:m.status, venue_note:m.venue_note}));
   return `You are FANZONE AI, the assistant inside the FANZONE HQ tracker app for FANZONE Ibiza — an outdoor World Cup 2026 fan park at Bam-Bu-Ku on Ibiza. You help the user manage tasks, the team, ideas and assets.
 
 Today: ${today}
@@ -2229,6 +2624,9 @@ ${JSON.stringify(ideas)}
 
 RECENT MEETING RECAPS (most recent first; the user may ask you to turn items into tasks):
 ${JSON.stringify(meetings)}
+
+MATCH SCHEDULE (the World Cup 2026 matches the fan park is showing, with id for reference):
+${JSON.stringify(matches)}
 
 Respond with ONLY a JSON object — no markdown fences, no preamble, just the JSON. Schema:
 
