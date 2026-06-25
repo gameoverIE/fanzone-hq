@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PØRTAL — The gateway to the island</title>
+<meta name="description" content="PØRTAL is the curated route to market for premium drinks, electrolytes, alcohol, supplements and functional wellness brands entering Ibiza. Importing, distribution and in-venue activation, built from the floor." />
+<meta name="theme-color" content="#0A0A0A" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PØRTAL — The gateway to the island" />
+<meta property="og:description" content="The curated route to market for premium FMCG brands entering Ibiza's hospitality. Drinks, electrolytes, alcohol, supplements, functional wellness." />
+<meta property="og:site_name" content="PØRTAL · a Game Øver company" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --acid:#CFEA2C;          /* signature highlight */
+    --acid-dim:#A9C019;
+    --black:#0A0A0A;
+    --ink:#111110;
+    --night:#0C0D0A;
+    --panel:#141512;
+    --panel-2:#1B1C18;
+    --line:#262723;
+    --line-soft:#33342E;
+    --cream:#F7F7F1;
+    --cream-2:#ECECE2;
+    --muted:#9A9C90;
+    --soft:#6E6F66;
+    --white:#FFFFFF;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+    background:var(--black);
+    color:var(--cream);
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    font-size:16px;line-height:1.55;letter-spacing:-0.005em;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--acid);color:var(--black)}
+  ::-webkit-scrollbar{width:11px;height:11px}
+  ::-webkit-scrollbar-track{background:#0a0a0a}
+  ::-webkit-scrollbar-thumb{background:#2c2d27;border-radius:6px;border:2px solid #0a0a0a}
+  ::-webkit-scrollbar-thumb:hover{background:#3c3d35}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .mono{font-family:'Space Mono',ui-monospace,monospace}
+  .display{font-weight:800;letter-spacing:-0.02em;line-height:.96;text-transform:uppercase}
+
+  /* hazard stripe motif */
+  .stripe{height:8px;background:repeating-linear-gradient(135deg,var(--acid) 0 13px,var(--black) 13px 26px)}
+
+  /* eyebrow label */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'Space Mono',monospace;font-size:11.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--acid);
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--acid);display:inline-block}
+  .eyebrow.dark{color:var(--acid-dim)}
+  .eyebrow.dark::before{background:var(--acid-dim)}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;justify-content:center;
+    font-weight:700;font-size:14px;letter-spacing:.01em;
+    padding:14px 22px;border-radius:2px;cursor:pointer;border:1.5px solid transparent;
+    transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn svg{width:15px;height:15px}
+  .btn-primary{background:var(--acid);color:var(--black);border-color:var(--acid)}
+  .btn-primary:hover{background:#dbf747;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--cream);border-color:var(--line-soft)}
+  .btn-ghost:hover{border-color:var(--acid);color:var(--acid);transform:translateY(-2px)}
+  .btn-dark{background:var(--black);color:var(--cream);border-color:var(--black)}
+  .btn-dark:hover{background:#222;transform:translateY(-2px)}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,10,.78);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:baseline;gap:10px;font-weight:800;font-size:21px;letter-spacing:.06em}
+  .logo .tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:var(--soft);font-weight:700;text-transform:uppercase}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-size:13.5px;font-weight:500;color:var(--muted);transition:color .14s}
+  .nav-links a:hover{color:var(--cream)}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .nav-toggle{display:none;background:none;border:none;color:var(--cream);cursor:pointer}
+  @media(max-width:880px){
+    .nav-links{display:none}
+    .nav-cta .btn-ghost{display:none}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;padding:84px 0 0;border-bottom:1px solid var(--line)}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(900px 500px at 78% -8%, rgba(207,234,44,.14), transparent 60%),
+      radial-gradient(700px 600px at 12% 110%, rgba(207,234,44,.06), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 72%);
+    -webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 72%);
+  }
+  .hero-inner{position:relative;z-index:2}
+  .hero-loc{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;margin-bottom:30px}
+  .hero h1{
+    font-weight:800;letter-spacing:-0.03em;line-height:.9;text-transform:uppercase;
+    font-size:clamp(64px,15vw,200px);
+  }
+  .hero h1 .o{color:var(--acid)}
+  .hero .sub-strap{
+    display:inline-block;margin-top:6px;background:var(--acid);color:var(--black);
+    font-weight:800;font-size:clamp(18px,3.4vw,30px);letter-spacing:-0.01em;
+    padding:5px 14px;transform:skewX(-7deg);
+  }
+  .hero .sub-strap span{display:inline-block;transform:skewX(7deg)}
+  .hero-lede{max-width:620px;margin:30px 0 0;font-size:clamp(16px,2.1vw,19px);color:#cdcec2;line-height:1.6}
+  .hero-lede b{color:var(--white);font-weight:700}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0 0}
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:56px;
+    background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .hero-stats .cell{background:var(--black);padding:24px 22px}
+  .hero-stats .n{font-weight:800;font-size:clamp(26px,4vw,40px);letter-spacing:-0.03em;color:var(--cream)}
+  .hero-stats .n em{color:var(--acid);font-style:normal}
+  .hero-stats .l{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--soft);text-transform:uppercase;margin-top:6px}
+  @media(max-width:760px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{background:var(--acid);color:var(--black);overflow:hidden;border-bottom:1px solid var(--black)}
+  .marquee-track{display:flex;gap:0;white-space:nowrap;animation:scroll 32s linear infinite;will-change:transform}
+  .marquee-track span{font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:13px 0;display:inline-flex;align-items:center}
+  .marquee-track span::after{content:"✦";margin:0 26px;opacity:.55;font-size:12px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .sec{padding:96px 0}
+  .sec-head{max-width:760px;margin-bottom:54px}
+  .sec-head h2{
+    font-weight:800;letter-spacing:-0.025em;line-height:1.02;text-transform:none;
+    font-size:clamp(30px,5vw,52px);margin-top:18px;
+  }
+  .sec-head h2 .hl{background:var(--acid);color:var(--black);padding:0 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .sec-head p{margin-top:20px;font-size:17px;color:var(--muted);line-height:1.65;max-width:660px}
+
+  .light{background:var(--cream);color:var(--ink)}
+  .light .sec-head p{color:#55564c}
+  .light .eyebrow{color:#7d8a1e}
+  .light .eyebrow::before{background:#7d8a1e}
+
+  /* ---------- PROBLEM (barriers) ---------- */
+  .barriers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .barrier{background:var(--black);padding:30px 26px;min-height:210px;display:flex;flex-direction:column}
+  .barrier .ix{font-family:'Space Mono',monospace;font-size:12px;color:var(--acid);letter-spacing:.1em}
+  .barrier h3{font-size:20px;font-weight:700;margin:14px 0 10px;letter-spacing:-0.01em}
+  .barrier p{font-size:14.5px;color:var(--muted);line-height:1.6}
+  @media(max-width:880px){.barriers{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.barriers{grid-template-columns:1fr}}
+
+  /* ---------- LAYERS / WHAT WE ARE ---------- */
+  .layers{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .layer{
+    background:var(--white);border:1px solid var(--cream-2);border-radius:3px;
+    padding:30px 28px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s;
+    position:relative;overflow:hidden;
+  }
+  .layer::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--acid);transform:scaleY(0);transform-origin:top;transition:transform .22s ease}
+  .layer:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.10);border-color:#dadace}
+  .layer:hover::before{transform:scaleY(1)}
+  .layer .lnum{font-family:'Space Mono',monospace;font-size:12px;color:#8a8a7c;letter-spacing:.1em}
+  .layer h3{font-size:22px;font-weight:800;margin:12px 0 10px;letter-spacing:-0.015em}
+  .layer p{font-size:15px;color:#55564c;line-height:1.62}
+  @media(max-width:720px){.layers{grid-template-columns:1fr}}
+
+  /* ---------- THE LAB feature ---------- */
+  .lab{background:var(--night);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative}
+  .lab::after{content:"";position:absolute;right:-120px;top:-120px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(207,234,44,.12),transparent 65%);pointer-events:none}
+  .lab-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .lab-tag{font-family:'Space Mono',monospace;font-size:12px;color:var(--acid);letter-spacing:.18em;text-transform:uppercase}
+  .lab h2{font-size:clamp(34px,5.6vw,58px);font-weight:800;letter-spacing:-0.03em;line-height:1;margin:18px 0 0;text-transform:uppercase}
+  .lab .lab-strap{display:inline-block;margin-top:18px;color:var(--white);font-size:clamp(19px,2.6vw,26px);font-weight:700;line-height:1.3}
+  .lab .lab-strap em{font-style:normal;background:var(--acid);color:var(--black);padding:1px 8px}
+  .lab p.body{margin-top:22px;color:#bcbdb1;font-size:16px;line-height:1.7;max-width:520px}
+  .lab-card{background:linear-gradient(160deg,#17180f,#101107);border:1px solid var(--line-soft);border-radius:5px;padding:32px 30px}
+  .lab-card .stamp{
+    display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--acid);color:var(--acid);
+    font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    padding:7px 12px;border-radius:2px;transform:rotate(-3deg);
+  }
+  .lab-steps{margin-top:26px;list-style:none}
+  .lab-steps li{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line-soft)}
+  .lab-steps li:last-child{border-bottom:none}
+  .lab-steps .sn{font-family:'Space Mono',monospace;color:var(--acid);font-size:13px;font-weight:700;flex-shrink:0;width:30px}
+  .lab-steps .st b{display:block;font-size:15.5px;color:var(--cream);font-weight:700;margin-bottom:3px}
+  .lab-steps .st span{font-size:13.5px;color:var(--soft)}
+  @media(max-width:860px){.lab-grid{grid-template-columns:1fr;gap:40px}}
+
+  /* ---------- TWO SIDED ---------- */
+  .twoside{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .side{border:1px solid var(--cream-2);border-radius:4px;padding:38px 34px;background:var(--white);position:relative}
+  .side.brands{background:var(--black);color:var(--cream);border-color:var(--line)}
+  .side .side-k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+  .side.brands .side-k{color:var(--acid)}
+  .side.venues .side-k{color:#7d8a1e}
+  .side h3{font-size:27px;font-weight:800;letter-spacing:-0.02em;margin:12px 0 6px}
+  .side .stip{font-size:15px;margin-bottom:22px}
+  .side.brands .stip{color:var(--muted)}
+  .side.venues .stip{color:#55564c}
+  .side ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+  .side li{display:flex;gap:12px;font-size:15px;line-height:1.5}
+  .side li svg{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+  .side.brands li{color:#d4d5c9}
+  .side.venues li{color:#3c3d35}
+  .side .side-cta{margin-top:28px}
+  @media(max-width:760px){.twoside{grid-template-columns:1fr}}
+
+  /* ---------- CATEGORIES ---------- */
+  .cats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .cat{background:var(--black);padding:30px 22px;min-height:188px;display:flex;flex-direction:column;justify-content:space-between;transition:background .18s}
+  .cat:hover{background:#141510}
+  .cat .cic{width:34px;height:34px;color:var(--acid)}
+  .cat h4{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.01em;margin-top:auto}
+  .cat p{font-size:12.5px;color:var(--soft);margin-top:7px;line-height:1.5}
+  @media(max-width:920px){.cats{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.cats{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- SERVICE LADDER ---------- */
+  .ladder{display:flex;flex-direction:column;gap:14px}
+  .rung{
+    display:grid;grid-template-columns:54px 1.1fr 1.4fr auto;gap:24px;align-items:center;
+    background:var(--white);border:1px solid var(--cream-2);border-radius:4px;padding:24px 28px;
+    transition:transform .16s ease,border-color .16s;
+  }
+  .rung:hover{transform:translateX(6px);border-color:var(--acid-dim)}
+  .rung .rn{font-family:'Space Mono',monospace;font-weight:700;font-size:15px;color:#b6b6a6}
+  .rung .rt b{display:block;font-size:19px;font-weight:800;letter-spacing:-0.01em}
+  .rung .rt span{font-size:13px;color:#7d8a1e;font-family:'Space Mono',monospace;letter-spacing:.04em}
+  .rung .rd{font-size:14.5px;color:#55564c;line-height:1.5}
+  .rung .rtag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--black);padding:7px 12px;border-radius:2px;white-space:nowrap}
+  @media(max-width:820px){
+    .rung{grid-template-columns:40px 1fr;gap:8px 18px}
+    .rung .rd{grid-column:1/-1}
+    .rung .rtag{grid-column:1/-1;justify-self:start}
+  }
+
+  /* ---------- ACTIVATION / EDGE ---------- */
+  .edge-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .edge-quote{font-size:clamp(28px,4.2vw,46px);font-weight:800;letter-spacing:-0.025em;line-height:1.08}
+  .edge-quote .hl{color:var(--acid)}
+  .edge-list{display:flex;flex-direction:column;gap:0}
+  .edge-item{padding:22px 0;border-top:1px solid var(--line)}
+  .edge-item:last-child{border-bottom:1px solid var(--line)}
+  .edge-item b{font-size:17px;font-weight:700;display:flex;align-items:center;gap:11px}
+  .edge-item b .dot{width:7px;height:7px;background:var(--acid);border-radius:50%;flex-shrink:0}
+  .edge-item p{font-size:14.5px;color:var(--muted);margin-top:8px;padding-left:18px;line-height:1.6}
+  @media(max-width:820px){.edge-grid{grid-template-columns:1fr;gap:34px}}
+
+  /* ---------- COVERAGE / ROADMAP ---------- */
+  .road{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--cream-2);border:1px solid var(--cream-2)}
+  .stop{background:var(--white);padding:30px 24px;position:relative}
+  .stop .ph{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7d8a1e}
+  .stop h4{font-size:21px;font-weight:800;margin:10px 0 8px;letter-spacing:-0.01em}
+  .stop p{font-size:13.5px;color:#55564c;line-height:1.55}
+  .stop .pin{position:absolute;top:26px;right:24px;width:9px;height:9px;border-radius:50%;background:var(--cream-2)}
+  .stop.live .pin{background:var(--acid);box-shadow:0 0 0 4px rgba(207,234,44,.25)}
+  .stop.live .ph{color:#0a0a0a;background:var(--acid);padding:2px 7px;display:inline-block}
+  @media(max-width:820px){.road{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.road{grid-template-columns:1fr}}
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta{background:var(--black);position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(800px 420px at 50% 120%,rgba(207,234,44,.16),transparent 60%)}
+  .cta-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .cta h2{font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-0.03em;line-height:.98;text-transform:uppercase}
+  .cta h2 .o{color:var(--acid)}
+  .cta .cta-lede{margin-top:22px;color:#bcbdb1;font-size:17px;max-width:460px;line-height:1.65}
+  .cta .contactline{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+  .cta .contactline a{display:inline-flex;align-items:center;gap:11px;font-size:15px;color:var(--cream);width:fit-content}
+  .cta .contactline a svg{width:17px;height:17px;color:var(--acid)}
+  .cta .contactline a:hover{color:var(--acid)}
+
+  form.enq{background:#121310;border:1px solid var(--line-soft);border-radius:6px;padding:30px 28px}
+  form.enq .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form.enq label{display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0 0 7px}
+  form.enq .field{margin-bottom:16px}
+  form.enq input,form.enq select,form.enq textarea{
+    width:100%;background:#0a0b08;border:1px solid var(--line-soft);border-radius:3px;
+    color:var(--cream);font-family:inherit;font-size:14.5px;padding:12px 13px;transition:border-color .15s;
+  }
+  form.enq input:focus,form.enq select:focus,form.enq textarea:focus{outline:none;border-color:var(--acid)}
+  form.enq textarea{resize:vertical;min-height:96px}
+  form.enq .seg{display:flex;gap:8px;margin-bottom:18px}
+  form.enq .seg button{flex:1;background:#0a0b08;border:1px solid var(--line-soft);color:var(--muted);
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    padding:11px;border-radius:3px;cursor:pointer;transition:.15s}
+  form.enq .seg button.on{background:var(--acid);color:var(--black);border-color:var(--acid);font-weight:700}
+  form.enq .btn{width:100%;margin-top:4px}
+  form.enq .fineprint{font-size:12px;color:var(--soft);margin-top:14px;text-align:center;line-height:1.5}
+  @media(max-width:860px){.cta-grid{grid-template-columns:1fr;gap:38px}}
+  @media(max-width:520px){form.enq .frow{grid-template-columns:1fr}}
+
+  /* ---------- FOOTER ---------- */
+  footer.ft{background:var(--night);border-top:1px solid var(--line);padding:54px 0 30px}
+  .ft-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
+  .ft-brand .logo{font-size:24px;margin-bottom:12px}
+  .ft-brand p{color:var(--soft);font-size:13.5px;max-width:320px;line-height:1.6}
+  .ft-cols{display:flex;gap:60px;flex-wrap:wrap}
+  .ft-col h5{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+  .ft-col a{display:block;font-size:14px;color:var(--muted);margin-bottom:9px;transition:color .14s}
+  .ft-col a:hover{color:var(--acid)}
+  .ft-bottom{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .ft-bottom .meta{font-family:'Space Mono',monospace;font-size:12px;color:var(--soft);letter-spacing:.04em}
+  .ft-bottom .built{font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:13px;color:var(--cream)}
+  .ft-bottom .built em{color:var(--acid);font-style:normal}
+
+  /* reveal animation */
+  [data-rise]{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+  [data-rise].in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    [data-rise]{opacity:1;transform:none;transition:none}
+    .marquee-track{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">P<span style="color:var(--acid)">Ø</span>RTAL <span class="tag">a Game Øver co.</span></a>
+    <nav class="nav-links">
+      <a href="#model">The Model</a>
+      <a href="#lab">The Lab</a>
+      <a href="#categories">Categories</a>
+      <a href="#ladder">Work With Us</a>
+      <a href="#coverage">Coverage</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#venues" class="btn btn-ghost">For Venues</a>
+      <a href="#contact" class="btn btn-primary">Get on the island</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-loc">
+      <span class="eyebrow">Ibiza · Balearics · Spain</span>
+      <span class="mono" style="font-size:11.5px;color:var(--soft);letter-spacing:.12em">38.9°N&nbsp;&nbsp;1.4°E</span>
+    </div>
+
+    <h1 class="display">P<span class="o">Ø</span>RTAL</h1>
+    <div class="sub-strap"><span>The gateway to the island.</span></div>
+
+    <p class="hero-lede">
+      The curated route to market for premium <b>drinks, electrolytes, alcohol, supplements
+      and functional wellness</b> brands entering Ibiza. We handle the importing, the excise,
+      the distribution and the in-venue activation — so the right brands reach the rooms that define the island.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">
+        Bring your brand in
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#venues" class="btn btn-ghost">Order for your venue</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="cell"><div class="n">5</div><div class="l">Curated categories</div></div>
+      <div class="cell"><div class="n"><em>1</em></div><div class="l">Cart · one invoice</div></div>
+      <div class="cell"><div class="n">10<em>yr</em></div><div class="l">Inside the venues</div></div>
+      <div class="cell"><div class="n">0</div><div class="l">Spanish entity needed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Drinks</span><span>Electrolytes</span><span>Alcohol</span><span>Supplements</span><span>Functional Wellness</span><span>Importing</span><span>Distribution</span><span>Activation</span>
+    <span>Drinks</span><span>Electrolytes</span><span>Alcohol</span><span>Supplements</span><span>Functional Wellness</span><span>Importing</span><span>Distribution</span><span>Activation</span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM / BARRIERS ============ -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head" data-rise>
+      <span class="eyebrow">The problem we solve</span>
+      <h2>Ibiza is the hardest premium market in the world to enter. <span class="hl">That is exactly the point.</span></h2>
+      <p>Every product crosses water. The season is compressed into six months. Alcohol is wrapped in excise law.
+         And the best venues only buy from people they trust. Handled badly, each barrier keeps a great brand off the island.
+         Handled by us, each one becomes the reason to work with PØRTAL.</p>
+    </div>
+
+    <div class="barriers">
+      <div class="barrier" data-rise>
+        <div class="ix">01 — THE WATER</div>
+        <h3>It's an island</h3>
+        <p>Everything arrives by sea or air. We consolidate many brands into one tracked, cross-border shipment — friction becomes a service.</p>
+      </div>
+      <div class="barrier" data-rise>
+        <div class="ix">02 — THE SEASON</div>
+        <h3>Six brutal months</h3>
+        <p>Demand explodes May–October. Being organised, stocked and trusted before the window opens wins disproportionately.</p>
+      </div>
+      <div class="barrier" data-rise>
+        <div class="ix">03 — THE EXCISE</div>
+        <h3>Duty &amp; IVA</h3>
+        <p>Alcohol routes through bonded warehousing and the EU's EMCS system. We carry the compliance so your brand never touches a customs form.</p>
+      </div>
+      <div class="barrier" data-rise>
+        <div class="ix">04 — THE TRUST</div>
+        <h3>The rooms that matter</h3>
+        <p>The best venues don't buy from strangers. They buy from people they know — a wall we've spent a decade on the right side of.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE ARE / LAYERS ============ -->
+<section class="sec light" id="model">
+  <div class="wrap">
+    <div class="sec-head" data-rise>
+      <span class="eyebrow">The model</span>
+      <h2>One platform, four layers — built to move product and prove brands.</h2>
+      <p>PØRTAL is a digital marketplace combined with an on-island route-to-market service. Brands list and test;
+         venues, hotels, festivals and shops order from many brands at once, on a single invoice. In the middle, we run
+         the parts that make entering Ibiza alone almost impossible.</p>
+    </div>
+
+    <div class="layers">
+      <div class="layer" data-rise>
+        <div class="lnum">LAYER 01</div>
+        <h3>The Storefront</h3>
+        <p>A clean, fast platform where venues browse every listed brand, filter by category and order in a few taps. Brands get a dashboard to list products, set pricing and see exactly where they're selling.</p>
+      </div>
+      <div class="layer" data-rise>
+        <div class="lnum">LAYER 02</div>
+        <h3>The Fiscal Engine</h3>
+        <p>Every product carries a compliance class that sets its IVA, excise treatment and age-verification automatically. Alcohol routes through bonded warehousing and EMCS; wellness and water ship simply. Legal and scalable across every category.</p>
+      </div>
+      <div class="layer" data-rise>
+        <div class="lnum">LAYER 03</div>
+        <h3>The Logistics Rail</h3>
+        <p>Orders from multiple brands consolidate into one shipment, cross into Ibiza, and track live from warehouse to ferry to venue — every piece of paperwork attached. The brand never touches a customs form.</p>
+      </div>
+      <div class="layer" data-rise>
+        <div class="lnum">LAYER 04</div>
+        <h3>The In-Venue Edge</h3>
+        <p>Placement, sampling and smart-vending inside the venues we already work with — selling directly to the end customer and feeding back proprietary data on what sells, where and when.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE LAB ============ -->
+<section class="lab sec" id="lab">
+  <div class="wrap">
+    <div class="lab-grid">
+      <div data-rise>
+        <span class="lab-tag">★ The signature service</span>
+        <h2>The Lab</h2>
+        <div class="lab-strap">Prove Ibiza <em>before</em> you commit a single euro to a full launch.</div>
+        <p class="body">
+          You can't know whether the island will take to your product without spending a lot of money to find out —
+          and most brands can't afford to find out the hard way. The Lab removes that risk. We place a selected brand's
+          product, free, in a defined set of the right venues, for a fixed window, and measure exactly what happens:
+          sell-through, reorder interest, staff and customer response, and where it performs best.
+        </p>
+        <p class="body" style="margin-top:16px">
+          For the brand, it's real proof in real venues — the difference between a gamble and a decision.
+          Succeed here, and <b style="color:var(--acid);font-weight:700">“Tested in The Lab”</b> becomes a credential the island recognises.
+        </p>
+        <div style="margin-top:30px">
+          <a href="#contact" class="btn btn-primary">Apply to The Lab
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lab-card" data-rise>
+        <span class="stamp">✓ Tested in The Lab</span>
+        <ul class="lab-steps">
+          <li><span class="sn">01</span><span class="st"><b>Selected, not open</b><span>A curated cohort of brands judged worth testing — scarcity protects the signal.</span></span></li>
+          <li><span class="sn">02</span><span class="st"><b>Placed in the right rooms</b><span>Free product into a defined set of venues that match your audience.</span></span></li>
+          <li><span class="sn">03</span><span class="st"><b>Activated, not just stocked</b><span>The same street teams, events and DJ relationships that built our reputation.</span></span></li>
+          <li><span class="sn">04</span><span class="st"><b>Measured, then scaled</b><span>Sell-through and reorder data decide the launch — graduate to the marketplace and up.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TWO SIDED ============ -->
+<section class="sec light" id="brands">
+  <div class="wrap">
+    <div class="sec-head" data-rise>
+      <span class="eyebrow">A genuinely two-sided offer</span>
+      <h2>One marketplace. Two sides that need each other.</h2>
+    </div>
+
+    <div class="twoside">
+      <div class="side brands" data-rise id="for-brands">
+        <div class="side-k">For Brands</div>
+        <h3>Get in. Prove it. Grow.</h3>
+        <p class="stip">A curated, low-risk, relationship-led way onto the island — no Spanish entity required.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Access to the island's best venues, festivals and nightlife</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Test-market through The Lab before you commit real money</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>We handle excise, IVA, shipping and customs end to end</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Real activation — demand generated, not just product delivered</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="var(--acid)" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Proprietary data on what sells, where and when</li>
+        </ul>
+        <div class="side-cta"><a href="#contact" class="btn btn-primary">List your brand</a></div>
+      </div>
+
+      <div class="side venues" data-rise id="venues">
+        <div class="side-k">For Venues, Hotels &amp; Festivals</div>
+        <h3>Choice, on one invoice.</h3>
+        <p class="stip">The curated basket of the products your guests haven't seen yet — sourced, shipped and supported.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#7d8a1e" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Browse many brands, order in one cart, pay one invoice</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#7d8a1e" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Low minimums — stock fresh products without the risk</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#7d8a1e" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>First access to brands before anyone else on the island</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#7d8a1e" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Live-tracked delivery, last-mile handled by people you know</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="#7d8a1e" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Look like the tastemaker — at no risk to you</li>
+        </ul>
+        <div class="side-cta"><a href="#contact" class="btn btn-dark">Become a stockist</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="sec" id="categories">
+  <div class="wrap">
+    <div class="sec-head" data-rise>
+      <span class="eyebrow">The curated basket</span>
+      <h2>Two waves, one buyer.</h2>
+      <p>Alcohol for margin and moat; wellness and functional drinks for growth and year-round resilience — sold to the same venue,
+         through the same platform. Most distributors carry one or the other. We carry both.</p>
+    </div>
+
+    <div class="cats">
+      <div class="cat" data-rise>
+        <svg class="cic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 2h8l-1 7a4 4 0 0 1-3 3v8m-2 0h4M9 9h6"/></svg>
+        <div><h4>Drinks</h4><p>Soft, sparkling, hydration &amp; mixers for the premium bar.</p></div>
+      </div>
+      <div class="cat" data-rise>
+        <svg class="cic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+        <div><h4>Electrolytes</h4><p>Recovery and hydration for sun, sport and the morning after.</p></div>
+      </div>
+      <div class="cat" data-rise>
+        <svg class="cic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h14l-5 8v7a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-7L5 3z"/></svg>
+        <div><h4>Alcohol</h4><p>Spirits, wine &amp; RTDs — the high-margin core, fully compliant.</p></div>
+      </div>
+      <div class="cat" data-rise>
+        <svg class="cic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 2h4v6l4 4v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8l4-4V2zM6 14h12"/></svg>
+        <div><h4>Supplements</h4><p>Performance, focus and recovery formats built for hospitality.</p></div>
+      </div>
+      <div class="cat" data-rise>
+        <svg class="cic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.6-9.5-9C1 9 2.5 5 6 5c2 0 3.2 1.2 4 2.5C10.8 6.2 12 5 14 5c3.5 0 5 4 3.5 7-2.5 4.4-5.5 9-5.5 9z"/></svg>
+        <div><h4>Functional Wellness</h4><p>Adaptogens, nootropics &amp; no/low — the fastest-growing wave.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACTIVATION / EDGE ============ -->
+<section class="sec" style="background:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)" id="edge">
+  <div class="wrap">
+    <div class="edge-grid">
+      <div data-rise>
+        <span class="eyebrow">Our unfair advantage</span>
+        <p class="edge-quote" style="margin-top:20px">Anyone can move a product to a venue. <span class="hl">Only we can make the island want it.</span></p>
+        <p style="margin-top:24px;color:var(--muted);font-size:16px;line-height:1.7;max-width:520px">
+          Distribution is a commodity. Demand generation — putting a brand in the right hands, at the right party,
+          with the right team behind it — is not. That's the business we've already run on this island for a decade.
+        </p>
+        <div style="margin-top:28px;background:var(--acid);color:var(--black);display:inline-block;padding:8px 16px;font-weight:800;text-transform:uppercase;letter-spacing:-0.01em;transform:skewX(-7deg)">
+          <span style="display:inline-block;transform:skewX(7deg)">We don't just stock the island. We make it want you.</span>
+        </div>
+      </div>
+      <div class="edge-list" data-rise>
+        <div class="edge-item">
+          <b><span class="dot"></span>A decade inside the rooms</b>
+          <p>Relationships across the island's biggest venues, festivals and nightlife — the one asset a competitor can't copy or buy quickly.</p>
+        </div>
+        <div class="edge-item">
+          <b><span class="dot"></span>A real street &amp; promo machine</b>
+          <p>PR managers, brand-ambassador teams, guestlist and data capture across Ibiza, Playa d'en Bossa, San Antonio and the Marina.</p>
+        </div>
+        <div class="edge-item">
+          <b><span class="dot"></span>Proven activation track record</b>
+          <p>We've run full on-island launches for global brands — influencers, points-of-sale, staffing and direct-to-consumer sales teams.</p>
+        </div>
+        <div class="edge-item">
+          <b><span class="dot"></span>Culture-native, not delivered to the door</b>
+          <p>A distributor delivers to the door. We're already in the room — and that's the relationship that actually opens others.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE LADDER ============ -->
+<section class="sec light" id="ladder">
+  <div class="wrap">
+    <div class="sec-head" data-rise>
+      <span class="eyebrow">Work with us</span>
+      <h2>One offer, four depths of service.</h2>
+      <p>A brand with €500 to spend and a brand with €50,000 to spend can both work with us at the level that suits them.
+         The ladder is a funnel: low-commitment entry brings brands in, and the ones that succeed climb.</p>
+    </div>
+
+    <div class="ladder">
+      <div class="rung" data-rise>
+        <div class="rn">01</div>
+        <div class="rt"><b>The Lab</b><span>Entry · earned credit</span></div>
+        <div class="rd">Free, structured test placement in selected venues, with measured results.</div>
+        <div class="rtag">Acquisition</div>
+      </div>
+      <div class="rung" data-rise>
+        <div class="rn">02</div>
+        <div class="rt"><b>Marketplace</b><span>Commission + listing</span></div>
+        <div class="rd">Self-serve listing; venues order, we ship, invoice and track. Your recurring revenue base.</div>
+        <div class="rtag">Recurring</div>
+      </div>
+      <div class="rung" data-rise>
+        <div class="rn">03</div>
+        <div class="rt"><b>Curated</b><span>Retainer + activation</span></div>
+        <div class="rd">Active placement, sampling and account management in chosen venues. The growth tier.</div>
+        <div class="rtag">Growth</div>
+      </div>
+      <div class="rung" data-rise>
+        <div class="rn">04</div>
+        <div class="rt"><b>Bespoke</b><span>Project + success fees</span></div>
+        <div class="rd">Full market entry: strategy, activations, events and vending. The premium, hands-on tier.</div>
+        <div class="rtag">Premium</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COVERAGE / ROADMAP ============ -->
+<section class="sec light" id="coverage" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head" data-rise>
+      <span class="eyebrow">Coverage</span>
+      <h2>Broad categories, narrow geography — in that order.</h2>
+      <p>Expansion is sequenced, not simultaneous. We prove the model where it's hardest, then let existing relationships pull
+         the business outward — never going broad cold.</p>
+    </div>
+
+    <div class="road">
+      <div class="stop live" data-rise>
+        <span class="pin"></span>
+        <div class="ph">Phase 01 · Live</div>
+        <h4>Ibiza</h4>
+        <p>Prove the model where it's hardest and most valuable. If it works here, it works anywhere.</p>
+      </div>
+      <div class="stop" data-rise>
+        <span class="pin"></span>
+        <div class="ph">Phase 02 · Next</div>
+        <h4>The Balearics</h4>
+        <p>Mallorca, Menorca, Formentera — same tax regime, same ferry logistics, near-zero new regulatory lift.</p>
+      </div>
+      <div class="stop" data-rise>
+        <span class="pin"></span>
+        <div class="ph">Phase 03</div>
+        <h4>Mainland Spain</h4>
+        <p>Become a Spanish marketplace; deepen the supplier base, brand and logistics chain.</p>
+      </div>
+      <div class="stop" data-rise>
+        <span class="pin"></span>
+        <div class="ph">Phase 04</div>
+        <h4>The Mediterranean</h4>
+        <p>Festival-led into each new market — Mallorca, Barcelona, Mykonos, Saint-Tropez and beyond.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / CONTACT ============ -->
+<section class="cta sec" id="contact">
+  <div class="wrap cta-grid">
+    <div data-rise>
+      <span class="eyebrow">Get in touch</span>
+      <h2 style="margin-top:18px">Bring it<br>through the<br>P<span class="o">Ø</span>RTAL.</h2>
+      <p class="cta-lede">
+        Whether you're a brand that wants onto the island or a venue that wants the products your guests
+        haven't seen yet — tell us a little and we'll take it from there.
+      </p>
+      <div class="contactline">
+        <a href="mailto:info@gameover.fm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          info@gameover.fm
+        </a>
+        <a href="https://gameover.fm" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18"/></svg>
+          gameover.fm
+        </a>
+        <a href="#top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-9.5-9C1 9 2.5 5 6 5c2 0 3.2 1.2 4 2.5C10.8 6.2 12 5 14 5c3.5 0 5 4 3.5 7-2.5 4.4-5.5 9-5.5 9z"/></svg>
+          Built from the floor · Ibiza
+        </a>
+      </div>
+    </div>
+
+    <form class="enq" data-rise id="enq" novalidate>
+      <div class="seg" role="tablist" aria-label="I am a">
+        <button type="button" class="on" data-side="brand">I'm a Brand</button>
+        <button type="button" data-side="venue">I'm a Venue</button>
+      </div>
+      <div class="frow">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" placeholder="Your name" required></div>
+        <div class="field"><label for="f-company" id="lbl-company">Brand / Company</label><input id="f-company" name="company" placeholder="Company name"></div>
+      </div>
+      <div class="frow">
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required></div>
+        <div class="field" id="cat-field"><label for="f-cat">Category</label>
+          <select id="f-cat" name="category">
+            <option>Drinks</option><option>Electrolytes</option><option>Alcohol</option>
+            <option>Supplements</option><option>Functional Wellness</option><option>Multiple / Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="f-msg">Tell us about it</label><textarea id="f-msg" name="message" placeholder="What you make, or what your venue needs…"></textarea></div>
+      <button type="submit" class="btn btn-primary" id="enq-submit">Send enquiry
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="fineprint">Opens your email client, pre-addressed to info@gameover.fm. No data is stored here.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="logo">P<span style="color:var(--acid)">Ø</span>RTAL</div>
+        <p>The curated gateway that brings the right brands onto the island, through the venues that already trust us.
+           A new division of Game Øver.</p>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col">
+          <h5>Platform</h5>
+          <a href="#model">The Model</a>
+          <a href="#lab">The Lab</a>
+          <a href="#categories">Categories</a>
+          <a href="#ladder">Service Tiers</a>
+        </div>
+        <div class="ft-col">
+          <h5>Work with us</h5>
+          <a href="#for-brands">For Brands</a>
+          <a href="#venues">For Venues</a>
+          <a href="#contact">Get in touch</a>
+          <a href="#coverage">Coverage</a>
+        </div>
+        <div class="ft-col">
+          <h5>Contact</h5>
+          <a href="mailto:info@gameover.fm">info@gameover.fm</a>
+          <a href="https://gameover.fm" target="_blank" rel="noopener">gameover.fm</a>
+        </div>
+      </div>
+    </div>
+    <div class="stripe" style="margin-top:40px;border-radius:2px"></div>
+    <div class="ft-bottom">
+      <div class="meta">© <span id="yr">2026</span> PØRTAL · a Game Øver company. All rights reserved.</div>
+      <div class="built">We know this island. <em>This island knows us.</em></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // scroll reveal
+  (function(){
+    var els = document.querySelectorAll('[data-rise]');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+
+  // enquiry side toggle
+  var side = 'brand';
+  var seg = document.querySelectorAll('.enq .seg button');
+  var lblCompany = document.getElementById('lbl-company');
+  var catField = document.getElementById('cat-field');
+  seg.forEach(function(b){
+    b.addEventListener('click', function(){
+      seg.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      side = b.getAttribute('data-side');
+      if(side==='brand'){ lblCompany.textContent='Brand / Company'; catField.style.display=''; }
+      else { lblCompany.textContent='Venue / Group'; catField.style.display='none'; }
+    });
+  });
+
+  // build mailto on submit
+  document.getElementById('enq').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = (document.getElementById('f-name').value||'').trim();
+    var company = (document.getElementById('f-company').value||'').trim();
+    var email = (document.getElementById('f-email').value||'').trim();
+    var cat = document.getElementById('f-cat').value;
+    var msg = (document.getElementById('f-msg').value||'').trim();
+    if(!name || !email){ alert('Please add your name and email so we can reply.'); return; }
+    var who = side==='brand' ? 'Brand enquiry' : 'Venue enquiry';
+    var subject = 'PØRTAL — ' + who + (company? ' · '+company : '');
+    var bodyLines = [
+      who,
+      'Name: ' + name,
+      (side==='brand'?'Brand/Company: ':'Venue/Group: ') + (company||'—'),
+      'Email: ' + email
+    ];
+    if(side==='brand'){ bodyLines.push('Category: ' + cat); }
+    bodyLines.push('', (msg||'(no message)'));
+    var href = 'mailto:info@gameover.fm?subject=' + encodeURIComponent(subject) +
+               '&body=' + encodeURIComponent(bodyLines.join('\n'));
+    window.location.href = href;
+  });
+</script>
+</body>
+</html>
