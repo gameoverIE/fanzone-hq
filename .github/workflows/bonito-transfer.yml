@@ -1,0 +1,28 @@
+name: bonito-transfer
+on:
+  push:
+    branches: [bonito-render-transfer]
+    paths: ['transfer/urls.txt']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: bonito-render-transfer
+      - name: Fetch files listed in transfer/urls.txt
+        run: |
+          mkdir -p transfer/out
+          while IFS='|' read -r name url; do
+            [ -z "$name" ] && continue
+            curl -sSL --retry 3 -o "transfer/out/$name" "$url" || echo "FAILED $name"
+          done < transfer/urls.txt
+      - name: Commit results
+        run: |
+          git config user.name "bonito-transfer"
+          git config user.email "actions@users.noreply.github.com"
+          git add transfer/out
+          git commit -m "transfer: fetched files" || echo "nothing to commit"
+          git push
